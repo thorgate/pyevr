@@ -13,10 +13,13 @@ pyevr
         :target: https://pyevr.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-
 .. image:: https://pyup.io/repos/github/thorgate/pyevr/shield.svg
-     :target: https://pyup.io/repos/github/thorgate/pyevr/
-     :alt: Updates
+        :target: https://pyup.io/repos/github/thorgate/pyevr/
+        :alt: Updates
+
+.. image:: https://coveralls.io/repos/github/thorgate/pyevr/badge.svg
+        :target: https://coveralls.io/github/thorgate/pyevr
+        :alt: Test coverage
 
 
 
