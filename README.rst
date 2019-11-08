@@ -6,17 +6,20 @@ pyevr
 .. image:: https://img.shields.io/pypi/v/pyevr.svg
         :target: https://pypi.python.org/pypi/pyevr
 
-.. image:: https://img.shields.io/travis/thorgate/pyevr.svg
+.. image:: https://travis-ci.org/thorgate/pyevr.svg?branch=master
         :target: https://travis-ci.org/thorgate/pyevr
 
 .. image:: https://readthedocs.org/projects/pyevr/badge/?version=latest
         :target: https://pyevr.readthedocs.io/en/latest/?badge=latest
         :alt: Documentation Status
 
-
 .. image:: https://pyup.io/repos/github/thorgate/pyevr/shield.svg
-     :target: https://pyup.io/repos/github/thorgate/pyevr/
-     :alt: Updates
+        :target: https://pyup.io/repos/github/thorgate/pyevr/
+        :alt: Updates
+
+.. image:: https://coveralls.io/repos/github/thorgate/pyevr/badge.svg?branch=master
+        :target: https://coveralls.io/github/thorgate/pyevr?branch=master
+        :alt: Test coverage
 
 
 

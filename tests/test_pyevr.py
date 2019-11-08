@@ -7,7 +7,6 @@ import pytest
 
 from click.testing import CliRunner
 
-from pyevr import pyevr
 from pyevr import cli
 
 
