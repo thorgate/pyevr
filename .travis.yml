@@ -29,7 +29,7 @@ deploy:
   distributions: sdist bdist_wheel
   user: thorgate
   password:
-    secure: PLEASE_REPLACE_ME
+    secure: AxfqY940GesaqOB8UsR8rMxIOajZ9HTCD5c/ijAynluUN9vVlmokTil2EHy+sl+48gyh3PaUI4Bj+kPxKg+NehzF/zcDQvabxYrN3dvt1UO722/42N86FvBqvBfzNiXQCPBE1+53VHLSDil3Li7pPYa+AfB7WR0fEAJPoeqOTV47ca7czUJn7cXgF3VRmIHpkbErk8veeXr0Ccn7W0BvfIGhGSKnxFZa3AHHJhsf3j0OBMoxsm+acpuXP+F9OPJYEgCk0OtBqX/C94+QGg1QdPlv8XjThQi6s0BbgxNQcQMwoWDN+CW2tf4zBnoZqPJ3jowlr/MLt6PV+4Q+Fp2KpvNoQz0I9zUbfLGYBE3QO2rjgRwKL0cr0cWcpnw23yoQmPESplx9EHNfdEM8YFYCoB4/iIuuoP27IRJEAyASZp9QLIfjPuBibhbtvmNRpJqCK7dPbDW3rp4ZMIncFiJUV4y4qnjAYIyWBMsh2+uXfGslHABI8LFiZauegfJVeA6ABMwnofwxxKTp9Y1VnNTRPouNg/ouo5k0sSIA3S3uDbHOTXJ6dzByMsK1RFVPu8XR65knCbita2Ok1qzjkNLufRxKF38YkPSQ4fIIO3YLelsTPwBXkniTGbvUSILD9LnF/+4il+hr4bx+9pbnYNaUXxxqi4G0lXrOae5P+XsSISc=
   on:
     tags: true
     repo: thorgate/pyevr
