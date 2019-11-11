@@ -1,4 +1,4 @@
-.PHONY: clean clean-test clean-pyc clean-build docs help
+.PHONY: clean clean-test clean-pyc clean-build docs help openapi
 .DEFAULT_GOAL := help
 
 define BROWSER_PYSCRIPT
@@ -86,3 +86,11 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+openapi: ## generate new API client based on the OpenAPI specification
+	rm -rf .openapi
+	rm -rf pyevr/openapi_client
+	docker run --rm -v ${PWD}/.openapi:/openapi openapitools/openapi-generator-cli generate -i https://evr-test.azurewebsites.net/api/openapi-generator-compatible.json -g python -o /openapi
+	# docker run --rm -v ${PWD}/.openapi:/openapi openapitools/openapi-generator-cli generate -i https://evr-test.azurewebsites.net/api/openapi.json -g python -o /openapi
+	cp -r .openapi/openapi_client pyevr/openapi_client
+	rm -rf .openapi
