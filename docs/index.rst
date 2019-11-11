@@ -8,7 +8,7 @@ Welcome to pyevr's documentation!
    readme
    installation
    usage
-   modules
+   pyevr
    contributing
    authors
    history
