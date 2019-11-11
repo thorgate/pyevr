@@ -93,4 +93,5 @@ openapi: ## generate new API client based on the OpenAPI specification
 	docker build -t pyevr_openapi -f openapi/Dockerfile-openapi openapi
 	docker run --rm -v ${PWD}/.openapi:/openapi pyevr_openapi
 	cp -r .openapi/openapi_client pyevr/openapi_client
+	cp -r .openapi/docs pyevr/docs
 	rm -rf .openapi
