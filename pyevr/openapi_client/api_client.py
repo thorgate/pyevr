@@ -11,7 +11,6 @@
 from __future__ import absolute_import
 
 import datetime
-from dateutil.parser import parse
 import json
 import mimetypes
 from multiprocessing.pool import ThreadPool
@@ -23,10 +22,10 @@ import tempfile
 import six
 from six.moves.urllib.parse import quote
 
-from openapi_client.configuration import Configuration
-import openapi_client.models
-from openapi_client import rest
-from openapi_client.exceptions import ApiValueError
+from pyevr.openapi_client.configuration import Configuration
+import pyevr.openapi_client.models
+from pyevr.openapi_client import rest
+from pyevr.openapi_client.exceptions import ApiValueError
 
 
 class ApiClient(object):
@@ -279,7 +278,7 @@ class ApiClient(object):
             if klass in self.NATIVE_TYPES_MAPPING:
                 klass = self.NATIVE_TYPES_MAPPING[klass]
             else:
-                klass = getattr(openapi_client.models, klass)
+                klass = getattr(pyevr.openapi_client.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
             return self.__deserialize_primitive(data, klass)
@@ -579,6 +578,7 @@ class ApiClient(object):
         :return: date.
         """
         try:
+            from dateutil.parser import parse
             return parse(string).date()
         except ImportError:
             return string
@@ -597,6 +597,7 @@ class ApiClient(object):
         :return: datetime.
         """
         try:
+            from dateutil.parser import parse
             return parse(string)
         except ImportError:
             return string
@@ -622,11 +623,11 @@ class ApiClient(object):
             return data
 
         kwargs = {}
-        if (data is not None and
-                klass.openapi_types is not None and
-                isinstance(data, (list, dict))):
+        if klass.openapi_types is not None:
             for attr, attr_type in six.iteritems(klass.openapi_types):
-                if klass.attribute_map[attr] in data:
+                if (data is not None and
+                        klass.attribute_map[attr] in data and
+                        isinstance(data, (list, dict))):
                     value = data[klass.attribute_map[attr]]
                     kwargs[attr] = self.__deserialize(value, attr_type)
 

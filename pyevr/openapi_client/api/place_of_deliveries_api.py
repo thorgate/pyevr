@@ -17,8 +17,8 @@ import re  # noqa: F401
 # python 2 and python 3 compatibility library
 import six
 
-from openapi_client.api_client import ApiClient
-from openapi_client.exceptions import (
+from pyevr.openapi_client.api_client import ApiClient
+from pyevr.openapi_client.exceptions import (
     ApiTypeError,
     ApiValueError
 )
@@ -276,7 +276,7 @@ class PlaceOfDeliveriesApi(object):
         :param async_req bool: execute request asynchronously
         :param str name_contains: Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit
         :param str code_starts_with: Filtreerib tarnekohad, mille kood algab otsinguterminiga
-        :param str register_code: Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile  
+        :param str register_code: Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile
         :param str address: Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS.
         :param int page: Tagastatav lehekülg
         :param _preload_content: if False, the urllib3.HTTPResponse object will
@@ -305,7 +305,7 @@ class PlaceOfDeliveriesApi(object):
         :param async_req bool: execute request asynchronously
         :param str name_contains: Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit
         :param str code_starts_with: Filtreerib tarnekohad, mille kood algab otsinguterminiga
-        :param str register_code: Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile  
+        :param str register_code: Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile
         :param str address: Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS.
         :param int page: Tagastatav lehekülg
         :param _return_http_data_only: response data without head status code
