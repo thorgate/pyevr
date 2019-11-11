@@ -90,12 +90,7 @@ install: clean ## install the package to the active Python's site-packages
 openapi: ## generate new API client based on the OpenAPI specification
 	rm -rf .openapi
 	rm -rf pyevr/openapi_client
-	# Original API schema is located at https://evr-test.azurewebsites.net/api/openapi.json
-	docker run --rm -v ${PWD}/.openapi:/openapi openapitools/openapi-generator-cli:v4.2.0 generate -i https://evr-test.azurewebsites.net/api/openapi-generator-compatible.json -g python -o /openapi
-	# Import generated code from the correct place
-	docker run --rm -v ${PWD}/.openapi:/openapi openapitools/openapi-generator-cli:v4.2.0 find /openapi/openapi_client -type f -exec sed -i 's/openapi_client.models/pyevr.openapi_client.models/g' {} +
-	docker run --rm -v ${PWD}/.openapi:/openapi openapitools/openapi-generator-cli:v4.2.0 find /openapi/openapi_client -type f -exec sed -i 's/from openapi_client/from pyevr.openapi_client/g' {} +
-	# Remove trailing whitespaces
-	docker run --rm -v ${PWD}/.openapi:/openapi openapitools/openapi-generator-cli:v4.2.0 find /openapi/openapi_client -type f -exec sed -i -re 's/[ \t]+$$//' {} +
+	docker build -t pyevr_openapi -f openapi/Dockerfile-openapi openapi
+	docker run --rm -v ${PWD}/.openapi:/openapi pyevr_openapi
 	cp -r .openapi/openapi_client pyevr/openapi_client
 	rm -rf .openapi
