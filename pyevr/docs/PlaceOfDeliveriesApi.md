@@ -10,7 +10,7 @@ Method | HTTP request | Description
 
 
 # **place_of_deliveries_add_or_update**
-> place_of_deliveries_add_or_update(code, put_place_of_delivery_request)
+> place_of_deliveries_add_or_update(code, put_place_of_delivery_request, evr_language=evr_language)
 
 Tarnekoha lisamine ja muutmine
 
@@ -37,10 +37,11 @@ configuration.host = "https://evr-test.azurewebsites.net"
 api_instance = openapi_client.PlaceOfDeliveriesApi(openapi_client.ApiClient(configuration))
 code = 'code_example' # str | Kood
 put_place_of_delivery_request = openapi_client.PutPlaceOfDeliveryRequest() # PutPlaceOfDeliveryRequest | 
+evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
 try:
     # Tarnekoha lisamine ja muutmine
-    api_instance.place_of_deliveries_add_or_update(code, put_place_of_delivery_request)
+    api_instance.place_of_deliveries_add_or_update(code, put_place_of_delivery_request, evr_language=evr_language)
 except ApiException as e:
     print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_add_or_update: %s\n" % e)
 ```
@@ -51,6 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **str**| Kood | 
  **put_place_of_delivery_request** | [**PutPlaceOfDeliveryRequest**](PutPlaceOfDeliveryRequest.md)|  | 
+ **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
 
@@ -76,7 +78,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **place_of_deliveries_get**
-> PlaceOfDelivery place_of_deliveries_get(code)
+> PlaceOfDelivery place_of_deliveries_get(code, evr_language=evr_language)
 
 Tarnekoha pärimine
 
@@ -102,10 +104,11 @@ configuration.host = "https://evr-test.azurewebsites.net"
 # Create an instance of the API class
 api_instance = openapi_client.PlaceOfDeliveriesApi(openapi_client.ApiClient(configuration))
 code = 'code_example' # str | Päritava tarnekoha kood
+evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
 try:
     # Tarnekoha pärimine
-    api_response = api_instance.place_of_deliveries_get(code)
+    api_response = api_instance.place_of_deliveries_get(code, evr_language=evr_language)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_get: %s\n" % e)
@@ -116,6 +119,7 @@ except ApiException as e:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **str**| Päritava tarnekoha kood | 
+ **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
 
@@ -141,7 +145,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **place_of_deliveries_list**
-> PagedResultOfPlaceOfDelivery place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page)
+> PagedResultOfPlaceOfDelivery place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, evr_language=evr_language)
 
 Tarnekohtade pärimine
 
@@ -168,13 +172,14 @@ configuration.host = "https://evr-test.azurewebsites.net"
 api_instance = openapi_client.PlaceOfDeliveriesApi(openapi_client.ApiClient(configuration))
 name_contains = 'name_contains_example' # str | Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit (optional)
 code_starts_with = 'code_starts_with_example' # str | Filtreerib tarnekohad, mille kood algab otsinguterminiga (optional)
-register_code = 'register_code_example' # str | Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile   (optional)
-address = 'address_example' # str | Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. (optional)
+register_code = 'register_code_example' # str | Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile (optional)
+address = 'address_example' # str | Vabatekstiline aadressi otsing.  Toetatud on järgmine süntaks:  * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA  * jutumärkides tekst: otsitakse jutumärkides olevat lauset  * OR: loogiline VÕI operaator sõnade vahel  * -: loogiline EITUS (optional)
 page = 56 # int | Tagastatav lehekülg (optional)
+evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
 try:
     # Tarnekohtade pärimine
-    api_response = api_instance.place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page)
+    api_response = api_instance.place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, evr_language=evr_language)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_list: %s\n" % e)
@@ -186,9 +191,10 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name_contains** | **str**| Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit | [optional] 
  **code_starts_with** | **str**| Filtreerib tarnekohad, mille kood algab otsinguterminiga | [optional] 
- **register_code** | **str**| Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile   | [optional] 
- **address** | **str**| Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. | [optional] 
+ **register_code** | **str**| Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile | [optional] 
+ **address** | **str**| Vabatekstiline aadressi otsing.  Toetatud on järgmine süntaks:  * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA  * jutumärkides tekst: otsitakse jutumärkides olevat lauset  * OR: loogiline VÕI operaator sõnade vahel  * -: loogiline EITUS | [optional] 
  **page** | **int**| Tagastatav lehekülg | [optional] 
+ **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
 

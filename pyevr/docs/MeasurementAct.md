@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **act_number** | **str** | Mõõtmisakti number | [optional] 
 **measurements** | [**list[ShipmentItem]**](ShipmentItem.md) | Mõõtmistulemused EVR poolt sätestatud formaadis  | [optional] 
-**custom_measurement_data** | **object** | Mõõtmistulemused vabas formaadis. | [optional] 
+**custom_measurement_data** | **object** | Mõõtmistulemused vabas formaadis | [optional] 
 **measurer_code** | **str** | Mõõtja registri kood | [optional] 
 **creation_time** | **datetime** | Lisamise aeg | [optional] 
 

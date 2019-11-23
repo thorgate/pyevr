@@ -90,6 +90,7 @@ install: clean ## install the package to the active Python's site-packages
 openapi: ## generate new API client based on the OpenAPI specification
 	rm -rf .openapi
 	rm -rf pyevr/openapi_client
+	rm -rf pyevr/docs
 	docker build -t pyevr_openapi -f openapi/Dockerfile-openapi openapi
 	docker run --rm -v ${PWD}/.openapi:/openapi pyevr_openapi
 	cp -r .openapi/openapi_client pyevr/openapi_client

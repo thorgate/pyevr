@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **organizations_list**
-> PagedResultOfOrganization organizations_list(code_starts_with=code_starts_with, name_contains=name_contains, page=page)
+> PagedResultOfOrganization organizations_list(code_starts_with=code_starts_with, name_contains=name_contains, page=page, evr_language=evr_language)
 
 Registreeritud asutuste pärimine
 
@@ -36,10 +36,11 @@ api_instance = openapi_client.OrganizationsApi(openapi_client.ApiClient(configur
 code_starts_with = 'code_starts_with_example' # str | Filtreerib asutused, mille registrikood algab otsinguterminiga (optional)
 name_contains = 'name_contains_example' # str | Filtreerib asutused, mille nimi sisaldab otsinguterminit (optional)
 page = 56 # int | Tagastatav lehekülg (optional)
+evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
 try:
     # Registreeritud asutuste pärimine
-    api_response = api_instance.organizations_list(code_starts_with=code_starts_with, name_contains=name_contains, page=page)
+    api_response = api_instance.organizations_list(code_starts_with=code_starts_with, name_contains=name_contains, page=page, evr_language=evr_language)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling OrganizationsApi->organizations_list: %s\n" % e)
@@ -52,6 +53,7 @@ Name | Type | Description  | Notes
  **code_starts_with** | **str**| Filtreerib asutused, mille registrikood algab otsinguterminiga | [optional] 
  **name_contains** | **str**| Filtreerib asutused, mille nimi sisaldab otsinguterminit | [optional] 
  **page** | **int**| Tagastatav lehekülg | [optional] 
+ **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
 

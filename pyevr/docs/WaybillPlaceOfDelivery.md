@@ -9,7 +9,7 @@ Name | Type | Description | Notes
 **address** | [**Address**](Address.md) |  | 
 **contact_person** | [**ContactPerson**](ContactPerson.md) |  | [optional] 
 **near_address** | **str** | Lähiaadress | [optional] 
-**user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed  | [optional] 
+**user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

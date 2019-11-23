@@ -5,11 +5,11 @@ All URIs are relative to *https://evr-test.azurewebsites.net*
 Method | HTTP request | Description
 ------------- | ------------- | -------------
 [**measurements_get**](MeasurementsApi.md#measurements_get) | **GET** /api/waybills/{number}/measurements | Veoselehe mõõtmisandmete pärimine
-[**measurements_post**](MeasurementsApi.md#measurements_post) | **POST** /api/waybills/{number}/measurements | Veoslehele mõõtmisandmete lisamine
+[**measurements_post**](MeasurementsApi.md#measurements_post) | **POST** /api/waybills/{number}/measurements | Veoselehele mõõtmisandmete lisamine
 
 
 # **measurements_get**
-> PagedResultOfMeasurementAct measurements_get(number, page=page)
+> PagedResultOfMeasurementAct measurements_get(number, page=page, evr_language=evr_language)
 
 Veoselehe mõõtmisandmete pärimine
 
@@ -36,10 +36,11 @@ configuration.host = "https://evr-test.azurewebsites.net"
 api_instance = openapi_client.MeasurementsApi(openapi_client.ApiClient(configuration))
 number = 'number_example' # str | Veoselehe number
 page = 1 # int | Tagastatav lehekülg (optional) (default to 1)
+evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
 try:
     # Veoselehe mõõtmisandmete pärimine
-    api_response = api_instance.measurements_get(number, page=page)
+    api_response = api_instance.measurements_get(number, page=page, evr_language=evr_language)
     pprint(api_response)
 except ApiException as e:
     print("Exception when calling MeasurementsApi->measurements_get: %s\n" % e)
@@ -51,6 +52,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number | 
  **page** | **int**| Tagastatav lehekülg | [optional] [default to 1]
+ **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
 
@@ -77,11 +79,11 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **measurements_post**
-> measurements_post(number, add_measurement_act_request)
+> measurements_post(number, add_measurement_act_request, evr_language=evr_language)
 
-Veoslehele mõõtmisandmete lisamine
+Veoselehele mõõtmisandmete lisamine
 
-Lisab veoselehele mõõtmisandmed. Mõõtmisandmeid saab lisada \"koorem maas\" staatuses veoselehele sellele märgitud veose saaja või tema volitatud mõõtja.             Mõõtmistulemusi on võimalik lisada koormapakkidena või lihtsalt sortimentide kogustena.
+Lisab veoselehele mõõtmisandmed. Mõõtmisandmeid saab lisada \"koorem maas\" staatuses veoselehele sellele märgitud veose saaja või tema volitatud mõõtja. Mõõtmistulemusi on võimalik lisada koormapakkidena või lihtsalt sortimentide kogustena.
 
 ### Example
 
@@ -104,10 +106,11 @@ configuration.host = "https://evr-test.azurewebsites.net"
 api_instance = openapi_client.MeasurementsApi(openapi_client.ApiClient(configuration))
 number = 'number_example' # str | Veoselehe number
 add_measurement_act_request = openapi_client.AddMeasurementActRequest() # AddMeasurementActRequest | Mõõtmisandmed
+evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
 try:
-    # Veoslehele mõõtmisandmete lisamine
-    api_instance.measurements_post(number, add_measurement_act_request)
+    # Veoselehele mõõtmisandmete lisamine
+    api_instance.measurements_post(number, add_measurement_act_request, evr_language=evr_language)
 except ApiException as e:
     print("Exception when calling MeasurementsApi->measurements_post: %s\n" % e)
 ```
@@ -118,6 +121,7 @@ Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number | 
  **add_measurement_act_request** | [**AddMeasurementActRequest**](AddMeasurementActRequest.md)| Mõõtmisandmed | 
+ **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
 
