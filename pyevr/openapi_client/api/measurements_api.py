@@ -111,8 +111,8 @@ class MeasurementsApi(object):
                                                         local_var_params['number'] is None):  # noqa: E501
             raise ApiValueError("Missing the required parameter `number` when calling `measurements_get`")  # noqa: E501
 
-        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] > -9223372036854771616:  # noqa: E501
-            raise ApiValueError("Invalid value for parameter `page` when calling `measurements_get`, must be a value less than or equal to `-9223372036854771616`")  # noqa: E501
+        if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] > 2147483647:  # noqa: E501
+            raise ApiValueError("Invalid value for parameter `page` when calling `measurements_get`, must be a value less than or equal to `2147483647`")  # noqa: E501
         if self.api_client.client_side_validation and 'page' in local_var_params and local_var_params['page'] < 1:  # noqa: E501
             raise ApiValueError("Invalid value for parameter `page` when calling `measurements_get`, must be a value greater than or equal to `1`")  # noqa: E501
         collection_formats = {}
