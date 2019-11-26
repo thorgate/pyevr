@@ -1,21 +1,28 @@
 pyevr package
 =============
 
+Subpackages
+-----------
+
+.. toctree::
+
+    pyevr.openapi_client
+
 Submodules
 ----------
 
-pyevr.cli module
-----------------
+pyevr.client module
+-------------------
 
-.. automodule:: pyevr.cli
+.. automodule:: pyevr.client
     :members:
     :undoc-members:
     :show-inheritance:
 
-pyevr.pyevr module
-------------------
+pyevr.main module
+-----------------
 
-.. automodule:: pyevr.pyevr
+.. automodule:: pyevr.main
     :members:
     :undoc-members:
     :show-inheritance:
