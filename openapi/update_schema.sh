@@ -6,3 +6,5 @@ find /openapi/openapi_client -type f -exec sed -i 's/from openapi_client/from py
 
 # Remove trailing whitespaces
 find /openapi/openapi_client -type f -exec sed -i -re 's/[ \t]+$$//' {} +
+# TODO: Remove when maximum values in API schema are fixed
+find /openapi/openapi_client -type f -exec sed -i -re 's/-9223372036854771616/2147483647/' {} +
