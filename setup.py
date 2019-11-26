@@ -17,7 +17,7 @@ requirements = ['Click>=7.0', 'python-dateutil>=2.8.1', ]
 
 setup_requirements = ['pytest-runner', ]
 
-test_requirements = ['pytest>=3', ]
+test_requirements = ['pytest>=5.3.0', ]
 
 setup(
     author=pyevr.__author__,
