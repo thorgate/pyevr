@@ -106,7 +106,7 @@ class ContactPerson(object):
         :type: str
         """
         if (self.local_vars_configuration.client_side_validation and
-                phone is not None and len(phone) > 25):
+                phone is not None and len(phone) > 250):
             raise ValueError("Invalid value for `phone`, length must be less than or equal to `25`")  # noqa: E501
 
         self._phone = phone

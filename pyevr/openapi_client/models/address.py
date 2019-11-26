@@ -86,7 +86,7 @@ class Address(object):
         if self.local_vars_configuration.client_side_validation and country_code is None:  # noqa: E501
             raise ValueError("Invalid value for `country_code`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                country_code is not None and len(country_code) > 3):
+                country_code is not None and len(country_code) > 300):
             raise ValueError("Invalid value for `country_code`, length must be less than or equal to `3`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 country_code is not None and len(country_code) < 3):
