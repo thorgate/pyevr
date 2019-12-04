@@ -2,6 +2,14 @@
 History
 =======
 
+WIP
+------------------
+
+**Generic**
+
+* Remove workarounds that where created because of invalid API schema and wrong data in test server
+
+
 0.2.1 (2019-11-26)
 ------------------
 
