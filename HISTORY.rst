@@ -8,7 +8,11 @@ WIP
 **Generic**
 
 * Remove workarounds that where created because of invalid API schema and wrong data in test server
+* Update openapi-generator-cli to v4.2.2
 
+**Bugs**
+
+* Fix issues with all configuration instances having same values as the one that was created first
 
 0.2.1 (2019-11-26)
 ------------------
