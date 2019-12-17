@@ -7,8 +7,8 @@ Method | HTTP request | Description
 [**waybills_add_shipments**](WaybillsApi.md#waybills_add_shipments) | **POST** /api/waybills/{number}/shipments | Veoselehele veose lisamine
 [**waybills_cancel**](WaybillsApi.md#waybills_cancel) | **POST** /api/waybills/{number}/cancel | Veoselehe tühistamine
 [**waybills_finish**](WaybillsApi.md#waybills_finish) | **POST** /api/waybills/{number}/finish | Veoselehe lõpetamine
-[**waybills_get**](WaybillsApi.md#waybills_get) | **GET** /api/waybills | Veoselehtede pärimine
-[**waybills_get2**](WaybillsApi.md#waybills_get2) | **GET** /api/waybills/{number} | Veoselehe pärimine
+[**waybills_list**](WaybillsApi.md#waybills_list) | **GET** /api/waybills | Veoselehtede pärimine
+[**waybills_get**](WaybillsApi.md#waybills_get) | **GET** /api/waybills/{number} | Veoselehe pärimine
 [**waybills_post**](WaybillsApi.md#waybills_post) | **POST** /api/waybills | Veoselehe loomine
 [**waybills_unload**](WaybillsApi.md#waybills_unload) | **POST** /api/waybills/{number}/unload | Veoselehel veo lõpetamine
 
@@ -218,8 +218,8 @@ void (empty response body)
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **waybills_get**
-> PagedResultOfWaybill waybills_get(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, text=text, sort=sort, page=page, evr_language=evr_language)
+# **waybills_list**
+> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, text=text, sort=sort, page=page, evr_language=evr_language)
 
 Veoselehtede pärimine
 
@@ -260,10 +260,10 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
 try:
     # Veoselehtede pärimine
-    api_response = api_instance.waybills_get(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, text=text, sort=sort, page=page, evr_language=evr_language)
+    api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, text=text, sort=sort, page=page, evr_language=evr_language)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_get: %s\n" % e)
+    print("Exception when calling WaybillsApi->waybills_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -307,8 +307,8 @@ Name | Type | Description  | Notes
 
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
-# **waybills_get2**
-> Waybill waybills_get2(number, evr_language=evr_language)
+# **waybills_get**
+> Waybill waybills_get(number, evr_language=evr_language)
 
 Veoselehe pärimine
 
@@ -338,10 +338,10 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
 try:
     # Veoselehe pärimine
-    api_response = api_instance.waybills_get2(number, evr_language=evr_language)
+    api_response = api_instance.waybills_get(number, evr_language=evr_language)
     pprint(api_response)
 except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_get2: %s\n" % e)
+    print("Exception when calling WaybillsApi->waybills_get: %s\n" % e)
 ```
 
 ### Parameters

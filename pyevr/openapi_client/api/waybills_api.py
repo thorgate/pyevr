@@ -396,13 +396,13 @@ class WaybillsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def waybills_get(self, **kwargs):  # noqa: E501
+    def waybills_list(self, **kwargs):  # noqa: E501
         """Veoselehtede pärimine  # noqa: E501
 
         Tagastab filtritele vastavad veoselehed. Veoselehti saavad pärida ainult nendega seotud asutused.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.waybills_get(async_req=True)
+        >>> thread = api.waybills_list(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -431,15 +431,15 @@ class WaybillsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.waybills_get_with_http_info(**kwargs)  # noqa: E501
+        return self.waybills_list_with_http_info(**kwargs)  # noqa: E501
 
-    def waybills_get_with_http_info(self, **kwargs):  # noqa: E501
+    def waybills_list_with_http_info(self, **kwargs):  # noqa: E501
         """Veoselehtede pärimine  # noqa: E501
 
         Tagastab filtritele vastavad veoselehed. Veoselehti saavad pärida ainult nendega seotud asutused.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.waybills_get_with_http_info(async_req=True)
+        >>> thread = api.waybills_list_with_http_info(async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -482,7 +482,7 @@ class WaybillsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method waybills_get" % key
+                    " to method waybills_list" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
@@ -548,13 +548,13 @@ class WaybillsApi(object):
             _request_timeout=local_var_params.get('_request_timeout'),
             collection_formats=collection_formats)
 
-    def waybills_get2(self, number, **kwargs):  # noqa: E501
+    def waybills_get(self, number, **kwargs):  # noqa: E501
         """Veoselehe pärimine  # noqa: E501
 
         Tagastab numbrile vastava veoselehe. Veoselehte saavad pärida ainult sellega seotud asutused.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.waybills_get2(number, async_req=True)
+        >>> thread = api.waybills_get(number, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -572,15 +572,15 @@ class WaybillsApi(object):
                  returns the request thread.
         """
         kwargs['_return_http_data_only'] = True
-        return self.waybills_get2_with_http_info(number, **kwargs)  # noqa: E501
+        return self.waybills_get_with_http_info(number, **kwargs)  # noqa: E501
 
-    def waybills_get2_with_http_info(self, number, **kwargs):  # noqa: E501
+    def waybills_get_with_http_info(self, number, **kwargs):  # noqa: E501
         """Veoselehe pärimine  # noqa: E501
 
         Tagastab numbrile vastava veoselehe. Veoselehte saavad pärida ainult sellega seotud asutused.  # noqa: E501
         This method makes a synchronous HTTP request by default. To make an
         asynchronous HTTP request, please pass async_req=True
-        >>> thread = api.waybills_get2_with_http_info(number, async_req=True)
+        >>> thread = api.waybills_get_with_http_info(number, async_req=True)
         >>> result = thread.get()
 
         :param async_req bool: execute request asynchronously
@@ -612,14 +612,14 @@ class WaybillsApi(object):
             if key not in all_params:
                 raise ApiTypeError(
                     "Got an unexpected keyword argument '%s'"
-                    " to method waybills_get2" % key
+                    " to method waybills_get" % key
                 )
             local_var_params[key] = val
         del local_var_params['kwargs']
         # verify the required parameter 'number' is set
         if self.api_client.client_side_validation and ('number' not in local_var_params or  # noqa: E501
                                                         local_var_params['number'] is None):  # noqa: E501
-            raise ApiValueError("Missing the required parameter `number` when calling `waybills_get2`")  # noqa: E501
+            raise ApiValueError("Missing the required parameter `number` when calling `waybills_get`")  # noqa: E501
 
         collection_formats = {}
 
