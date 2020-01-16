@@ -2,6 +2,14 @@
 History
 =======
 
+0.3.0 (2020-01-16)
+------------------
+
+**Enhancements**
+
+* Add a method for returning all of the results for EVR API's list endpoints
+* Update WaybillsApi to use waybills_list instead of waybills_get and waybills_get instead of waybills_get2
+
 0.2.2 (2019-12-04)
 ------------------
 
