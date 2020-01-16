@@ -4,7 +4,7 @@
 
 __author__ = """Thorgate"""
 __email__ = 'code@thorgate.eu'
-__version__ = '0.2.2'
+__version__ = '0.3.0'
 
 
 from pyevr.client import EVRClient  # noqa: F401
