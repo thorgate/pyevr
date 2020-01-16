@@ -11,6 +11,14 @@ Subpackages
 Submodules
 ----------
 
+pyevr.apis module
+-----------------
+
+.. automodule:: pyevr.apis
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 pyevr.client module
 -------------------
 

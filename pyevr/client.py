@@ -1,12 +1,9 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
+from pyevr import apis
 from pyevr.openapi_client.api_client import ApiClient
 from pyevr.openapi_client.configuration import Configuration
-from pyevr.openapi_client.api import (
-    AssortmentsApi, CertificatesApi, MeasurementsApi, MeasurementUnitsApi,
-    OrganizationsApi, PlaceOfDeliveriesApi, WaybillsApi,
-)
 
 
 class EVRClient(object):
@@ -22,10 +19,10 @@ class EVRClient(object):
             configuration.host = host
         self.openapi_client = ApiClient(configuration)
 
-        self.assortments = AssortmentsApi(self.openapi_client)
-        self.certificates = CertificatesApi(self.openapi_client)
-        self.measurements = MeasurementsApi(self.openapi_client)
-        self.measurement_units = MeasurementUnitsApi(self.openapi_client)
-        self.organizations = OrganizationsApi(self.openapi_client)
-        self.place_of_deliveries = PlaceOfDeliveriesApi(self.openapi_client)
-        self.waybills = WaybillsApi(self.openapi_client)
+        self.assortments = apis.AssortmentsAPI(self.openapi_client)
+        self.certificates = apis.CertificatesAPI(self.openapi_client)
+        self.measurements = apis.MeasurementsAPI(self.openapi_client)
+        self.measurement_units = apis.MeasurementUnitsAPI(self.openapi_client)
+        self.organizations = apis.OrganizationsAPI(self.openapi_client)
+        self.place_of_deliveries = apis.PlaceOfDeliveriesAPI(self.openapi_client)
+        self.waybills = apis.WaybillsAPI(self.openapi_client)
