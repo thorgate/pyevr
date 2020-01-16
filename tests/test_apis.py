@@ -17,7 +17,7 @@ from pyevr.apis import (
 class TestEVRClient(unittest.TestCase):
     api_key = 'asd123'
     host = 'https://api.evr.test'
-    list_of_apis: [AllMixin] = [
+    list_of_apis = [
         AssortmentsAPI,
         CertificatesAPI,
         MeasurementsAPI,
@@ -31,7 +31,7 @@ class TestEVRClient(unittest.TestCase):
         super().setUp()
         self.client = EVRClient(self.api_key, self.host)
 
-    def run_api_test(self, api: AllMixin):
+    def run_api_test(self, api):
         self.assertTrue(isinstance(api, AllMixin))
         self.assertTrue(hasattr(api, api.list_endpoint_attr))
         self.assertIsNotNone(api.get_list_endpoint())
@@ -40,7 +40,7 @@ class TestEVRClient(unittest.TestCase):
         for api_class in self.list_of_apis:
             self.run_api_test(api_class(self.client))
 
-    def run_all_mixin_test(self, data: [int]):
+    def run_all_mixin_test(self, data):
         PagedResult = namedtuple('PagedResult', ['page', 'page_size', 'page_result', 'total_count'])
 
         def assortments_list(page):

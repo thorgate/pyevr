@@ -35,7 +35,7 @@ class AllMixin:
 
         kwargs[self.evr_page_param] = 1
         first_page_response = endpoint(**kwargs)
-        results: list = first_page_response.page_result
+        results = first_page_response.page_result
         page_size = first_page_response.page_size
         total_count = first_page_response.total_count
 
