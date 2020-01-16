@@ -22,7 +22,9 @@ class AllMixin:
         if self.list_endpoint_attr is None:
             raise ValueError("AllMixin requires `list_endpoint_attr` to be set")
         if not hasattr(self, self.list_endpoint_attr):
-            raise ValueError(f"{self.__class__} does not have the required list attribute `{self.list_endpoint_attr}`")
+            raise ValueError("%s does not have the required list attribute `%s`" % (
+                self.__class__, self.list_endpoint_attr,
+            ))
         return getattr(self, self.list_endpoint_attr)
 
     def all(self, **kwargs):
