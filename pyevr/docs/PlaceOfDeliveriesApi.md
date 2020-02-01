@@ -33,17 +33,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.PlaceOfDeliveriesApi(openapi_client.ApiClient(configuration))
-code = 'code_example' # str | Kood
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
+    code = 'code_example' # str | Kood
 put_place_of_delivery_request = openapi_client.PutPlaceOfDeliveryRequest() # PutPlaceOfDeliveryRequest | 
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Tarnekoha lisamine ja muutmine
-    api_instance.place_of_deliveries_add_or_update(code, put_place_of_delivery_request, evr_language=evr_language)
-except ApiException as e:
-    print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_add_or_update: %s\n" % e)
+    try:
+        # Tarnekoha lisamine ja muutmine
+        api_instance.place_of_deliveries_add_or_update(code, put_place_of_delivery_request, evr_language=evr_language)
+    except ApiException as e:
+        print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_add_or_update: %s\n" % e)
 ```
 
 ### Parameters
@@ -101,17 +103,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.PlaceOfDeliveriesApi(openapi_client.ApiClient(configuration))
-code = 'code_example' # str | Päritava tarnekoha kood
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
+    code = 'code_example' # str | Päritava tarnekoha kood
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Tarnekoha pärimine
-    api_response = api_instance.place_of_deliveries_get(code, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_get: %s\n" % e)
+    try:
+        # Tarnekoha pärimine
+        api_response = api_instance.place_of_deliveries_get(code, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -168,21 +172,23 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.PlaceOfDeliveriesApi(openapi_client.ApiClient(configuration))
-name_contains = 'name_contains_example' # str | Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
+    name_contains = 'name_contains_example' # str | Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit (optional)
 code_starts_with = 'code_starts_with_example' # str | Filtreerib tarnekohad, mille kood algab otsinguterminiga (optional)
 register_code = 'register_code_example' # str | Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile (optional)
 address = 'address_example' # str | Vabatekstiline aadressi otsing.  Toetatud on järgmine süntaks:  * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA  * jutumärkides tekst: otsitakse jutumärkides olevat lauset  * OR: loogiline VÕI operaator sõnade vahel  * -: loogiline EITUS (optional)
 page = 56 # int | Tagastatav lehekülg (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Tarnekohtade pärimine
-    api_response = api_instance.place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_list: %s\n" % e)
+    try:
+        # Tarnekohtade pärimine
+        api_response = api_instance.place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_list: %s\n" % e)
 ```
 
 ### Parameters
