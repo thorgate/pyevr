@@ -41,7 +41,7 @@ class ExtendedApiClient(ApiClient):
                 class_name = class_name[:-5]
             obj_dict['type'] = class_name
 
-        return  obj_dict
+        return obj_dict
 
 
 class EVRClient(object):
