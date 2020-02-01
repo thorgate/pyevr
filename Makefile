@@ -96,3 +96,4 @@ openapi: ## generate new API client based on the OpenAPI specification
 	cp -r .openapi/openapi_client pyevr/openapi_client
 	cp -r .openapi/docs pyevr/docs
 	rm -rf .openapi
+	python openapi/refinement.py

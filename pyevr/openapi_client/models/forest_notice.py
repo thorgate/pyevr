@@ -33,6 +33,7 @@ class ForestNotice(object):
                             and the value is json key in definition.
     """
     openapi_types = {
+        'type': 'str',
         'cadaster': 'str',
         'compartment': 'str',
         'forest_allocation_number': 'str',
@@ -40,6 +41,7 @@ class ForestNotice(object):
     }
 
     attribute_map = {
+        'type': 'type',
         'cadaster': 'cadaster',
         'compartment': 'compartment',
         'forest_allocation_number': 'forestAllocationNumber',
@@ -52,6 +54,7 @@ class ForestNotice(object):
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
+        self._type = 'ForestNotice'
         self._cadaster = None
         self._compartment = None
         self._forest_allocation_number = None
@@ -64,6 +67,10 @@ class ForestNotice(object):
             self.forest_allocation_number = forest_allocation_number
         if number is not None:
             self.number = number
+
+    @property
+    def type(self):
+        return self._type
 
     @property
     def cadaster(self):
