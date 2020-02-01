@@ -33,7 +33,6 @@ class ConsolidatedAct(object):
                             and the value is json key in definition.
     """
     openapi_types = {
-        'type': 'str',
         'contract_number': 'str',
         'contract_date': 'datetime',
         'cadaster': 'str',
@@ -42,7 +41,6 @@ class ConsolidatedAct(object):
     }
 
     attribute_map = {
-        'type': 'type',
         'contract_number': 'contractNumber',
         'contract_date': 'contractDate',
         'cadaster': 'cadaster',
@@ -56,7 +54,6 @@ class ConsolidatedAct(object):
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
-        self._type = 'ConsolidatedAct'
         self._contract_number = None
         self._contract_date = None
         self._cadaster = None
@@ -69,10 +66,6 @@ class ConsolidatedAct(object):
         self.cadaster = cadaster
         self.compartment = compartment
         self.forest_allocation_number = forest_allocation_number
-
-    @property
-    def type(self):
-        return self._type
 
     @property
     def contract_number(self):
