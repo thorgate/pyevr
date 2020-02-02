@@ -32,18 +32,20 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.MeasurementsApi(openapi_client.ApiClient(configuration))
-number = 'number_example' # str | Veoselehe number
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.MeasurementsApi(api_client)
+    number = 'number_example' # str | Veoselehe number
 page = 1 # int | Tagastatav lehekülg (optional) (default to 1)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehe mõõtmisandmete pärimine
-    api_response = api_instance.measurements_get(number, page=page, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MeasurementsApi->measurements_get: %s\n" % e)
+    try:
+        # Veoselehe mõõtmisandmete pärimine
+        api_response = api_instance.measurements_get(number, page=page, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MeasurementsApi->measurements_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -102,17 +104,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.MeasurementsApi(openapi_client.ApiClient(configuration))
-number = 'number_example' # str | Veoselehe number
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.MeasurementsApi(api_client)
+    number = 'number_example' # str | Veoselehe number
 add_measurement_act_request = openapi_client.AddMeasurementActRequest() # AddMeasurementActRequest | Mõõtmisandmed
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehele mõõtmisandmete lisamine
-    api_instance.measurements_post(number, add_measurement_act_request, evr_language=evr_language)
-except ApiException as e:
-    print("Exception when calling MeasurementsApi->measurements_post: %s\n" % e)
+    try:
+        # Veoselehele mõõtmisandmete lisamine
+        api_instance.measurements_post(number, add_measurement_act_request, evr_language=evr_language)
+    except ApiException as e:
+        print("Exception when calling MeasurementsApi->measurements_post: %s\n" % e)
 ```
 
 ### Parameters

@@ -37,17 +37,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.WaybillsApi(openapi_client.ApiClient(configuration))
-number = 'number_example' # str | Veoselehe number
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WaybillsApi(api_client)
+    number = 'number_example' # str | Veoselehe number
 add_shipments_to_waybill_request = openapi_client.AddShipmentsToWaybillRequest() # AddShipmentsToWaybillRequest | 
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehele veose lisamine
-    api_instance.waybills_add_shipments(number, add_shipments_to_waybill_request, evr_language=evr_language)
-except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_add_shipments: %s\n" % e)
+    try:
+        # Veoselehele veose lisamine
+        api_instance.waybills_add_shipments(number, add_shipments_to_waybill_request, evr_language=evr_language)
+    except ApiException as e:
+        print("Exception when calling WaybillsApi->waybills_add_shipments: %s\n" % e)
 ```
 
 ### Parameters
@@ -106,17 +108,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.WaybillsApi(openapi_client.ApiClient(configuration))
-number = 'number_example' # str | Veoselehe number
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WaybillsApi(api_client)
+    number = 'number_example' # str | Veoselehe number
 cancel_waybill_request = openapi_client.CancelWaybillRequest() # CancelWaybillRequest | 
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehe tühistamine
-    api_instance.waybills_cancel(number, cancel_waybill_request, evr_language=evr_language)
-except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_cancel: %s\n" % e)
+    try:
+        # Veoselehe tühistamine
+        api_instance.waybills_cancel(number, cancel_waybill_request, evr_language=evr_language)
+    except ApiException as e:
+        print("Exception when calling WaybillsApi->waybills_cancel: %s\n" % e)
 ```
 
 ### Parameters
@@ -175,16 +179,18 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.WaybillsApi(openapi_client.ApiClient(configuration))
-number = 'number_example' # str | Veoselehe number
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WaybillsApi(api_client)
+    number = 'number_example' # str | Veoselehe number
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehe lõpetamine
-    api_instance.waybills_finish(number, evr_language=evr_language)
-except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_finish: %s\n" % e)
+    try:
+        # Veoselehe lõpetamine
+        api_instance.waybills_finish(number, evr_language=evr_language)
+    except ApiException as e:
+        print("Exception when calling WaybillsApi->waybills_finish: %s\n" % e)
 ```
 
 ### Parameters
@@ -242,9 +248,11 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.WaybillsApi(openapi_client.ApiClient(configuration))
-created_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahel peab jääma 1 kuu piiresse. (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WaybillsApi(api_client)
+    created_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahel peab jääma 1 kuu piiresse. (optional)
 created_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud varem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahel peab jääma 1 kuu piiresse. (optional)
 last_modified_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud pärast määratud aega (optional)
 status = openapi_client.WaybillStatus() # WaybillStatus | Filtreerib veoselehed, mis vastavad määratud staatusele (optional)
@@ -258,12 +266,12 @@ sort = openapi_client.WaybillSortField() # WaybillSortField | Sorteerib tulemuse
 page = 56 # int | Määrab tagastatava lehekülje (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehtede pärimine
-    api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, text=text, sort=sort, page=page, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_list: %s\n" % e)
+    try:
+        # Veoselehtede pärimine
+        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, text=text, sort=sort, page=page, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WaybillsApi->waybills_list: %s\n" % e)
 ```
 
 ### Parameters
@@ -331,17 +339,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.WaybillsApi(openapi_client.ApiClient(configuration))
-number = 'number_example' # str | Päritava veoselehe number
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WaybillsApi(api_client)
+    number = 'number_example' # str | Päritava veoselehe number
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehe pärimine
-    api_response = api_instance.waybills_get(number, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_get: %s\n" % e)
+    try:
+        # Veoselehe pärimine
+        api_response = api_instance.waybills_get(number, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WaybillsApi->waybills_get: %s\n" % e)
 ```
 
 ### Parameters
@@ -398,17 +408,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.WaybillsApi(openapi_client.ApiClient(configuration))
-start_waybill_request = openapi_client.StartWaybillRequest() # StartWaybillRequest | Veoselehe andmed
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WaybillsApi(api_client)
+    start_waybill_request = openapi_client.StartWaybillRequest() # StartWaybillRequest | Veoselehe andmed
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehe loomine
-    api_response = api_instance.waybills_post(start_waybill_request, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_post: %s\n" % e)
+    try:
+        # Veoselehe loomine
+        api_response = api_instance.waybills_post(start_waybill_request, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling WaybillsApi->waybills_post: %s\n" % e)
 ```
 
 ### Parameters
@@ -465,17 +477,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.WaybillsApi(openapi_client.ApiClient(configuration))
-number = 'number_example' # str | Veoselehe number
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.WaybillsApi(api_client)
+    number = 'number_example' # str | Veoselehe number
 unload_waybill_request = openapi_client.UnloadWaybillRequest() # UnloadWaybillRequest | 
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Veoselehel veo lõpetamine
-    api_instance.waybills_unload(number, unload_waybill_request, evr_language=evr_language)
-except ApiException as e:
-    print("Exception when calling WaybillsApi->waybills_unload: %s\n" % e)
+    try:
+        # Veoselehel veo lõpetamine
+        api_instance.waybills_unload(number, unload_waybill_request, evr_language=evr_language)
+    except ApiException as e:
+        print("Exception when calling WaybillsApi->waybills_unload: %s\n" % e)
 ```
 
 ### Parameters

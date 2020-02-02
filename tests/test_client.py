@@ -6,6 +6,7 @@
 import unittest
 
 from pyevr import EVRClient
+from pyevr.openapi_client.models import ForestNotice, ForestNoticeAllOf
 
 
 class TestEVRClient(unittest.TestCase):
@@ -43,6 +44,36 @@ class TestEVRClient(unittest.TestCase):
         self.assertTrue(isinstance(self.client.organizations, api.OrganizationsApi))
         self.assertTrue(isinstance(self.client.place_of_deliveries, api.PlaceOfDeliveriesApi))
         self.assertTrue(isinstance(self.client.waybills, api.WaybillsApi))
+
+
+class TestExtendedApiClient(unittest.TestCase):
+    api_key = 'asd123'
+    host = 'https://api.evr.test'
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.client = EVRClient(self.api_key, self.host)
+
+    def test_sanitize_for_serialization(self):
+        notice = ForestNotice(cadaster='1', compartment='c', forest_allocation_number='f', number='n')
+        obj_dict = self.client.openapi_client.sanitize_for_serialization(notice)
+        self.assertDictEqual(obj_dict, {
+            'type': 'ForestNotice',
+            'cadaster': '1',
+            'compartment': 'c',
+            'forestAllocationNumber': 'f',
+            'number': 'n',
+        })
+
+        notice_all_of = ForestNoticeAllOf(cadaster='12', compartment='c2', forest_allocation_number='f2', number='n2')
+        obj_dict = self.client.openapi_client.sanitize_for_serialization(notice_all_of)
+        self.assertDictEqual(obj_dict, {
+            'type': 'ForestNotice',
+            'cadaster': '12',
+            'compartment': 'c2',
+            'forestAllocationNumber': 'f2',
+            'number': 'n2',
+        })
 
 
 if __name__ == '__main__':
