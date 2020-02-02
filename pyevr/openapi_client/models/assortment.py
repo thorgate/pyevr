@@ -34,34 +34,34 @@ class Assortment(object):
     """
     openapi_types = {
         'code': 'str',
-        'product_group_code': 'str',
+        'product_group': 'str',
         'name': 'str',
         'measurement_unit_code': 'str'
     }
 
     attribute_map = {
         'code': 'code',
-        'product_group_code': 'productGroupCode',
+        'product_group': 'productGroup',
         'name': 'name',
         'measurement_unit_code': 'measurementUnitCode'
     }
 
-    def __init__(self, code=None, product_group_code=None, name=None, measurement_unit_code=None, local_vars_configuration=None):  # noqa: E501
+    def __init__(self, code=None, product_group=None, name=None, measurement_unit_code=None, local_vars_configuration=None):  # noqa: E501
         """Assortment - a model defined in OpenAPI"""  # noqa: E501
         if local_vars_configuration is None:
             local_vars_configuration = Configuration()
         self.local_vars_configuration = local_vars_configuration
 
         self._code = None
-        self._product_group_code = None
+        self._product_group = None
         self._name = None
         self._measurement_unit_code = None
         self.discriminator = None
 
         if code is not None:
             self.code = code
-        if product_group_code is not None:
-            self.product_group_code = product_group_code
+        if product_group is not None:
+            self.product_group = product_group
         if name is not None:
             self.name = name
         if measurement_unit_code is not None:
@@ -91,27 +91,27 @@ class Assortment(object):
         self._code = code
 
     @property
-    def product_group_code(self):
-        """Gets the product_group_code of this Assortment.  # noqa: E501
+    def product_group(self):
+        """Gets the product_group of this Assortment.  # noqa: E501
 
         Sortimendi tootegrupp  # noqa: E501
 
-        :return: The product_group_code of this Assortment.  # noqa: E501
+        :return: The product_group of this Assortment.  # noqa: E501
         :rtype: str
         """
-        return self._product_group_code
+        return self._product_group
 
-    @product_group_code.setter
-    def product_group_code(self, product_group_code):
-        """Sets the product_group_code of this Assortment.
+    @product_group.setter
+    def product_group(self, product_group):
+        """Sets the product_group of this Assortment.
 
         Sortimendi tootegrupp  # noqa: E501
 
-        :param product_group_code: The product_group_code of this Assortment.  # noqa: E501
+        :param product_group: The product_group of this Assortment.  # noqa: E501
         :type: str
         """
 
-        self._product_group_code = product_group_code
+        self._product_group = product_group
 
     @property
     def name(self):
