@@ -31,17 +31,19 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.MeasurementUnitsApi(openapi_client.ApiClient(configuration))
-page = 56 # int | Tagastatav lehekülg (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.MeasurementUnitsApi(api_client)
+    page = 56 # int | Tagastatav lehekülg (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Mõõtühikute pärimine
-    api_response = api_instance.measurement_units_list(page=page, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling MeasurementUnitsApi->measurement_units_list: %s\n" % e)
+    try:
+        # Mõõtühikute pärimine
+        api_response = api_instance.measurement_units_list(page=page, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling MeasurementUnitsApi->measurement_units_list: %s\n" % e)
 ```
 
 ### Parameters
