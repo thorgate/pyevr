@@ -2,6 +2,19 @@
 History
 =======
 
+0.4.0 (2020-02-02)
+------------------
+
+**Generic**
+
+* Update Python requirements (#33 #36 #40 #41)
+* Update openapi-generator-cli to v4.2.3 (#42)
+
+**Bugs**
+
+* Add type to holding base children when sending a waybill to EVR (#42)
+* Fix `Assortment.product_group` usage (#42)
+
 0.3.0 (2020-01-16)
 ------------------
 
