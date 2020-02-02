@@ -31,19 +31,21 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
-# Create an instance of the API class
-api_instance = openapi_client.OrganizationsApi(openapi_client.ApiClient(configuration))
-code_starts_with = 'code_starts_with_example' # str | Filtreerib asutused, mille registrikood algab otsinguterminiga (optional)
+# Enter a context with an instance of the API client
+with openapi_client.ApiClient(configuration) as api_client:
+    # Create an instance of the API class
+    api_instance = openapi_client.OrganizationsApi(api_client)
+    code_starts_with = 'code_starts_with_example' # str | Filtreerib asutused, mille registrikood algab otsinguterminiga (optional)
 name_contains = 'name_contains_example' # str | Filtreerib asutused, mille nimi sisaldab otsinguterminit (optional)
 page = 56 # int | Tagastatav lehekülg (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
-try:
-    # Registreeritud asutuste pärimine
-    api_response = api_instance.organizations_list(code_starts_with=code_starts_with, name_contains=name_contains, page=page, evr_language=evr_language)
-    pprint(api_response)
-except ApiException as e:
-    print("Exception when calling OrganizationsApi->organizations_list: %s\n" % e)
+    try:
+        # Registreeritud asutuste pärimine
+        api_response = api_instance.organizations_list(code_starts_with=code_starts_with, name_contains=name_contains, page=page, evr_language=evr_language)
+        pprint(api_response)
+    except ApiException as e:
+        print("Exception when calling OrganizationsApi->organizations_list: %s\n" % e)
 ```
 
 ### Parameters
