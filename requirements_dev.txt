@@ -5,7 +5,7 @@ watchdog==0.10.1
 flake8==3.7.9
 tox==3.14.3
 coverage==5.0.3
-Sphinx==2.3.1
+Sphinx==2.4.4
 twine<2  # twine does not support Python 3.5 from version 2.0.0
 Click>=7.0
 python-dateutil>=2.8.1
