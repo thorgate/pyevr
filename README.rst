@@ -29,12 +29,6 @@ Python client for EVR
 * Free software: MIT license
 * Documentation: https://pyevr.readthedocs.io.
 
-
-Features
---------
-
-* TODO
-
 Credits
 -------
 
