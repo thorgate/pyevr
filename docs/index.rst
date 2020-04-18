@@ -10,8 +10,8 @@ Welcome to pyevr's documentation!
    usage
    pyevr
    contributing
+   changelog
    authors
-   history
 
 Indices and tables
 ==================
