@@ -2,6 +2,16 @@
 History
 =======
 
+0.5.0 (2020-04-18)
+------------------
+
+**Generic**
+
+* Remove Python 3.5 support (#56)
+* Update client code to match EVR API v1.1.1 (#56)
+* Update openapi-generator-cli to v4.3.0 (#56)
+* Update Python dependencies (#43 #52 #54 #55 #56)
+
 0.4.0 (2020-02-02)
 ------------------
 
