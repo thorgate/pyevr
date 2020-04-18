@@ -33,6 +33,7 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
+
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -103,6 +104,7 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
+
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
@@ -172,6 +174,7 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 
 # Defining host is optional and default to https://evr-test.azurewebsites.net
 configuration.host = "https://evr-test.azurewebsites.net"
+
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
