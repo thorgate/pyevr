@@ -90,13 +90,15 @@ Ready to contribute? Here's how to set up `pyevr` for local development.
    To get flake8 and tox, just pip install them into your virtualenv.
    All development dependencies are included in `requirements_dev.txt`.
 
-6. Commit your changes and push your branch to GitHub::
+6. Update `CHANGELOG.rst` with your changes.
+
+7. Commit your changes and push your branch to GitHub::
 
     $ git add .
     $ git commit -m "Your detailed description of your changes."
     $ git push origin name-of-your-bugfix-or-feature
 
-7. Submit a pull request through the GitHub website.
+8. Submit a pull request through the GitHub website.
 
 Pull Request Guidelines
 -----------------------
