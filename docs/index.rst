@@ -3,15 +3,14 @@ Welcome to pyevr's documentation!
 
 .. toctree::
    :maxdepth: 2
-   :caption: Contents:
 
    readme
    installation
    usage
    pyevr
    contributing
+   changelog
    authors
-   history
 
 Indices and tables
 ==================

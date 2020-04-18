@@ -1,6 +1,13 @@
-=======
-History
-=======
+=========
+Changelog
+=========
+
+Not released yet
+----------------
+
+**Generic**
+
+* Improve documentation
 
 0.5.0 (2020-04-18)
 ------------------
