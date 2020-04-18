@@ -3,6 +3,9 @@ pyevr
 =====
 
 
+Python client for EVR
+
+
 .. image:: https://img.shields.io/pypi/v/pyevr.svg
         :target: https://pypi.python.org/pypi/pyevr
 
@@ -21,9 +24,6 @@ pyevr
         :target: https://coveralls.io/github/thorgate/pyevr?branch=master
         :alt: Test coverage
 
-
-
-Python client for EVR
 
 
 * Free software: MIT license
