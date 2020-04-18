@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **str** | Sortimendi kood | 
+**code** | **str** | Sortimendi kood. Kui organisatsioon on seadistatud kasutama EVR sortimente, peab kood olema [üks EVR sortimentide koodist.](#operation/Assortments_List) | 
 **name** | **str** | Sortimendi nimetus | 
 **product_group** | **str** | Tootegrupi kood | 
 
