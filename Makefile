@@ -87,13 +87,17 @@ dist: clean ## builds source and wheel package
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
+openapi-patch: ## create patch for openapi schema
+	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o openapi/openapi-generator-compatible.json
+	diff -Naur ./openapi/openapi-generator-compatible.json ./openapi/openapi-generator-compatible-patched.json > ./openapi/patches/schema-fixes.patch || echo "Patch created"
+
 openapi: ## generate new API client based on the OpenAPI specification
 	sudo chown -R ${USER} pyevr
 	rm -rf .openapi
 	rm -rf pyevr/openapi_client
 	rm -rf pyevr/docs
 	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o openapi/openapi-generator-compatible.json
-	patch -p0 < openapi/patches/waybill-address.patch
+	patch -p0 < openapi/patches/schema-fixes.patch
 	docker build -t pyevr_openapi -f openapi/Dockerfile-openapi openapi
 	docker run --rm -v ${PWD}/.openapi/:/openapi pyevr_openapi
 	sudo chown -R ${USER} .openapi pyevr

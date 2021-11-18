@@ -113,8 +113,8 @@ class PreviousOwner(object):
         if self.local_vars_configuration.client_side_validation and code is None:  # noqa: E501
             raise ValueError("Invalid value for `code`, must not be `None`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                code is not None and len(code) > 11):
-            raise ValueError("Invalid value for `code`, length must be less than or equal to `11`")  # noqa: E501
+                code is not None and len(code) > 32):
+            raise ValueError("Invalid value for `code`, length must be less than or equal to `32`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
                 code is not None and len(code) < 0):
             raise ValueError("Invalid value for `code`, length must be greater than or equal to `0`")  # noqa: E501

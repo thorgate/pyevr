@@ -1,5 +1,5 @@
---- ./openapi/openapi-generator-compatible.json	2021-11-18 13:23:32.369611957 +0200
-+++ ./openapi/openapi-generator-compatible-patched.json	2021-11-18 13:23:29.462939658 +0200
+--- ./openapi/openapi-generator-compatible.json	2021-11-18 15:08:55.469216012 +0200
++++ ./openapi/openapi-generator-compatible-patched.json	2021-11-18 15:08:43.252524406 +0200
 @@ -1648,13 +1648,13 @@
              "type": "string",
              "description": "Väljasõidu aeg",
@@ -225,8 +225,9 @@
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
-             "maxLength": 11,
+-            "maxLength": 11,
 -            "minLength": 1
++            "maxLength": 32,
 +            "minLength": 0
            },
            "address": {
@@ -368,6 +369,15 @@
            },
            "shipments": {
              "type": "array",
+@@ -2678,7 +2678,7 @@
+             "description": "Ettesõidu kilometraaž",
+             "format": "int32",
+             "maximum": 100000.0,
+-            "minimum": 1.0,
++            "minimum": 0.0,
+             "nullable": true
+           },
+           "userCustomData": {
 @@ -2781,11 +2781,11 @@
              "type": "string",
              "description": "Registrikood",
