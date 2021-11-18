@@ -4,6 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Asutuse nimi | [optional] 
+**waybill_number_prefix** | **str** |  | [optional] 
 **register_code** | **str** | Registrikood | [optional] 
 **address** | [**Address**](Address.md) |  | [optional] 
 **email** | **str** | Asutuse üldemail | [optional] 

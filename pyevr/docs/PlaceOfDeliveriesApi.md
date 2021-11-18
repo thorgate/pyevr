@@ -1,6 +1,6 @@
 # openapi_client.PlaceOfDeliveriesApi
 
-All URIs are relative to *https://evr-test.azurewebsites.net*
+All URIs are relative to *https://evr.veoseleht.ee*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,8 +31,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -102,14 +102,14 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
-    code = 'code_example' # str | Päritava tarnekoha kood
+    code = 'code_example' # str | Päritava tarnekoha kood (tõstutundlik)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
@@ -124,7 +124,7 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **code** | **str**| Päritava tarnekoha kood | 
+ **code** | **str**| Päritava tarnekoha kood (tõstutundlik) | 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
@@ -172,17 +172,17 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
     name_contains = 'name_contains_example' # str | Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit (optional)
-code_starts_with = 'code_starts_with_example' # str | Filtreerib tarnekohad, mille kood algab otsinguterminiga (optional)
+code_starts_with = 'code_starts_with_example' # str | Filtreerib tarnekohad, mille kood algab otsinguterminiga (tõstutundlik) (optional)
 register_code = 'register_code_example' # str | Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile (optional)
-address = 'address_example' # str | Vabatekstiline aadressi otsing.  Toetatud on järgmine süntaks:  * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA  * jutumärkides tekst: otsitakse jutumärkides olevat lauset  * OR: loogiline VÕI operaator sõnade vahel  * -: loogiline EITUS (optional)
+address = 'address_example' # str | Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA * jutumärkides tekst: otsitakse jutumärkides olevat lauset * OR: loogiline VÕI operaator sõnade vahel * -: loogiline EITUS (optional)
 page = 56 # int | Tagastatav lehekülg (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
@@ -199,9 +199,9 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name_contains** | **str**| Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit | [optional] 
- **code_starts_with** | **str**| Filtreerib tarnekohad, mille kood algab otsinguterminiga | [optional] 
+ **code_starts_with** | **str**| Filtreerib tarnekohad, mille kood algab otsinguterminiga (tõstutundlik) | [optional] 
  **register_code** | **str**| Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile | [optional] 
- **address** | **str**| Vabatekstiline aadressi otsing.  Toetatud on järgmine süntaks:  * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA  * jutumärkides tekst: otsitakse jutumärkides olevat lauset  * OR: loogiline VÕI operaator sõnade vahel  * -: loogiline EITUS | [optional] 
+ **address** | **str**| Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA * jutumärkides tekst: otsitakse jutumärkides olevat lauset * OR: loogiline VÕI operaator sõnade vahel * -: loogiline EITUS | [optional] 
  **page** | **int**| Tagastatav lehekülg | [optional] 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 

@@ -88,11 +88,15 @@ install: clean ## install the package to the active Python's site-packages
 	python setup.py install
 
 openapi: ## generate new API client based on the OpenAPI specification
+	sudo chown -R ${USER} pyevr
 	rm -rf .openapi
 	rm -rf pyevr/openapi_client
 	rm -rf pyevr/docs
+	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o openapi/openapi-generator-compatible.json
+	patch -p0 < openapi/patches/waybill-address.patch
 	docker build -t pyevr_openapi -f openapi/Dockerfile-openapi openapi
-	docker run --rm -v ${PWD}/.openapi:/openapi pyevr_openapi
+	docker run --rm -v ${PWD}/.openapi/:/openapi pyevr_openapi
+	sudo chown -R ${USER} .openapi pyevr
 	cp -r .openapi/openapi_client pyevr/openapi_client
 	cp -r .openapi/docs pyevr/docs
 	rm -rf .openapi

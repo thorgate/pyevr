@@ -6,7 +6,7 @@ To use pyevr in a project::
 
     from pyevr import EVRClient
 
-    evr = EVRClient("YOUR-API-KEY", "https://evr-test.azurewebsites.net/")
+    evr = EVRClient("YOUR-API-KEY", "https://evr.veoseleht.ee/")
 
     # Fetch all assortments
     assortments = evr.assortments.all()
@@ -35,4 +35,4 @@ To use pyevr in a project::
 
 Details about using the endpoints can be found from `EVR API docs`_.
 
-.. _`EVR API docs`: https://evr-test.azurewebsites.net/doc-en.html
+.. _`EVR API docs`: https://evr.veoseleht.ee/doc-en.html
