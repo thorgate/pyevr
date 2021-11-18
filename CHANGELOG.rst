@@ -2,12 +2,17 @@
 Changelog
 =========
 
-Not released yet
-----------------
+0.5.1.dev1 (2021-11-18)
+-----------------------
 
 **Generic**
 
 * Improve documentation
+
+**Compatibility**
+
+* Update to newest EVR schema
+* Workaround: Patch minLength in schema to be consistent with data returned by API
 
 0.5.0 (2020-04-18)
 ------------------
