@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.5.1.dev2 (2021-11-18)
+0.5.1.dev3 (2021-11-18)
 -----------------------
 
 **Generic**
@@ -13,6 +13,7 @@ Changelog
 
 * Update to newest EVR schema
 * Workaround: Patch minLength in schema to be consistent with data returned by API
+* Remove workaround for assortmnet schema
 
 0.5.0 (2020-04-18)
 ------------------
