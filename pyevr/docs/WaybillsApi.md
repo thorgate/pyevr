@@ -1,6 +1,6 @@
 # openapi_client.WaybillsApi
 
-All URIs are relative to *https://evr-test.azurewebsites.net*
+All URIs are relative to *https://evr.veoseleht.ee*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -18,7 +18,7 @@ Method | HTTP request | Description
 
 Veoselehele veose lisamine
 
-Lisab veoselehele uue veose. Uusi veoseid saab lisada ainult veoselehele vedajaks märgitud asutus. Veoseid saab lisada ainult veos olevatele veoselehtedele.
+Lisab veoselehele uue veose. Veoseid saab lisada veoselehele vedaja ja veoselehe looja. Veoseid saab lisada ainult veos olevatele veoselehtedele.
 
 ### Example
 
@@ -35,8 +35,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -90,7 +90,7 @@ void (empty response body)
 
 Veoselehe tühistamine
 
-Tühistab veoselehe. Veoselehe staatuseks märgitakse tühistatud (status: \"cancelled\"). Veoselehe saab tühistada ainult veoselehe looja, kuni veoseleht pole veel vastu võetud.
+Tühistab veoselehe. Veoselehe staatuseks märgitakse tühistatud (status: \"cancelled\"). Veoselehe saab tühistada veoselehe looja, kuni veoseleht pole veel vastu võetud.
 
 ### Example
 
@@ -107,8 +107,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -179,8 +179,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -249,15 +249,15 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
-    created_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahel peab jääma 1 kuu piiresse. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud varem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahel peab jääma 1 kuu piiresse. (optional)
+    created_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahe peab jääma 1 kuu piiresse. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud varem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahe peab jääma 1 kuu piiresse. (optional)
 last_modified_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud pärast määratud aega (optional)
 status = openapi_client.WaybillStatus() # WaybillStatus | Filtreerib veoselehed, mis vastavad määratud staatusele (optional)
 owner_code = 'owner_code_example' # str | Filtreerib veoselehed, millel on sama omaniku kood (optional)
@@ -265,7 +265,7 @@ transporter_code = 'transporter_code_example' # str | Filtreerib veoselehed, mil
 receiver_code = 'receiver_code_example' # str | Filtreerib veoselehed, millel on sama saaja kood (optional)
 van_registration_number = 'van_registration_number_example' # str | Filtreerib veoselehed, millel on sama veoki registreerimisnumber (tõstutundlik) (optional)
 trailer_registration_number = 'trailer_registration_number_example' # str | Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) (optional)
-text = 'text_example' # str | Vabateksti otsing.  Toetatud on järgmine süntaks:  * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA.  * jutumärkides tekst: otsitakse jutumärkides olevat lauset.  * OR: loogiline VÕI operaator sõnade vahel.  * -: loogiline EITUS. (optional)
+text = 'text_example' # str | Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. (optional)
 sort = openapi_client.WaybillSortField() # WaybillSortField | Sorteerib tulemused valitud välja järgi (optional)
 page = 56 # int | Määrab tagastatava lehekülje (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
@@ -282,8 +282,8 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created_after** | **datetime**| Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik &#39;created_after&#39; ning &#39;created_before&#39; vahel peab jääma 1 kuu piiresse. | [optional] 
- **created_before** | **datetime**| Filtreerib veoselehed, mis on loodud varem või samal ajal. Ajavahemik &#39;created_after&#39; ning &#39;created_before&#39; vahel peab jääma 1 kuu piiresse. | [optional] 
+ **created_after** | **datetime**| Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik &#39;created_after&#39; ning &#39;created_before&#39; vahe peab jääma 1 kuu piiresse. | [optional] 
+ **created_before** | **datetime**| Filtreerib veoselehed, mis on loodud varem või samal ajal. Ajavahemik &#39;created_after&#39; ning &#39;created_before&#39; vahe peab jääma 1 kuu piiresse. | [optional] 
  **last_modified_after** | **datetime**| Filtreerib veoselehed, mis on muutunud pärast määratud aega | [optional] 
  **status** | [**WaybillStatus**](.md)| Filtreerib veoselehed, mis vastavad määratud staatusele | [optional] 
  **owner_code** | **str**| Filtreerib veoselehed, millel on sama omaniku kood | [optional] 
@@ -291,7 +291,7 @@ Name | Type | Description  | Notes
  **receiver_code** | **str**| Filtreerib veoselehed, millel on sama saaja kood | [optional] 
  **van_registration_number** | **str**| Filtreerib veoselehed, millel on sama veoki registreerimisnumber (tõstutundlik) | [optional] 
  **trailer_registration_number** | **str**| Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) | [optional] 
- **text** | **str**| Vabateksti otsing.  Toetatud on järgmine süntaks:  * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA.  * jutumärkides tekst: otsitakse jutumärkides olevat lauset.  * OR: loogiline VÕI operaator sõnade vahel.  * -: loogiline EITUS. | [optional] 
+ **text** | **str**| Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. | [optional] 
  **sort** | [**WaybillSortField**](.md)| Sorteerib tulemused valitud välja järgi | [optional] 
  **page** | **int**| Määrab tagastatava lehekülje | [optional] 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
@@ -341,8 +341,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -411,8 +411,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -464,7 +464,7 @@ Name | Type | Description  | Notes
 
 Veoselehel veo lõpetamine
 
-Lõpetab veo veoselehel ja veoselehe staatuseks märgitakse \"koorem maas\" (status: \"unloaded\"). Vedu saab lõpetada veoselehele märgitud vedaja ja seda ainult \"vedu alustatud\" (status: shipping) staatuses.
+Lõpetab veo veoselehel ja veoselehe staatuseks märgitakse \"koorem maas\" (status: \"unloaded\"). Vedu saab lõpetada veoselehe looja või vedaja ja seda ainult \"vedu alustatud\" (status: shipping) staatuses.
 
 ### Example
 
@@ -481,8 +481,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:

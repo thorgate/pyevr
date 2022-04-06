@@ -1,6 +1,6 @@
 # openapi_client.MeasurementsApi
 
-All URIs are relative to *https://evr-test.azurewebsites.net*
+All URIs are relative to *https://evr.veoseleht.ee*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -30,8 +30,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
@@ -103,8 +103,8 @@ configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr-test.azurewebsites.net
-configuration.host = "https://evr-test.azurewebsites.net"
+# Defining host is optional and default to https://evr.veoseleht.ee
+configuration.host = "https://evr.veoseleht.ee"
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:

@@ -1,9 +1,8 @@
 FROM openapitools/openapi-generator-cli:v4.3.0
 
 COPY update_schema.sh /helpers/update_schema.sh
+COPY openapi-generator-compatible.json /openapi-generator-compatible.json
 RUN chmod +x /helpers/update_schema.sh
 
-VOLUME /openapi
-
 # Original API schema is located at https://evr-test.azurewebsites.net/api/openapi.json
-CMD ["/helpers/update_schema.sh", "https://evr-test.azurewebsites.net/api/openapi-generator-compatible.json"]
+CMD ["/helpers/update_schema.sh", "/openapi-generator-compatible.json"]

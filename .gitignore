@@ -103,3 +103,7 @@ ENV/
 
 # PyCharm
 .idea/
+
+# Files for patching
+openapi/openapi-generator-compatible-patched.json
+openapi/openapi-generator-compatible.json

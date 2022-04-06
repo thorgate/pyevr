@@ -24,7 +24,7 @@ class TestEVRClient(unittest.TestCase):
     def test_initial_host(self):
         self.assertEqual(self.client.openapi_client.configuration.host, self.host)
         client = EVRClient(self.api_key)
-        self.assertEqual(client.openapi_client.configuration.host, 'https://evr-test.azurewebsites.net')
+        self.assertEqual(client.openapi_client.configuration.host, 'https://evr.veoseleht.ee')
 
     def test_api_groups(self):
         from pyevr import apis

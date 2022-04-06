@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **items** | [**list[ShipmentItem]**](ShipmentItem.md) | Saadetis | 
 **certificate_claims** | [**list[CertificateClaim]**](CertificateClaim.md) | Tarneahela sertifikaadi väited | [optional] 
 **user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed | [optional] 
+**supply_contract_number** | **str** | Tarnelepingu number | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
