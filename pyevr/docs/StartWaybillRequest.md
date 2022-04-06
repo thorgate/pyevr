@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **pre_journey_mileage** | **int** | Ettesõidu kilometraaž | [optional] 
 **user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed | [optional] 
 **mass** | **float** | Autorongi mass tonnides | [optional] 
+**transport_order** | **str** | Veotellimuse number | [optional] 
 **viewers** | [**list[Viewer]**](Viewer.md) | Veoselehe vaatlejad | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)

@@ -26,7 +26,7 @@
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
-             "maxLength": 11,
+             "maxLength": 20,
 -            "minLength": 1
 +            "minLength": 0
            },
@@ -65,7 +65,7 @@
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
-             "maxLength": 11,
+             "maxLength": 20,
 -            "minLength": 1
 +            "minLength": 0
            },
@@ -106,7 +106,7 @@
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
-             "maxLength": 11,
+             "maxLength": 20,
 -            "minLength": 1
 +            "minLength": 0
            },
@@ -122,7 +122,7 @@
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
-             "maxLength": 11,
+             "maxLength": 20,
 -            "minLength": 1
 +            "minLength": 0
            },
@@ -225,7 +225,7 @@
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
--            "maxLength": 11,
+-            "maxLength": 20,
 -            "minLength": 1
 +            "maxLength": 32,
 +            "minLength": 0
@@ -347,7 +347,7 @@
 @@ -2615,7 +2615,7 @@
              "type": "string",
              "description": "Registrikood",
-             "maxLength": 11,
+             "maxLength": 20,
 -            "minLength": 1
 +            "minLength": 0
            }
@@ -381,7 +381,7 @@
 @@ -2781,11 +2781,11 @@
              "type": "string",
              "description": "Registrikood",
-             "maxLength": 8,
+             "maxLength": 20,
 -            "minLength": 1
 +            "minLength": 0
            },
