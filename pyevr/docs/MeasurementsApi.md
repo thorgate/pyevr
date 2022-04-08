@@ -37,7 +37,7 @@ configuration.host = "https://evr.veoseleht.ee"
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MeasurementsApi(api_client)
-    number = 'number_example' # str | Veoselehe number
+    number = 'number_example' # str | Veoselehe number (tõstutundetu)
 page = 1 # int | Tagastatav lehekülg (optional) (default to 1)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
@@ -53,7 +53,7 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **number** | **str**| Veoselehe number | 
+ **number** | **str**| Veoselehe number (tõstutundetu) | 
  **page** | **int**| Tagastatav lehekülg | [optional] [default to 1]
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
@@ -110,7 +110,7 @@ configuration.host = "https://evr.veoseleht.ee"
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MeasurementsApi(api_client)
-    number = 'number_example' # str | Veoselehe number
+    number = 'number_example' # str | Veoselehe number (tõstutundetu)
 add_measurement_act_request = openapi_client.AddMeasurementActRequest() # AddMeasurementActRequest | Mõõtmisandmed
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
@@ -125,7 +125,7 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **number** | **str**| Veoselehe number | 
+ **number** | **str**| Veoselehe number (tõstutundetu) | 
  **add_measurement_act_request** | [**AddMeasurementActRequest**](AddMeasurementActRequest.md)| Mõõtmisandmed | 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 

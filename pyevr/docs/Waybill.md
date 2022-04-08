@@ -14,6 +14,7 @@ Name | Type | Description | Notes
 **pre_journey_mileage** | **int** | Ettesõidu kilometraaž | [optional] 
 **user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed | [optional] 
 **mass** | **float** | Autorongi mass tonnides | [optional] 
+**transport_order** | **str** | Veotellimuse number | [optional] 
 **number** | **str** | Veoselehe number | [optional] 
 **status** | [**WaybillStatus**](WaybillStatus.md) |  | [optional] 
 **creation_time** | **datetime** | Loomise aeg | [optional] 
@@ -24,6 +25,7 @@ Name | Type | Description | Notes
 **unloading_time** | **datetime** | Mahalaadimise aeg (kui veoselehel on vedu lõpetatud) | [optional] 
 **finishing_time** | **datetime** | Veoselehe lõpetamise aeg (kui veoseleht on lõpetatud) | [optional] 
 **last_modification_time** | **datetime** | Veoselehe viimase muutmise aeg | [optional] 
+**notes** | [**list[WaybillNote]**](WaybillNote.md) | Veoselehe märkused | [optional] 
 **waybill_authorizations** | [**list[WaybillAuthorization]**](WaybillAuthorization.md) | Veoselehe volitused | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
