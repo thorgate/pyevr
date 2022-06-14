@@ -319,8 +319,8 @@ class StartWaybillRequest(object):
                 pre_journey_mileage is not None and pre_journey_mileage > 100000):  # noqa: E501
             raise ValueError("Invalid value for `pre_journey_mileage`, must be a value less than or equal to `100000`")  # noqa: E501
         if (self.local_vars_configuration.client_side_validation and
-                pre_journey_mileage is not None and pre_journey_mileage < 1):  # noqa: E501
-            raise ValueError("Invalid value for `pre_journey_mileage`, must be a value greater than or equal to `1`")  # noqa: E501
+                pre_journey_mileage is not None and pre_journey_mileage < 0):  # noqa: E501
+            raise ValueError("Invalid value for `pre_journey_mileage`, must be a value greater than or equal to `0`")  # noqa: E501
 
         self._pre_journey_mileage = pre_journey_mileage
 

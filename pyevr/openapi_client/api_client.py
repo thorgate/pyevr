@@ -253,7 +253,7 @@ class ApiClient(object):
         # handle file downloading
         # save response body into a tmp file and return the instance
         if response_type == "file":
-            return self.__deserialize_file(response)
+            return self._deserialize_file(response)
 
         # fetch data from response object
         try:
@@ -261,9 +261,9 @@ class ApiClient(object):
         except ValueError:
             data = response.data
 
-        return self.__deserialize(data, response_type)
+        return self._deserialize(data, response_type)
 
-    def __deserialize(self, data, klass):
+    def _deserialize(self, data, klass):
         """Deserializes dict, list, str into an object.
 
         :param data: dict, list or str.
@@ -277,12 +277,12 @@ class ApiClient(object):
         if type(klass) == str:
             if klass.startswith('list['):
                 sub_kls = re.match(r'list\[(.*)\]', klass).group(1)
-                return [self.__deserialize(sub_data, sub_kls)
+                return [self._deserialize(sub_data, sub_kls)
                         for sub_data in data]
 
             if klass.startswith('dict('):
                 sub_kls = re.match(r'dict\(([^,]*), (.*)\)', klass).group(2)
-                return {k: self.__deserialize(v, sub_kls)
+                return {k: self._deserialize(v, sub_kls)
                         for k, v in six.iteritems(data)}
 
             # convert str to class
@@ -292,15 +292,15 @@ class ApiClient(object):
                 klass = getattr(pyevr.openapi_client.models, klass)
 
         if klass in self.PRIMITIVE_TYPES:
-            return self.__deserialize_primitive(data, klass)
+            return self._deserialize_primitive(data, klass)
         elif klass == object:
-            return self.__deserialize_object(data)
+            return self._deserialize_object(data)
         elif klass == datetime.date:
-            return self.__deserialize_date(data)
+            return self._deserialize_date(data)
         elif klass == datetime.datetime:
-            return self.__deserialize_datetime(data)
+            return self._deserialize_datetime(data)
         else:
-            return self.__deserialize_model(data, klass)
+            return self._deserialize_model(data, klass)
 
     def call_api(self, resource_path, method,
                  path_params=None, query_params=None, header_params=None,
@@ -534,7 +534,7 @@ class ApiClient(object):
                         'Authentication token must be in `query` or `header`'
                     )
 
-    def __deserialize_file(self, response):
+    def _deserialize_file(self, response):
         """Deserializes body to file
 
         Saves response body into a file in a temporary folder,
@@ -558,7 +558,7 @@ class ApiClient(object):
 
         return path
 
-    def __deserialize_primitive(self, data, klass):
+    def _deserialize_primitive(self, data, klass):
         """Deserializes string to primitive type.
 
         :param data: str.
@@ -573,14 +573,14 @@ class ApiClient(object):
         except TypeError:
             return data
 
-    def __deserialize_object(self, value):
+    def _deserialize_object(self, value):
         """Return an original value.
 
         :return: object.
         """
         return value
 
-    def __deserialize_date(self, string):
+    def _deserialize_date(self, string):
         """Deserializes string to date.
 
         :param string: str.
@@ -596,7 +596,7 @@ class ApiClient(object):
                 reason="Failed to parse `{0}` as date object".format(string)
             )
 
-    def __deserialize_datetime(self, string):
+    def _deserialize_datetime(self, string):
         """Deserializes string to datetime.
 
         The string should be in iso8601 datetime format.
@@ -617,7 +617,7 @@ class ApiClient(object):
                 )
             )
 
-    def __deserialize_model(self, data, klass):
+    def _deserialize_model(self, data, klass):
         """Deserializes list or dict to model.
 
         :param data: dict, list.
@@ -636,12 +636,12 @@ class ApiClient(object):
             for attr, attr_type in six.iteritems(klass.openapi_types):
                 if klass.attribute_map[attr] in data:
                     value = data[klass.attribute_map[attr]]
-                    kwargs[attr] = self.__deserialize(value, attr_type)
+                    kwargs[attr] = self._deserialize(value, attr_type)
 
         instance = klass(**kwargs)
 
         if hasattr(instance, 'get_real_child_model'):
             klass_name = instance.get_real_child_model(data)
             if klass_name:
-                instance = self.__deserialize(data, klass_name)
+                instance = self._deserialize(data, klass_name)
         return instance
