@@ -6,7 +6,7 @@
 import unittest
 
 from pyevr import EVRClient
-from pyevr.openapi_client.models import ForestNotice, ForestNoticeAllOf
+from pyevr.openapi_client.models import ForestNotice, ForestNoticeAllOf, Receiver
 
 
 class TestEVRClient(unittest.TestCase):
@@ -74,6 +74,49 @@ class TestExtendedApiClient(unittest.TestCase):
             'forestAllocationNumber': 'f2',
             'number': 'n2',
         })
+
+    def test_deserialize_data(self):
+        # Given serialized forest notice data
+        forest_notice_data = {
+            'type': 'ForestNotice',
+            'cadaster': '1',
+            'compartment': 'c',
+            'forestAllocationNumber': 'f',
+            'number': 'n',
+        }
+
+        # When it is deserialized
+        forest_notice = self.client.deserialize_data(forest_notice_data, ForestNotice)
+
+        # Then result is instance of correct model
+        assert isinstance(forest_notice, ForestNotice)
+
+        # And has correct data
+        assert forest_notice.cadaster == "1"
+
+    def test_deserialize_data_error_reporting(self):
+        # Given invalid serialized receiver data
+        receiver_data = {
+            'name': 'Metsavaht OÜ',
+            'code': '42',
+            'address': {
+                'countryCode': 'EEEE',
+                'county': 'Metsamaa',
+                'city': 'Metsaküla',
+                'street': 'Metsa',
+            },
+            'contactPerson': {
+                'name': 'Jaan Jänese',
+                'phone': '',
+                'email': 'jaan@metsavaht.example.com',
+            },
+        }
+        with self.assertRaises(ValueError) as raises_context_manager:
+            # When it is deserialized
+            self.client.deserialize_data(receiver_data, Receiver)
+
+        # Then is ValueError pointing out at the exact field
+        assert "Receiver.Address" in str(raises_context_manager.exception)
 
 
 if __name__ == '__main__':

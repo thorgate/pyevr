@@ -1,11 +1,11 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
+import threading
+
 from pyevr import apis
 from pyevr.openapi_client.api_client import ApiClient
 from pyevr.openapi_client.configuration import Configuration
-import threading
-import logging
 
 
 HOLDING_BASE_CHILDREN = (
@@ -35,30 +35,31 @@ class ExtendedApiClient(ApiClient):
 
         :return: deserialized object.
         """
-        # handle file downloading
-        # save response body into a tmp file and return the instance
-        if response_type == "file":
-            raise TypeError("Unable to deserialize file from json data.")
-
         return self._deserialize(response_data, response_type)
 
     def _deserialize_model(self, data, klass):
         thread_name = threading.current_thread().name
-        if not thread_name in self.DESERIALIZATION_STACKS:
+        if thread_name not in self.DESERIALIZATION_STACKS:
             self.DESERIALIZATION_STACKS[thread_name] = []
         stack = self.DESERIALIZATION_STACKS[thread_name]
-        if isinstance(klass, type):
-            stack.append(klass.__name__)
-        else:
-            stack.append(str(klass))
+        stack.append(getattr(klass, "__name__", str(klass)))
 
         try:
             deserialized_data = super()._deserialize_model(data, klass)
         except ValueError as e:
             if stack:
-                logging.exception("Error happened at %s, data is %r.", ".".join(stack), data)
+                message = "Error happened at {location}, data was {data}. Original error was {message}".format(
+                    location=".".join(stack),
+                    data=repr(data),
+                    message=repr(e),
+                )
+            else:
+                message = None
             stack.clear()
-            raise e
+            if message:
+                raise ValueError(message) from e
+            else:
+                raise e
         else:
             stack.pop()
         return deserialized_data
@@ -104,3 +105,6 @@ class EVRClient(object):
         self.organizations = apis.OrganizationsAPI(self.openapi_client)
         self.place_of_deliveries = apis.PlaceOfDeliveriesAPI(self.openapi_client)
         self.waybills = apis.WaybillsAPI(self.openapi_client)
+
+    def deserialize_data(self, response_data, response_type):
+        return self.openapi_client.deserialize_data(response_data, response_type)

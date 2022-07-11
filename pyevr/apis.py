@@ -1,4 +1,3 @@
-from math import ceil
 from typing import Callable
 
 from pyevr.openapi_client import api
@@ -33,22 +32,25 @@ class AllMixin:
             del kwargs[self.evr_page_param]
         endpoint = self.get_list_endpoint()
 
-        kwargs[self.evr_page_param] = 1
-        first_page_response = endpoint(**kwargs)
-        results = first_page_response.page_result
-        page_size = first_page_response.page_size
-        total_count = first_page_response.total_count
+        current_page = 1
+        current_count = 0
+        total_count = None
 
-        if total_count <= page_size:
-            return results
-
-        total_pages = ceil(total_count / page_size)
-        for page in range(2, total_pages + 1):
-            kwargs[self.evr_page_param] = page
+        while total_count is None or current_count < total_count:
+            kwargs[self.evr_page_param] = current_page
             page_response = endpoint(**kwargs)
-            results.extend(page_response.page_result)
+            if total_count is None:
+                total_count = page_response.total_count
 
-        return results
+            if page_response.page_result:
+                for item in page_response.page_result:
+                    current_count += 1
+                    yield item
+            else:
+                # Possibly number of items changed while iterating, in this case assume no more items are coming
+                return
+
+            current_page += 1
 
 
 class AssortmentsAPI(AllMixin, api.AssortmentsApi):

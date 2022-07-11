@@ -2,8 +2,20 @@
 Changelog
 =========
 
+Unreleased
+----------
+
+**Generic**
+
+* Change `all` method to be a generator instead of returning a list, to
+  allow data consumer to start consumption faster and avoid loading the
+  unnecessary pages if error happens early on
+* Add `deserialize_data` method that allows to rehydrate the model from
+  result of `sanitize_for_serialization` (allowing to store models as
+  json and similar use-cases)
+
 0.5.2 (2022-04-06)
------------------------
+------------------
 
 **Generic**
 
