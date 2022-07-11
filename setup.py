@@ -5,8 +5,6 @@
 
 from setuptools import setup, find_packages
 
-import pyevr
-
 with open('README.rst') as readme_file:
     readme = readme_file.read()
 
@@ -20,8 +18,8 @@ setup_requirements = ['pytest-runner', ]
 test_requirements = ['pytest>=5.3.0', ]
 
 setup(
-    author=pyevr.__author__,
-    author_email=pyevr.__email__,
+    author="Thorgate",
+    author_email="code@thorgate.eu",
     python_requires='>=3.6',
     classifiers=[
         'Development Status :: 2 - Pre-Alpha',
@@ -50,6 +48,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/thorgate/pyevr',
-    version=pyevr.__version__,
+    version="0.5.2",
     zip_safe=False,
 )
