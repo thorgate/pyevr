@@ -8,7 +8,7 @@ Method | HTTP request | Description
 
 
 # **certificates_list**
-> PagedResultOfCertificate certificates_list(page=page, evr_language=evr_language)
+> PagedResultOfCertificate certificates_list(page=page, page_size=page_size, evr_language=evr_language)
 
 Sertifikaatide pärimine
 
@@ -37,11 +37,12 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.CertificatesApi(api_client)
     page = 56 # int | Tagastatav lehekülg (optional)
+page_size = 56 # int | Tagastatava lehekülje suurus (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Sertifikaatide pärimine
-        api_response = api_instance.certificates_list(page=page, evr_language=evr_language)
+        api_response = api_instance.certificates_list(page=page, page_size=page_size, evr_language=evr_language)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling CertificatesApi->certificates_list: %s\n" % e)
@@ -52,6 +53,7 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Tagastatav lehekülg | [optional] 
+ **page_size** | **int**| Tagastatava lehekülje suurus | [optional] 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type

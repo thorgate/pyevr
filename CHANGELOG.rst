@@ -2,7 +2,7 @@
 Changelog
 =========
 
-Unreleased
+0.6.0.dev1
 ----------
 
 **Generic**
@@ -13,6 +13,19 @@ Unreleased
 * Add `deserialize_data` method that allows to rehydrate the model from
   result of `sanitize_for_serialization` (allowing to store models as
   json and similar use-cases)
+
+**Updates**
+
+Use EVR schema 1.9.0 from staging server
+
+* Support `WithoutForestNotice` holding base
+
+* Support `page_size` parameter for list endpoints
+
+* Support `last_modified_after` and `last_modified_before` for waybill list
+
+* Support `waybill_latest_measurements` in waybill model
+
 
 0.5.2 (2022-04-06)
 ------------------
@@ -25,7 +38,7 @@ Unreleased
 
 * Update to newest EVR schema
 * Workaround: Patch minLength in schema to be consistent with data returned by API
-* Remove workaround for assortmnet schema
+* Remove workaround for assortment schema
 
 0.5.0 (2020-04-18)
 ------------------

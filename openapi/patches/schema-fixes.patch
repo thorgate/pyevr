@@ -434,10 +434,3 @@
            },
            "address": {
              "description": "Aadress",
-@@ -3527,4 +3527,4 @@
-       "SecretApiKey": []
-     }
-   ]
--}
-\ No newline at end of file
-+}

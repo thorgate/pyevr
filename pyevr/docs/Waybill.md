@@ -27,6 +27,7 @@ Name | Type | Description | Notes
 **last_modification_time** | **datetime** | Veoselehe viimase muutmise aeg | [optional] 
 **notes** | [**list[WaybillNote]**](WaybillNote.md) | Veoselehe märkused | [optional] 
 **waybill_authorizations** | [**list[WaybillAuthorization]**](WaybillAuthorization.md) | Veoselehe volitused | [optional] 
+**waybill_latest_measurements** | [**MeasurementAct**](MeasurementAct.md) |  | [optional] 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

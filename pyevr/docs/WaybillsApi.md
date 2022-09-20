@@ -301,7 +301,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **waybills_list**
-> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, text=text, sort=sort, page=page, evr_language=evr_language)
+> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
 
 Veoselehtede pärimine
 
@@ -329,9 +329,10 @@ configuration.host = "https://evr.veoseleht.ee"
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
-    created_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahe peab jääma 1 kuu piiresse. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud varem või samal ajal. Ajavahemik 'created_after' ning 'created_before' vahe peab jääma 1 kuu piiresse. (optional)
-last_modified_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud pärast määratud aega (optional)
+    created_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Kui 'created_after' ja 'created_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
+created_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud varem või samal ajal. Kui 'created_after' ja 'created_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
+last_modified_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud pärast määratud aega. Kui 'last_modified_after' ja 'last_modified_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
+last_modified_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud enne määratud aega. Kui 'last_modified_after' ja 'last_modified_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
 status = openapi_client.WaybillStatus() # WaybillStatus | Filtreerib veoselehed, mis vastavad määratud staatusele (optional)
 owner_code = 'owner_code_example' # str | Filtreerib veoselehed, millel on sama omaniku kood (optional)
 transporter_code = 'transporter_code_example' # str | Filtreerib veoselehed, millel on sama transportija kood (optional)
@@ -342,11 +343,13 @@ driver_id_code = 'driver_id_code_example' # str | Filtreerib veoselehed, millel 
 text = 'text_example' # str | Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. (optional)
 sort = openapi_client.WaybillSortField() # WaybillSortField | Sorteerib tulemused valitud välja järgi (optional)
 page = 56 # int | Määrab tagastatava lehekülje (optional)
+page_size = 56 # int | Määrab lehekülje suuruse (optional)
+include_latest_measurements = True # bool | Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehtede pärimine
-        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, text=text, sort=sort, page=page, evr_language=evr_language)
+        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling WaybillsApi->waybills_list: %s\n" % e)
@@ -356,9 +359,10 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
- **created_after** | **datetime**| Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Ajavahemik &#39;created_after&#39; ning &#39;created_before&#39; vahe peab jääma 1 kuu piiresse. | [optional] 
- **created_before** | **datetime**| Filtreerib veoselehed, mis on loodud varem või samal ajal. Ajavahemik &#39;created_after&#39; ning &#39;created_before&#39; vahe peab jääma 1 kuu piiresse. | [optional] 
- **last_modified_after** | **datetime**| Filtreerib veoselehed, mis on muutunud pärast määratud aega | [optional] 
+ **created_after** | **datetime**| Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Kui &#39;created_after&#39; ja &#39;created_before&#39; on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. | [optional] 
+ **created_before** | **datetime**| Filtreerib veoselehed, mis on loodud varem või samal ajal. Kui &#39;created_after&#39; ja &#39;created_before&#39; on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. | [optional] 
+ **last_modified_after** | **datetime**| Filtreerib veoselehed, mis on muutunud pärast määratud aega. Kui &#39;last_modified_after&#39; ja &#39;last_modified_before&#39; on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. | [optional] 
+ **last_modified_before** | **datetime**| Filtreerib veoselehed, mis on muutunud enne määratud aega. Kui &#39;last_modified_after&#39; ja &#39;last_modified_before&#39; on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. | [optional] 
  **status** | [**WaybillStatus**](.md)| Filtreerib veoselehed, mis vastavad määratud staatusele | [optional] 
  **owner_code** | **str**| Filtreerib veoselehed, millel on sama omaniku kood | [optional] 
  **transporter_code** | **str**| Filtreerib veoselehed, millel on sama transportija kood | [optional] 
@@ -369,6 +373,8 @@ Name | Type | Description  | Notes
  **text** | **str**| Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. | [optional] 
  **sort** | [**WaybillSortField**](.md)| Sorteerib tulemused valitud välja järgi | [optional] 
  **page** | **int**| Määrab tagastatava lehekülje | [optional] 
+ **page_size** | **int**| Määrab lehekülje suuruse | [optional] 
+ **include_latest_measurements** | **bool**| Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) | [optional] 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
@@ -395,7 +401,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **waybills_get**
-> Waybill waybills_get(number, evr_language=evr_language)
+> Waybill waybills_get(number, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
 
 Veoselehe pärimine
 
@@ -424,11 +430,12 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Päritava veoselehe number (tõstutundetu)
+include_latest_measurements = False # bool |  (optional) (default to False)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe pärimine
-        api_response = api_instance.waybills_get(number, evr_language=evr_language)
+        api_response = api_instance.waybills_get(number, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling WaybillsApi->waybills_get: %s\n" % e)
@@ -439,6 +446,7 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Päritava veoselehe number (tõstutundetu) | 
+ **include_latest_measurements** | **bool**|  | [optional] [default to False]
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type

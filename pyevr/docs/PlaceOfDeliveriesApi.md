@@ -151,7 +151,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **place_of_deliveries_list**
-> PagedResultOfPlaceOfDelivery place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, evr_language=evr_language)
+> PagedResultOfPlaceOfDelivery place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, page_size=page_size, evr_language=evr_language)
 
 Tarnekohtade pärimine
 
@@ -184,11 +184,12 @@ code_starts_with = 'code_starts_with_example' # str | Filtreerib tarnekohad, mil
 register_code = 'register_code_example' # str | Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile (optional)
 address = 'address_example' # str | Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA * jutumärkides tekst: otsitakse jutumärkides olevat lauset * OR: loogiline VÕI operaator sõnade vahel * -: loogiline EITUS (optional)
 page = 56 # int | Tagastatav lehekülg (optional)
+page_size = 56 # int | Tagastatava lehekülje suurus (optional)
 evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Tarnekohtade pärimine
-        api_response = api_instance.place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, evr_language=evr_language)
+        api_response = api_instance.place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, page_size=page_size, evr_language=evr_language)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_list: %s\n" % e)
@@ -203,6 +204,7 @@ Name | Type | Description  | Notes
  **register_code** | **str**| Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile | [optional] 
  **address** | **str**| Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA * jutumärkides tekst: otsitakse jutumärkides olevat lauset * OR: loogiline VÕI operaator sõnade vahel * -: loogiline EITUS | [optional] 
  **page** | **int**| Tagastatav lehekülg | [optional] 
+ **page_size** | **int**| Tagastatava lehekülje suurus | [optional] 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
