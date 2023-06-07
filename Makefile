@@ -99,7 +99,7 @@ openapi: ## generate new API client based on the OpenAPI specification
 	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o openapi/openapi-generator-compatible.json
 	patch -p0 < openapi/patches/schema-fixes.patch
 	docker build -t pyevr_openapi -f openapi/Dockerfile-openapi openapi
-	docker run --rm -v ${PWD}/.openapi/:/openapi pyevr_openapi
+	docker run --rm --ulimit nofile=122880:122880 -v ${PWD}/.openapi/:/openapi pyevr_openapi
 	sudo chown -R ${USER} .openapi pyevr
 	cp -r .openapi/openapi_client pyevr/openapi_client
 	cp -r .openapi/docs pyevr/docs

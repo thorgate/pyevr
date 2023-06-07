@@ -40,7 +40,7 @@ Use EVR schema 1.14
 
 * Update to newest EVR schema
 * Workaround: Patch minLength in schema to be consistent with data returned by API
-* Remove workaround for assortment schema
+* Remove workaround for assortmnet schema
 
 0.5.0 (2020-04-18)
 ------------------
