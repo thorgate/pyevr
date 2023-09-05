@@ -233,8 +233,8 @@
            },
            "code": {
              "type": "string",
-             "description": "Isiku- või registrikood",
-             "maxLength": 20,
+             "description": "Eelmiste omanike isiku- või registrikoodid",
+             "maxLength": 100,
 -            "minLength": 1
 +            "minLength": 0
            },
@@ -311,15 +311,6 @@
            },
            "assortment": {
              "description": "Sortiment",
-@@ -2644,7 +2644,7 @@
-           },
-           "location": {
-             "description": "PackLocationApiModel",
--            "minLength": 1,
-+            "minLength": 0,
-             "$ref": "#/components/schemas/PackLocation"
-           }
-         }
 @@ -2674,19 +2674,19 @@
              "type": "string",
              "description": "Sortimendi kood. Kui organisatsioon on seadistatud kasutama EVR sortimente, peab kood olema [üks EVR sortimentide koodist.](#operation/Assortments_List)",
@@ -402,7 +393,7 @@
            }
          }
        },
-@@ -2954,11 +2954,11 @@
+@@ -2954,10 +2954,10 @@
              "type": "string",
              "description": "Registrikood",
              "maxLength": 20,
@@ -411,8 +402,6 @@
            },
            "type": {
              "description": "Volituse tüüp",
--            "minLength": 1,
-+            "minLength": 0,
              "$ref": "#/components/schemas/AuthorizationType"
            }
          }

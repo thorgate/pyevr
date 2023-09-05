@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.6.0.dev1
+0.6.0.dev3
 ----------
 
 **Generic**
@@ -16,7 +16,7 @@ Changelog
 
 **Updates**
 
-Use EVR schema 1.9.0 from staging server
+Use EVR schema 1.13
 
 * Support `WithoutForestNotice` holding base
 
@@ -25,6 +25,8 @@ Use EVR schema 1.9.0 from staging server
 * Support `last_modified_after` and `last_modified_before` for waybill list
 
 * Support `waybill_latest_measurements` in waybill model
+
+* Other misc changes
 
 
 0.5.2 (2022-04-06)

@@ -48,6 +48,6 @@ setup(
     test_suite='tests',
     tests_require=test_requirements,
     url='https://github.com/thorgate/pyevr',
-    version="0.6.0.dev1",
+    version="0.6.0.dev3",
     zip_safe=False,
 )
