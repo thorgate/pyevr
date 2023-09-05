@@ -301,7 +301,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **waybills_list**
-> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
 
 Veoselehtede pärimine
 
@@ -340,6 +340,7 @@ receiver_code = 'receiver_code_example' # str | Filtreerib veoselehed, millel on
 van_registration_number = 'van_registration_number_example' # str | Filtreerib veoselehed, millel on sama veoki registreerimisnumber (tõstutundlik) (optional)
 trailer_registration_number = 'trailer_registration_number_example' # str | Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) (optional)
 driver_id_code = 'driver_id_code_example' # str | Filtreerib veoselehed, millel on sama transportija autojuhi isikukood (tõstutundlik) (optional)
+place_of_delivery_code = 'place_of_delivery_code_example' # str | Filtreerib veoselehed millel on sama tarnekoha kood (tõstutundlik) (optional)
 text = 'text_example' # str | Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. (optional)
 sort = openapi_client.WaybillSortField() # WaybillSortField | Sorteerib tulemused valitud välja järgi (optional)
 page = 56 # int | Määrab tagastatava lehekülje (optional)
@@ -349,7 +350,7 @@ evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele v
 
     try:
         # Veoselehtede pärimine
-        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
         pprint(api_response)
     except ApiException as e:
         print("Exception when calling WaybillsApi->waybills_list: %s\n" % e)
@@ -370,6 +371,7 @@ Name | Type | Description  | Notes
  **van_registration_number** | **str**| Filtreerib veoselehed, millel on sama veoki registreerimisnumber (tõstutundlik) | [optional] 
  **trailer_registration_number** | **str**| Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) | [optional] 
  **driver_id_code** | **str**| Filtreerib veoselehed, millel on sama transportija autojuhi isikukood (tõstutundlik) | [optional] 
+ **place_of_delivery_code** | **str**| Filtreerib veoselehed millel on sama tarnekoha kood (tõstutundlik) | [optional] 
  **text** | **str**| Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. | [optional] 
  **sort** | [**WaybillSortField**](.md)| Sorteerib tulemused valitud välja järgi | [optional] 
  **page** | **int**| Määrab tagastatava lehekülje | [optional] 
