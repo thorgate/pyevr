@@ -2,7 +2,7 @@
 Changelog
 =========
 
-0.6.0.dev3
+0.6.0.dev4
 ----------
 
 **Generic**
@@ -16,7 +16,7 @@ Changelog
 
 **Updates**
 
-Use EVR schema 1.13
+Use EVR schema 1.14
 
 * Support `WithoutForestNotice` holding base
 
