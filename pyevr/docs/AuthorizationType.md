@@ -1,5 +1,7 @@
 # AuthorizationType
 
+
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------

@@ -1,5 +1,5 @@
---- ./openapi/openapi-generator-compatible.json	2022-06-14 10:17:29.572147070 +0300
-+++ ./openapi/openapi-generator-compatible-patched.json	2022-06-14 10:17:16.381979532 +0300
+--- ./pyevr/openapi/openapi-generator-compatible.json	2022-06-14 10:17:29.572147070 +0300
++++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2022-06-14 10:17:16.381979532 +0300
 @@ -1750,13 +1750,13 @@
              "type": "string",
              "description": "Väljasõidu aeg",
@@ -224,29 +224,6 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2381,19 +2381,19 @@
-             "type": "string",
-             "description": "Nimi",
-             "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
-           },
-           "code": {
-             "type": "string",
-             "description": "Eelmiste omanike isiku- või registrikoodid",
-             "maxLength": 100,
--            "minLength": 1
-+            "minLength": 0
-           },
-           "address": {
-             "type": "string",
-             "description": "Aadress",
-             "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
-           }
-         }
-       },
 @@ -2415,19 +2415,19 @@
                  "type": "string",
                  "description": "Dokumendi number",

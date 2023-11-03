@@ -2,6 +2,14 @@
 Changelog
 =========
 
+0.7.0.dev1
+----------
+
+**Generic**
+
+* Update openapi generator to latest version
+* Move to poetry
+
 0.6.0.dev4
 ----------
 

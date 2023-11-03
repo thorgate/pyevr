@@ -18,6 +18,3 @@ find /openapi -type f -exec sed -i -re 's/waybills_get2:/waybills_get:/' {} +
 find /openapi -type f -exec sed -i -re 's/waybills_get2"/waybills_get"/' {} +
 find /openapi -type f -exec sed -i -re 's/waybills_get2`/waybills_get`/' {} +
 find /openapi -type f -exec sed -i -re 's/waybills_get2_with_http_info\(/waybills_get_with_http_info\(/' {} +
-
-# Make deserialize method less private
-find /openapi/openapi_client -type f -exec sed -i 's/__deserialize/_deserialize/g' {} +

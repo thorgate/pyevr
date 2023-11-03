@@ -1,60 +1,17 @@
 .PHONY: clean clean-test clean-pyc clean-build docs help openapi
 .DEFAULT_GOAL := help
 
-define BROWSER_PYSCRIPT
-import os, webbrowser, sys
+OPENAPI_GENERATOR_VERSION ?= v7.0.1
 
-try:
-	from urllib import pathname2url
-except:
-	from urllib.request import pathname2url
+lint:
+	poetry run flake8 --select=E9,F63,F7,F82 pyevr
 
-webbrowser.open("file://" + pathname2url(os.path.abspath(sys.argv[1])))
-endef
-export BROWSER_PYSCRIPT
-
-define PRINT_HELP_PYSCRIPT
-import re, sys
-
-for line in sys.stdin:
-	match = re.match(r'^([a-zA-Z_-]+):.*?## (.*)$$', line)
-	if match:
-		target, help = match.groups()
-		print("%-20s %s" % (target, help))
-endef
-export PRINT_HELP_PYSCRIPT
-
-BROWSER := python -c "$$BROWSER_PYSCRIPT"
-
-help:
-	@python -c "$$PRINT_HELP_PYSCRIPT" < $(MAKEFILE_LIST)
-
-clean: clean-build clean-pyc clean-test ## remove all build, test, coverage and Python artifacts
-
-clean-build: ## remove build artifacts
-	rm -fr build/
-	rm -fr dist/
-	rm -fr .eggs/
-	find . -name '*.egg-info' -exec rm -fr {} +
-	find . -name '*.egg' -exec rm -f {} +
-
-clean-pyc: ## remove Python file artifacts
-	find . -name '*.pyc' -exec rm -f {} +
-	find . -name '*.pyo' -exec rm -f {} +
-	find . -name '*~' -exec rm -f {} +
-	find . -name '__pycache__' -exec rm -fr {} +
-
-clean-test: ## remove test and coverage artifacts
-	rm -fr .tox/
-	rm -f .coverage
-	rm -fr htmlcov/
-	rm -fr .pytest_cache
-
-lint: ## check style with flake8
-	flake8 pyevr tests
+fmt:
+	poetry run black pyevr
+	poetry run black test
 
 test: ## run tests quickly with the default Python
-	pytest
+	poetry run pytest
 
 test-all: ## run tests on every Python version with tox
 	tox
@@ -63,44 +20,34 @@ coverage: ## check code coverage quickly with the default Python
 	coverage run --source pyevr -m pytest
 	coverage report -m
 	coverage html
-	$(BROWSER) htmlcov/index.html
-
-docs: ## generate Sphinx HTML documentation, including API docs
-	rm -f docs/pyevr.rst
-	rm -f docs/modules.rst
-	sphinx-apidoc -o docs/ pyevr
-	$(MAKE) -C docs clean
-	$(MAKE) -C docs html
-	$(BROWSER) docs/_build/html/index.html
-
-servedocs: docs ## compile the docs watching for changes
-	watchmedo shell-command -p '*.rst' -c '$(MAKE) -C docs html' -R -D .
 
 release: dist ## package and upload a release
+	# todo
 	twine upload dist/*
 
 dist: clean ## builds source and wheel package
+	# todo
 	python setup.py sdist
 	python setup.py bdist_wheel
 	ls -l dist
 
 install: clean ## install the package to the active Python's site-packages
+	$ todo
 	python setup.py install
 
 openapi-patch: ## create patch for openapi schema
-	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o openapi/openapi-generator-compatible.json
-	diff -Naur ./openapi/openapi-generator-compatible.json ./openapi/openapi-generator-compatible-patched.json > ./openapi/patches/schema-fixes.patch || echo "Patch created"
+	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o pyevr/openapi/openapi-generator-compatible.json
+	diff -Naur ./pyevr/openapi/openapi-generator-compatible.json ./pyevr/openapi/openapi-generator-compatible-patched.json > ./pyevr/openapi/patches/schema-fixes.patch || echo "Patch created"
 
 openapi: ## generate new API client based on the OpenAPI specification
-	sudo chown -R ${USER} pyevr
 	rm -rf .openapi
 	rm -rf pyevr/openapi_client
 	rm -rf pyevr/docs
-	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o openapi/openapi-generator-compatible.json
-	patch -p0 < openapi/patches/schema-fixes.patch
-	docker build -t pyevr_openapi -f openapi/Dockerfile-openapi openapi
-	docker run --rm --ulimit nofile=122880:122880 -v ${PWD}/.openapi/:/openapi pyevr_openapi
-	sudo chown -R ${USER} .openapi pyevr
+	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o pyevr/openapi/openapi-generator-compatible.json
+	patch -p0 < pyevr/openapi/patches/schema-fixes.patch
+	docker run --rm --ulimit nofile=122880:122880  -v ${PWD}/pyevr/openapi/update_schema.sh:/helpers/update_schema.sh -v ${PWD}/pyevr/openapi/openapi-generator-compatible.json:/openapi-generator-compatible.json -v ${PWD}/.openapi/:/openapi openapitools/openapi-generator-cli:$(OPENAPI_GENERATOR_VERSION) /bin/bash /helpers/update_schema.sh /openapi-generator-compatible.json
+	sudo chown -R ${USER} .openapi
 	cp -r .openapi/openapi_client pyevr/openapi_client
 	cp -r .openapi/docs pyevr/docs
 	rm -rf .openapi
+	poetry run black pyevr

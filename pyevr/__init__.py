@@ -2,4 +2,4 @@
 
 """Top-level package for pyevr."""
 
-from pyevr.client import EVRClient  # noqa: F401
+from .client import EVRClient

@@ -6,7 +6,7 @@
 import unittest
 
 from pyevr import EVRClient
-from pyevr.openapi_client.models import ForestNotice, ForestNoticeAllOf, Receiver
+from pyevr.openapi_client.models import ForestNotice, Receiver
 
 
 class TestEVRClient(unittest.TestCase):
@@ -55,7 +55,13 @@ class TestExtendedApiClient(unittest.TestCase):
         self.client = EVRClient(self.api_key, self.host)
 
     def test_sanitize_for_serialization(self):
-        notice = ForestNotice(cadaster='1', compartment='c', forest_allocation_number='f', number='n')
+        notice = ForestNotice(
+            cadaster='1',
+            compartment='c',
+            forest_allocation_number='f',
+            number='n',
+            type="ForestNotice",
+        )
         obj_dict = self.client.openapi_client.sanitize_for_serialization(notice)
         self.assertDictEqual(obj_dict, {
             'type': 'ForestNotice',
@@ -63,16 +69,6 @@ class TestExtendedApiClient(unittest.TestCase):
             'compartment': 'c',
             'forestAllocationNumber': 'f',
             'number': 'n',
-        })
-
-        notice_all_of = ForestNoticeAllOf(cadaster='12', compartment='c2', forest_allocation_number='f2', number='n2')
-        obj_dict = self.client.openapi_client.sanitize_for_serialization(notice_all_of)
-        self.assertDictEqual(obj_dict, {
-            'type': 'ForestNotice',
-            'cadaster': '12',
-            'compartment': 'c2',
-            'forestAllocationNumber': 'f2',
-            'number': 'n2',
         })
 
     def test_deserialize_data(self):
@@ -116,7 +112,8 @@ class TestExtendedApiClient(unittest.TestCase):
             self.client.deserialize_data(receiver_data, Receiver)
 
         # Then is ValueError pointing out at the exact field
-        assert "Receiver.Address" in str(raises_context_manager.exception)
+        assert "Address" in str(raises_context_manager.exception)
+        assert "countryCode" in str(raises_context_manager.exception)
 
 
 if __name__ == '__main__':

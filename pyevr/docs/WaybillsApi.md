@@ -25,34 +25,46 @@ Lisab veoselehele uue märkuse. Olemasolevaid märkuseid ei muudeta. Märkust sa
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.add_waybill_note_request import AddWaybillNoteRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Veoselehe number (tõstutundetu)
-add_waybill_note_request = openapi_client.AddWaybillNoteRequest() # AddWaybillNoteRequest | 
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    add_waybill_note_request = openapi_client.AddWaybillNoteRequest() # AddWaybillNoteRequest | 
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe märkuse lisamine
         api_instance.waybills_add_note(number, add_waybill_note_request, evr_language=evr_language)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_add_note: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -97,34 +109,46 @@ Lisab veoselehele uue veose. Veoseid saab lisada veoselehele vedaja ja veoselehe
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.add_shipments_to_waybill_request import AddShipmentsToWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Veoselehe number (tõstutundetu)
-add_shipments_to_waybill_request = openapi_client.AddShipmentsToWaybillRequest() # AddShipmentsToWaybillRequest | 
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    add_shipments_to_waybill_request = openapi_client.AddShipmentsToWaybillRequest() # AddShipmentsToWaybillRequest | 
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehele veose lisamine
         api_instance.waybills_add_shipments(number, add_shipments_to_waybill_request, evr_language=evr_language)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_add_shipments: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -169,34 +193,46 @@ Tühistab veoselehe. Veoselehe staatuseks märgitakse tühistatud (status: \"can
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.cancel_waybill_request import CancelWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Veoselehe number (tõstutundetu)
-cancel_waybill_request = openapi_client.CancelWaybillRequest() # CancelWaybillRequest | 
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    cancel_waybill_request = openapi_client.CancelWaybillRequest() # CancelWaybillRequest | 
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe tühistamine
         api_instance.waybills_cancel(number, cancel_waybill_request, evr_language=evr_language)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_cancel: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -241,33 +277,44 @@ Lõpetab veoselehe ja veoselehe staatuseks märgitakse \"veoseleht lõpetatud\" 
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Veoselehe number (tõstutundetu)
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe lõpetamine
         api_instance.waybills_finish(number, evr_language=evr_language)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_finish: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -311,50 +358,65 @@ Tagastab filtritele vastavad veoselehed. Veoselehti saavad pärida ainult nendeg
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.paged_result_of_waybill import PagedResultOfWaybill
+from openapi_client.models.waybill_sort_field import WaybillSortField
+from openapi_client.models.waybill_status import WaybillStatus
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     created_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud hiljem või samal ajal. Kui 'created_after' ja 'created_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
-created_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud varem või samal ajal. Kui 'created_after' ja 'created_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
-last_modified_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud pärast määratud aega. Kui 'last_modified_after' ja 'last_modified_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
-last_modified_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud enne määratud aega. Kui 'last_modified_after' ja 'last_modified_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
-status = openapi_client.WaybillStatus() # WaybillStatus | Filtreerib veoselehed, mis vastavad määratud staatusele (optional)
-owner_code = 'owner_code_example' # str | Filtreerib veoselehed, millel on sama omaniku kood (optional)
-transporter_code = 'transporter_code_example' # str | Filtreerib veoselehed, millel on sama transportija kood (optional)
-receiver_code = 'receiver_code_example' # str | Filtreerib veoselehed, millel on sama saaja kood (optional)
-van_registration_number = 'van_registration_number_example' # str | Filtreerib veoselehed, millel on sama veoki registreerimisnumber (tõstutundlik) (optional)
-trailer_registration_number = 'trailer_registration_number_example' # str | Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) (optional)
-driver_id_code = 'driver_id_code_example' # str | Filtreerib veoselehed, millel on sama transportija autojuhi isikukood (tõstutundlik) (optional)
-place_of_delivery_code = 'place_of_delivery_code_example' # str | Filtreerib veoselehed millel on sama tarnekoha kood (tõstutundlik) (optional)
-text = 'text_example' # str | Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. (optional)
-sort = openapi_client.WaybillSortField() # WaybillSortField | Sorteerib tulemused valitud välja järgi (optional)
-page = 56 # int | Määrab tagastatava lehekülje (optional)
-page_size = 56 # int | Määrab lehekülje suuruse (optional)
-include_latest_measurements = True # bool | Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) (optional)
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    created_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on loodud varem või samal ajal. Kui 'created_after' ja 'created_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
+    last_modified_after = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud pärast määratud aega. Kui 'last_modified_after' ja 'last_modified_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
+    last_modified_before = '2013-10-20T19:20:30+01:00' # datetime | Filtreerib veoselehed, mis on muutunud enne määratud aega. Kui 'last_modified_after' ja 'last_modified_before' on mõlemad määratud, peab nende vahe jääma 1 kuu piiresse. (optional)
+    status = openapi_client.WaybillStatus() # WaybillStatus | Filtreerib veoselehed, mis vastavad määratud staatusele (optional)
+    owner_code = 'owner_code_example' # str | Filtreerib veoselehed, millel on sama omaniku kood (optional)
+    transporter_code = 'transporter_code_example' # str | Filtreerib veoselehed, millel on sama transportija kood (optional)
+    receiver_code = 'receiver_code_example' # str | Filtreerib veoselehed, millel on sama saaja kood (optional)
+    van_registration_number = 'van_registration_number_example' # str | Filtreerib veoselehed, millel on sama veoki registreerimisnumber (tõstutundlik) (optional)
+    trailer_registration_number = 'trailer_registration_number_example' # str | Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) (optional)
+    driver_id_code = 'driver_id_code_example' # str | Filtreerib veoselehed, millel on sama transportija autojuhi isikukood (tõstutundlik) (optional)
+    place_of_delivery_code = 'place_of_delivery_code_example' # str | Filtreerib veoselehed millel on sama tarnekoha kood (tõstutundlik) (optional)
+    text = 'text_example' # str | Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. (optional)
+    sort = openapi_client.WaybillSortField() # WaybillSortField | Sorteerib tulemused valitud välja järgi (optional)
+    page = 56 # int | Määrab tagastatava lehekülje (optional)
+    page_size = 56 # int | Määrab lehekülje suuruse (optional)
+    include_latest_measurements = True # bool | Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) (optional)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehtede pärimine
         api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+        print("The response of WaybillsApi->waybills_list:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_list: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -413,35 +475,48 @@ Tagastab numbrile vastava veoselehe. Veoselehte saavad pärida ainult sellega se
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.waybill import Waybill
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Päritava veoselehe number (tõstutundetu)
-include_latest_measurements = False # bool |  (optional) (default to False)
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    include_latest_measurements = False # bool |  (optional) (default to False)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe pärimine
         api_response = api_instance.waybills_get(number, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+        print("The response of WaybillsApi->waybills_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -485,34 +560,47 @@ Loob veoselehe staatusega \"vedu alustatud\" (status: \"shipping\"). Veo alustaj
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.start_waybill_request import StartWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     start_waybill_request = openapi_client.StartWaybillRequest() # StartWaybillRequest | Veoselehe andmed
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe loomine
         api_response = api_instance.waybills_post(start_waybill_request, evr_language=evr_language)
+        print("The response of WaybillsApi->waybills_post:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -555,34 +643,46 @@ Lõpetab veo veoselehel ja veoselehe staatuseks märgitakse \"koorem maas\" (sta
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.unload_waybill_request import UnloadWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Veoselehe number (tõstutundetu)
-unload_waybill_request = openapi_client.UnloadWaybillRequest() # UnloadWaybillRequest | 
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    unload_waybill_request = openapi_client.UnloadWaybillRequest() # UnloadWaybillRequest | 
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehel veo lõpetamine
         api_instance.waybills_unload(number, unload_waybill_request, evr_language=evr_language)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling WaybillsApi->waybills_unload: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

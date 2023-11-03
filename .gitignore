@@ -24,6 +24,7 @@ wheels/
 *.egg-info/
 .installed.cfg
 *.egg
+.openapi
 
 # PyInstaller
 #  Usually these files are written by a python script from a template
@@ -105,5 +106,6 @@ ENV/
 .idea/
 
 # Files for patching
-openapi/openapi-generator-compatible-patched.json
-openapi/openapi-generator-compatible.json
+pyevr/openapi/openapi-generator-compatible-patched.json
+pyevr/openapi/openapi-generator-compatible.json
+pyevr/openapi/openapi-generator-compatible.json.orig

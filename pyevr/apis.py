@@ -11,7 +11,7 @@ class AllMixin:
     """
 
     list_endpoint_attr = None
-    evr_page_param = 'page'
+    evr_page_param = "page"
 
     def get_list_endpoint(self) -> Callable:
         """Method for getting the callable API's endpoint that is responsible for returning paged results
@@ -21,9 +21,13 @@ class AllMixin:
         if self.list_endpoint_attr is None:
             raise ValueError("AllMixin requires `list_endpoint_attr` to be set")
         if not hasattr(self, self.list_endpoint_attr):
-            raise ValueError("%s does not have the required list attribute `%s`" % (
-                self.__class__, self.list_endpoint_attr,
-            ))
+            raise ValueError(
+                "%s does not have the required list attribute `%s`"
+                % (
+                    self.__class__,
+                    self.list_endpoint_attr,
+                )
+            )
         return getattr(self, self.list_endpoint_attr)
 
     def all(self, **kwargs):
@@ -54,28 +58,28 @@ class AllMixin:
 
 
 class AssortmentsAPI(AllMixin, api.AssortmentsApi):
-    list_endpoint_attr = 'assortments_list'
+    list_endpoint_attr = "assortments_list"
 
 
 class CertificatesAPI(AllMixin, api.CertificatesApi):
-    list_endpoint_attr = 'certificates_list'
+    list_endpoint_attr = "certificates_list"
 
 
 class MeasurementsAPI(AllMixin, api.MeasurementsApi):
-    list_endpoint_attr = 'measurements_get'
+    list_endpoint_attr = "measurements_get"
 
 
 class MeasurementUnitsAPI(AllMixin, api.MeasurementUnitsApi):
-    list_endpoint_attr = 'measurement_units_list'
+    list_endpoint_attr = "measurement_units_list"
 
 
 class OrganizationsAPI(AllMixin, api.OrganizationsApi):
-    list_endpoint_attr = 'organizations_list'
+    list_endpoint_attr = "organizations_list"
 
 
 class PlaceOfDeliveriesAPI(AllMixin, api.PlaceOfDeliveriesApi):
-    list_endpoint_attr = 'place_of_deliveries_list'
+    list_endpoint_attr = "place_of_deliveries_list"
 
 
 class WaybillsAPI(AllMixin, api.WaybillsApi):
-    list_endpoint_attr = 'waybills_list'
+    list_endpoint_attr = "waybills_list"
