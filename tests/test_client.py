@@ -19,7 +19,7 @@ class TestEVRClient(unittest.TestCase):
 
     def test_initial_api_key(self):
         self.assertRaises(TypeError, EVRClient)
-        self.assertDictEqual(self.client.openapi_client.configuration.api_key, {'EVR-APIKEY': self.api_key})
+        self.assertDictEqual(self.client.openapi_client.configuration.api_key, {'SecretApiKey': self.api_key})
 
     def test_initial_host(self):
         self.assertEqual(self.client.openapi_client.configuration.host, self.host)
