@@ -51,9 +51,9 @@ class TestEVRClient(unittest.TestCase):
 
         api = AssortmentsAPI(self.client)
         api.assortments_list = Mock(side_effect=assortments_list)
-        self.assertListEqual(api.all(), data)
+        self.assertListEqual(list(api.all()), data)
         # Pass in a random page to make sure that it does not have any effect
-        self.assertListEqual(api.all(page=99), data)
+        self.assertListEqual(list(api.all(page=99)), data)
 
     def test_all_mixin(self):
         with self.assertRaises(ValueError):

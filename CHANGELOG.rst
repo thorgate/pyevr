@@ -2,8 +2,43 @@
 Changelog
 =========
 
+0.7.0
+----------
+
+**Generic**
+
+* Update openapi generator to latest version
+* Move to poetry
+
+0.6.0.dev4
+----------
+
+**Generic**
+
+* Change `all` method to be a generator instead of returning a list, to
+  allow data consumer to start consumption faster and avoid loading the
+  unnecessary pages if error happens early on
+* Add `deserialize_data` method that allows to rehydrate the model from
+  result of `sanitize_for_serialization` (allowing to store models as
+  json and similar use-cases)
+
+**Updates**
+
+Use EVR schema 1.14
+
+* Support `WithoutForestNotice` holding base
+
+* Support `page_size` parameter for list endpoints
+
+* Support `last_modified_after` and `last_modified_before` for waybill list
+
+* Support `waybill_latest_measurements` in waybill model
+
+* Other misc changes
+
+
 0.5.2 (2022-04-06)
------------------------
+------------------
 
 **Generic**
 

@@ -1,6 +1,6 @@
---- ./openapi/openapi-generator-compatible.json	2021-11-18 15:08:55.469216012 +0200
-+++ ./openapi/openapi-generator-compatible-patched.json	2021-11-18 15:08:43.252524406 +0200
-@@ -1648,13 +1648,13 @@
+--- ./pyevr/openapi/openapi-generator-compatible.json	2022-06-14 10:17:29.572147070 +0300
++++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2022-06-14 10:17:16.381979532 +0300
+@@ -1750,13 +1750,13 @@
              "type": "string",
              "description": "Väljasõidu aeg",
              "format": "date-time",
@@ -16,7 +16,16 @@
            },
            "shipments": {
              "type": "array",
-@@ -1704,13 +1704,13 @@
+@@ -1771,7 +1771,7 @@
+             "description": "Ettesõidu kilometraaž",
+             "format": "int32",
+             "maximum": 100000.0,
+-            "minimum": 1.0,
++            "minimum": 0.0,
+             "nullable": true
+           },
+           "userCustomData": {
+@@ -1811,13 +1811,13 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
@@ -32,7 +41,7 @@
            },
            "email": {
              "type": "string",
-@@ -1754,19 +1754,19 @@
+@@ -1861,19 +1861,19 @@
              "type": "string",
              "description": "Maakond",
              "maxLength": 100,
@@ -55,7 +64,7 @@
            }
          }
        },
-@@ -1807,13 +1807,13 @@
+@@ -1914,13 +1914,13 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
@@ -71,7 +80,7 @@
            },
            "address": {
              "$ref": "#/components/schemas/Address"
-@@ -1855,13 +1855,13 @@
+@@ -1962,13 +1962,13 @@
              "type": "string",
              "description": "Autojuhi nimi",
              "maxLength": 200,
@@ -87,7 +96,7 @@
            },
            "driverPhone": {
              "type": "string",
-@@ -1873,7 +1873,7 @@
+@@ -1980,7 +1980,7 @@
              "type": "string",
              "description": "Veoki riiklik registreerimisnumber",
              "maxLength": 10,
@@ -96,7 +105,7 @@
            },
            "trailerRegistrationNumber": {
              "type": "string",
-@@ -1895,13 +1895,13 @@
+@@ -2002,13 +2002,13 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
@@ -112,7 +121,7 @@
            },
            "contactPerson": {
              "description": "Kontaktisiku andmed",
-@@ -1923,13 +1923,13 @@
+@@ -2030,13 +2030,13 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
@@ -128,7 +137,7 @@
            },
            "address": {
              "description": "Aadress",
-@@ -1960,7 +1960,7 @@
+@@ -2067,7 +2067,7 @@
              "type": "string",
              "description": "Tarnekoha nimi",
              "maxLength": 200,
@@ -137,7 +146,7 @@
            },
            "coordinates": {
              "description": "Koordinaat (LAMBERT-EST)",
-@@ -2092,7 +2092,7 @@
+@@ -2199,7 +2199,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -146,7 +155,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2132,19 +2132,19 @@
+@@ -2239,19 +2239,19 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -169,7 +178,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2180,19 +2180,19 @@
+@@ -2287,19 +2287,19 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -192,7 +201,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2228,19 +2228,19 @@
+@@ -2335,19 +2335,19 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -215,31 +224,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2274,19 +2274,19 @@
-             "type": "string",
-             "description": "Nimi",
-             "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
-           },
-           "code": {
-             "type": "string",
-             "description": "Isiku- või registrikood",
--            "maxLength": 20,
--            "minLength": 1
-+            "maxLength": 32,
-+            "minLength": 0
-           },
-           "address": {
-             "type": "string",
-             "description": "Aadress",
-             "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
-           }
-         }
-       },
-@@ -2308,19 +2308,19 @@
+@@ -2415,19 +2415,19 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -262,7 +247,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2356,19 +2356,19 @@
+@@ -2463,19 +2463,19 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -285,7 +270,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2401,7 +2401,7 @@
+@@ -2508,7 +2508,7 @@
              "type": "string",
              "description": "Maaüksuse või laoplatsi nimi",
              "maxLength": 200,
@@ -294,7 +279,7 @@
            },
            "code": {
              "type": "string",
-@@ -2480,7 +2480,7 @@
+@@ -2587,7 +2587,7 @@
              "type": "string",
              "description": "[Mõõtühiku kood](#operation/MeasurementUnits_List)",
              "maxLength": 10,
@@ -303,16 +288,7 @@
            },
            "assortment": {
              "description": "Sortiment",
-@@ -2537,7 +2537,7 @@
-           },
-           "location": {
-             "description": "PackLocationApiModel",
--            "minLength": 1,
-+            "minLength": 0,
-             "$ref": "#/components/schemas/PackLocation"
-           }
-         }
-@@ -2567,19 +2567,19 @@
+@@ -2674,19 +2674,19 @@
              "type": "string",
              "description": "Sortimendi kood. Kui organisatsioon on seadistatud kasutama EVR sortimente, peab kood olema [üks EVR sortimentide koodist.](#operation/Assortments_List)",
              "maxLength": 10,
@@ -335,7 +311,7 @@
            }
          }
        },
-@@ -2594,7 +2594,7 @@
+@@ -2701,7 +2701,7 @@
              "type": "string",
              "description": "[Tarneahela sertifikaadi väite kood](#operation/Certificates_List)",
              "maxLength": 50,
@@ -344,7 +320,7 @@
            },
            "number": {
              "type": "string",
-@@ -2615,7 +2615,7 @@
+@@ -2722,7 +2722,7 @@
              "type": "string",
              "description": "Registrikood",
              "maxLength": 20,
@@ -353,7 +329,7 @@
            }
          }
        },
-@@ -2657,13 +2657,13 @@
+@@ -2764,13 +2764,13 @@
              "type": "string",
              "description": "Väljasõidu aeg",
              "format": "date-time",
@@ -369,7 +345,7 @@
            },
            "shipments": {
              "type": "array",
-@@ -2678,7 +2678,7 @@
+@@ -2785,7 +2785,7 @@
              "description": "Ettesõidu kilometraaž",
              "format": "int32",
              "maximum": 100000.0,
@@ -378,7 +354,23 @@
              "nullable": true
            },
            "userCustomData": {
-@@ -2781,11 +2781,11 @@
+@@ -2932,13 +2932,13 @@
+             "type": "string",
+             "description": "Nimi",
+             "maxLength": 200,
+-            "minLength": 1
++            "minLength": 0
+           },
+           "code": {
+             "type": "string",
+             "description": "Isiku- või registrikood",
+             "maxLength": 20,
+-            "minLength": 1
++            "minLength": 0
+           }
+         }
+       },
+@@ -2954,10 +2954,10 @@
              "type": "string",
              "description": "Registrikood",
              "maxLength": 20,
@@ -387,12 +379,10 @@
            },
            "type": {
              "description": "Volituse tüüp",
--            "minLength": 1,
-+            "minLength": 0,
              "$ref": "#/components/schemas/AuthorizationType"
            }
          }
-@@ -2853,7 +2853,7 @@
+@@ -3026,7 +3026,7 @@
              "type": "string",
              "description": "Selgitus",
              "maxLength": 400,
@@ -401,7 +391,7 @@
            }
          }
        },
-@@ -3088,7 +3088,7 @@
+@@ -3272,7 +3272,7 @@
            "name": {
              "type": "string",
              "description": "Nimi",
@@ -410,10 +400,3 @@
            },
            "address": {
              "description": "Aadress",
-@@ -3343,4 +3343,4 @@
-       "SecretApiKey": []
-     }
-   ]
--}
-\ No newline at end of file
-+}

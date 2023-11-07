@@ -19,35 +19,48 @@ Tagastab veoselehega seotud mõõtmisandmed.
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.paged_result_of_measurement_act import PagedResultOfMeasurementAct
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MeasurementsApi(api_client)
     number = 'number_example' # str | Veoselehe number (tõstutundetu)
-page = 1 # int | Tagastatav lehekülg (optional) (default to 1)
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    page = 1 # int | Tagastatav lehekülg (optional) (default to 1)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe mõõtmisandmete pärimine
         api_response = api_instance.measurements_get(number, page=page, evr_language=evr_language)
+        print("The response of MeasurementsApi->measurements_get:\n")
         pprint(api_response)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MeasurementsApi->measurements_get: %s\n" % e)
 ```
+
+
 
 ### Parameters
 
@@ -92,34 +105,46 @@ Lisab veoselehele mõõtmisandmed. Mõõtmisandmeid saab lisada \"koorem maas\" 
 
 * Api Key Authentication (SecretApiKey):
 ```python
-from __future__ import print_function
 import time
+import os
 import openapi_client
+from openapi_client.models.add_measurement_act_request import AddMeasurementActRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
-configuration = openapi_client.Configuration()
-# Configure API key authorization: SecretApiKey
-configuration.api_key['EVR-APIKEY'] = 'YOUR_API_KEY'
-# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
-# configuration.api_key_prefix['EVR-APIKEY'] = 'Bearer'
 
-# Defining host is optional and default to https://evr.veoseleht.ee
-configuration.host = "https://evr.veoseleht.ee"
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# See configuration.py for a list of all supported configuration parameters.
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
+
+# The client must configure the authentication and authorization parameters
+# in accordance with the API server security policy.
+# Examples for each auth method are provided below, use the example that
+# satisfies your auth use case.
+
+# Configure API key authorization: SecretApiKey
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+
+# Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
+# configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
 
 # Enter a context with an instance of the API client
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MeasurementsApi(api_client)
     number = 'number_example' # str | Veoselehe number (tõstutundetu)
-add_measurement_act_request = openapi_client.AddMeasurementActRequest() # AddMeasurementActRequest | Mõõtmisandmed
-evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    add_measurement_act_request = openapi_client.AddMeasurementActRequest() # AddMeasurementActRequest | Mõõtmisandmed
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehele mõõtmisandmete lisamine
         api_instance.measurements_post(number, add_measurement_act_request, evr_language=evr_language)
-    except ApiException as e:
+    except Exception as e:
         print("Exception when calling MeasurementsApi->measurements_post: %s\n" % e)
 ```
+
+
 
 ### Parameters
 

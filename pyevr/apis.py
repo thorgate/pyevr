@@ -1,4 +1,3 @@
-from math import ceil
 from typing import Callable
 
 from pyevr.openapi_client import api
@@ -12,7 +11,7 @@ class AllMixin:
     """
 
     list_endpoint_attr = None
-    evr_page_param = 'page'
+    evr_page_param = "page"
 
     def get_list_endpoint(self) -> Callable:
         """Method for getting the callable API's endpoint that is responsible for returning paged results
@@ -22,9 +21,13 @@ class AllMixin:
         if self.list_endpoint_attr is None:
             raise ValueError("AllMixin requires `list_endpoint_attr` to be set")
         if not hasattr(self, self.list_endpoint_attr):
-            raise ValueError("%s does not have the required list attribute `%s`" % (
-                self.__class__, self.list_endpoint_attr,
-            ))
+            raise ValueError(
+                "%s does not have the required list attribute `%s`"
+                % (
+                    self.__class__,
+                    self.list_endpoint_attr,
+                )
+            )
         return getattr(self, self.list_endpoint_attr)
 
     def all(self, **kwargs):
@@ -33,47 +36,50 @@ class AllMixin:
             del kwargs[self.evr_page_param]
         endpoint = self.get_list_endpoint()
 
-        kwargs[self.evr_page_param] = 1
-        first_page_response = endpoint(**kwargs)
-        results = first_page_response.page_result
-        page_size = first_page_response.page_size
-        total_count = first_page_response.total_count
+        current_page = 1
+        current_count = 0
+        total_count = None
 
-        if total_count <= page_size:
-            return results
-
-        total_pages = ceil(total_count / page_size)
-        for page in range(2, total_pages + 1):
-            kwargs[self.evr_page_param] = page
+        while total_count is None or current_count < total_count:
+            kwargs[self.evr_page_param] = current_page
             page_response = endpoint(**kwargs)
-            results.extend(page_response.page_result)
+            if total_count is None:
+                total_count = page_response.total_count
 
-        return results
+            if page_response.page_result:
+                for item in page_response.page_result:
+                    current_count += 1
+                    yield item
+            else:
+                # Possibly number of items changed while iterating, in this case assume no more items are coming
+                return
+
+            current_page += 1
 
 
 class AssortmentsAPI(AllMixin, api.AssortmentsApi):
-    list_endpoint_attr = 'assortments_list'
+    list_endpoint_attr = "assortments_list"
 
 
 class CertificatesAPI(AllMixin, api.CertificatesApi):
-    list_endpoint_attr = 'certificates_list'
+    list_endpoint_attr = "certificates_list"
 
 
 class MeasurementsAPI(AllMixin, api.MeasurementsApi):
-    list_endpoint_attr = 'measurements_get'
+    list_endpoint_attr = "measurements_get"
 
 
 class MeasurementUnitsAPI(AllMixin, api.MeasurementUnitsApi):
-    list_endpoint_attr = 'measurement_units_list'
+    list_endpoint_attr = "measurement_units_list"
 
 
 class OrganizationsAPI(AllMixin, api.OrganizationsApi):
-    list_endpoint_attr = 'organizations_list'
+    list_endpoint_attr = "organizations_list"
 
 
 class PlaceOfDeliveriesAPI(AllMixin, api.PlaceOfDeliveriesApi):
-    list_endpoint_attr = 'place_of_deliveries_list'
+    list_endpoint_attr = "place_of_deliveries_list"
 
 
 class WaybillsAPI(AllMixin, api.WaybillsApi):
-    list_endpoint_attr = 'waybills_list'
+    list_endpoint_attr = "waybills_list"

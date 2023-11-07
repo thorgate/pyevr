@@ -1,0 +1,30 @@
+[tool.poetry]
+name = "pyevr"
+version = "0.7.0"
+description = "EVR API"
+authors = ["Thorgate <software@thorgate.eu>"]
+license = "MIT License"
+readme = "README.rst"
+repository = "https://github.com/thorgate/pyevr.git"
+keywords = ["OpenAPI", "OpenAPI-Generator", "pyevr"]
+include = ["openapi_client/py.typed"]
+
+[tool.poetry.dependencies]
+python = "^3.8"
+urllib3 = ">= 1.25.3"
+python-dateutil = ">=2.8.2"
+pydantic = "^1.10.5, <2"
+aenum = ">=3.1.11"
+
+[tool.poetry.group.dev.dependencies]
+pytest = ">=7.2.1"
+tox = ">=3.9.0"
+flake8 = ">=4.0.0"
+black = "^23.10.1"
+
+[build-system]
+requires = ["setuptools"]
+build-backend = "setuptools.build_meta"
+
+[tool.pylint.'MESSAGES CONTROL']
+extension-pkg-whitelist = "pydantic"

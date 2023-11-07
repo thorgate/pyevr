@@ -1,5 +1,6 @@
 # Waybill
 
+
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
@@ -10,7 +11,7 @@ Name | Type | Description | Notes
 **comment** | **str** | Märkused/lisainfo | [optional] 
 **departure_time** | **datetime** | Väljasõidu aeg | 
 **submission_time** | **datetime** | Veoselehe EVR-i saatmise aeg | 
-**shipments** | [**list[Shipment]**](Shipment.md) | Lähetatud veose andmed | 
+**shipments** | [**List[Shipment]**](Shipment.md) | Lähetatud veose andmed | 
 **pre_journey_mileage** | **int** | Ettesõidu kilometraaž | [optional] 
 **user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed | [optional] 
 **mass** | **float** | Autorongi mass tonnides | [optional] 
@@ -25,9 +26,27 @@ Name | Type | Description | Notes
 **unloading_time** | **datetime** | Mahalaadimise aeg (kui veoselehel on vedu lõpetatud) | [optional] 
 **finishing_time** | **datetime** | Veoselehe lõpetamise aeg (kui veoseleht on lõpetatud) | [optional] 
 **last_modification_time** | **datetime** | Veoselehe viimase muutmise aeg | [optional] 
-**notes** | [**list[WaybillNote]**](WaybillNote.md) | Veoselehe märkused | [optional] 
-**waybill_authorizations** | [**list[WaybillAuthorization]**](WaybillAuthorization.md) | Veoselehe volitused | [optional] 
+**notes** | [**List[WaybillNote]**](WaybillNote.md) | Veoselehe märkused | [optional] 
+**waybill_authorizations** | [**List[WaybillAuthorization]**](WaybillAuthorization.md) | Veoselehe volitused | [optional] 
+**waybill_latest_measurements** | [**MeasurementAct**](MeasurementAct.md) |  | [optional] 
 
+## Example
+
+```python
+from openapi_client.models.waybill import Waybill
+
+# TODO update the JSON string below
+json = "{}"
+# create an instance of Waybill from a JSON string
+waybill_instance = Waybill.from_json(json)
+# print the JSON string representation of the object
+print Waybill.to_json()
+
+# convert the object into a dict
+waybill_dict = waybill_instance.to_dict()
+# create an instance of Waybill from a dict
+waybill_form_dict = waybill.from_dict(waybill_dict)
+```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
 
