@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "pyevr"
-version = "0.7.0.dev1"
+version = "0.7.0"
 description = "EVR API"
 authors = ["Thorgate <software@thorgate.eu>"]
 license = "MIT License"
