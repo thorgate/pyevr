@@ -1,9 +1,16 @@
 # -*- coding: utf-8 -*-
 
 """Main module."""
+
+import contextvars
+
+from pydantic import BaseModel
+
 from pyevr import apis
 from pyevr.openapi_client.api_client import ApiClient
 from pyevr.openapi_client.configuration import Configuration
+
+full_serialization = contextvars.ContextVar("full_serialization", default=False)
 
 
 class ExtendedApiClient(ApiClient):
@@ -20,6 +27,23 @@ class ExtendedApiClient(ApiClient):
         :return: deserialized object.
         """
         return response_type.from_dict(response_data)
+
+    def sanitize_for_serialization(self, obj):
+        if hasattr(obj, "actual_instance"):
+            return self.sanitize_for_serialization(obj.actual_instance)
+
+        if full_serialization.get() and isinstance(obj, BaseModel):
+            return super().sanitize_for_serialization(obj.__dict__)
+
+        return super().sanitize_for_serialization(obj)
+
+    def serialize_fully(self, obj):
+        token = full_serialization.set(True)
+        try:
+            result = self.sanitize_for_serialization(obj)
+        finally:
+            full_serialization.reset(token)
+        return result
 
 
 class EVRClient(object):
@@ -48,3 +72,7 @@ class EVRClient(object):
     @classmethod
     def deserialize_data(cls, response_data, response_type):
         return cls.openapi_client_class.deserialize_data(response_data, response_type)
+
+    @classmethod
+    def sanitize_for_serialization(cls, api_model):
+        return cls.openapi_client_class().serialize_fully(api_model)

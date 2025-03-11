@@ -108,4 +108,5 @@ ENV/
 # Files for patching
 pyevr/openapi/openapi-generator-compatible-patched.json
 pyevr/openapi/openapi-generator-compatible.json
+pyevr/openapi/openapi-generator-compatible.json.rej
 pyevr/openapi/openapi-generator-compatible.json.orig

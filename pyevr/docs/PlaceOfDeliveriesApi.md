@@ -19,9 +19,8 @@ Lisab uue tarnekoha. Kui antud koodiga tarnekoht juba eksisteerib, siis muudab o
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.put_place_of_delivery_request import PutPlaceOfDeliveryRequest
 from openapi_client.rest import ApiException
@@ -63,6 +62,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **str**| Kood | 
@@ -83,6 +83,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -102,9 +103,8 @@ Tagastab koodile vastava tarnekoha. Pärida saab ainult enda asutusele kuuluvat 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.place_of_delivery import PlaceOfDelivery
 from openapi_client.rest import ApiException
@@ -147,6 +147,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code** | **str**| Päritava tarnekoha kood (tõstutundlik) | 
@@ -166,6 +167,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -180,14 +182,13 @@ Name | Type | Description  | Notes
 
 Tarnekohtade pärimine
 
-Tagastab filtritele vastavad aktiivsed avalikud tarnekohad ja kõik ettevõttega seotud tarnekohad.
+Tagastab filtritele vastavad aktiivsed  tarnekohad ja kõik ettevõttega seotud tarnekohad.
 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.paged_result_of_place_of_delivery import PagedResultOfPlaceOfDelivery
 from openapi_client.rest import ApiException
@@ -235,6 +236,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **name_contains** | **str**| Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit | [optional] 
@@ -259,6 +261,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |

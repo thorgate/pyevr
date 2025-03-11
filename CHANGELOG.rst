@@ -2,6 +2,26 @@
 Changelog
 =========
 
+1.0.0
+----------
+
+**BREAKING**
+
+* Drop support for python 3.8
+
+**Generic**
+
+* Update to use newer openapi generator (pydantic 2)
+* Improve `sanitize_for_serialization` for caching the data
+
+**Updates**
+
+Use EVR schema 1.30
+
+* Support for EUDR fields
+* Other misc changes
+
+
 0.7.0
 ----------
 

@@ -18,9 +18,8 @@ Tagastab veoselehega seotud mõõtmisandmed.
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.paged_result_of_measurement_act import PagedResultOfMeasurementAct
 from openapi_client.rest import ApiException
@@ -64,6 +63,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number (tõstutundetu) | 
@@ -84,6 +84,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** |  |  -  |
@@ -99,14 +100,13 @@ Name | Type | Description  | Notes
 
 Veoselehele mõõtmisandmete lisamine
 
-Lisab veoselehele mõõtmisandmed. Mõõtmisandmeid saab lisada \"koorem maas\" staatuses veoselehele sellele märgitud veose saaja või tema volitatud mõõtja. Mõõtmistulemusi on võimalik lisada koormapakkidena või lihtsalt sortimentide kogustena.
+Lisab veoselehele mõõtmisandmed. Mõõtmisandmeid saab lisada "koorem maas" staatuses veoselehele sellele märgitud veose saaja või tema volitatud mõõtja. Mõõtmistulemusi on võimalik lisada koormapakkidena või lihtsalt sortimentide kogustena.
 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.add_measurement_act_request import AddMeasurementActRequest
 from openapi_client.rest import ApiException
@@ -148,6 +148,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number (tõstutundetu) | 
@@ -168,6 +169,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** |  |  -  |

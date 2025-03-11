@@ -24,9 +24,8 @@ Lisab veoselehele uue märkuse. Olemasolevaid märkuseid ei muudeta. Märkust sa
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.add_waybill_note_request import AddWaybillNoteRequest
 from openapi_client.rest import ApiException
@@ -68,6 +67,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number (tõstutundetu) | 
@@ -88,6 +88,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -108,9 +109,8 @@ Lisab veoselehele uue veose. Veoseid saab lisada veoselehele vedaja ja veoselehe
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.add_shipments_to_waybill_request import AddShipmentsToWaybillRequest
 from openapi_client.rest import ApiException
@@ -152,6 +152,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number (tõstutundetu) | 
@@ -172,6 +173,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -187,14 +189,13 @@ void (empty response body)
 
 Veoselehe tühistamine
 
-Tühistab veoselehe. Veoselehe staatuseks märgitakse tühistatud (status: \"cancelled\"). Veoselehe saab tühistada veoselehe looja, kuni veoseleht pole veel vastu võetud.
+Veoselehe saab tühistada veoselehe looja, omanik, saaja, vedaja ja alltöövõtja kuni veoseleht pole veel vastu võetud.
 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.cancel_waybill_request import CancelWaybillRequest
 from openapi_client.rest import ApiException
@@ -236,6 +237,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number (tõstutundetu) | 
@@ -256,6 +258,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -271,14 +274,13 @@ void (empty response body)
 
 Veoselehe lõpetamine
 
-Lõpetab veoselehe ja veoselehe staatuseks märgitakse \"veoseleht lõpetatud\" (status: \"finished\"). Veoselehte saavad lõpetada veoselehele märgitud saaja ning volitatud mõõtja ja seda ainult \"koorem maas\" staatuses.
+Lõpetab veoselehe ja veoselehe staatuseks märgitakse "veoseleht lõpetatud" (status: "finished"). Veoselehte saavad lõpetada veoselehele märgitud saaja ning volitatud mõõtja ja seda ainult "koorem maas" staatuses.
 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
@@ -318,6 +320,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number (tõstutundetu) | 
@@ -337,6 +340,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -348,7 +352,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **waybills_list**
-> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, subcontractor_code=subcontractor_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
 
 Veoselehtede pärimine
 
@@ -357,9 +361,8 @@ Tagastab filtritele vastavad veoselehed. Veoselehti saavad pärida ainult nendeg
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.paged_result_of_waybill import PagedResultOfWaybill
 from openapi_client.models.waybill_sort_field import WaybillSortField
@@ -400,6 +403,7 @@ with openapi_client.ApiClient(configuration) as api_client:
     trailer_registration_number = 'trailer_registration_number_example' # str | Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) (optional)
     driver_id_code = 'driver_id_code_example' # str | Filtreerib veoselehed, millel on sama transportija autojuhi isikukood (tõstutundlik) (optional)
     place_of_delivery_code = 'place_of_delivery_code_example' # str | Filtreerib veoselehed millel on sama tarnekoha kood (tõstutundlik) (optional)
+    subcontractor_code = 'subcontractor_code_example' # str | Filtreerib veoselehed millel on sama alltöövõtja kood (tõstutundlik) (optional)
     text = 'text_example' # str | Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. (optional)
     sort = openapi_client.WaybillSortField() # WaybillSortField | Sorteerib tulemused valitud välja järgi (optional)
     page = 56 # int | Määrab tagastatava lehekülje (optional)
@@ -409,7 +413,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
     try:
         # Veoselehtede pärimine
-        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, subcontractor_code=subcontractor_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
         print("The response of WaybillsApi->waybills_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -419,6 +423,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -434,6 +439,7 @@ Name | Type | Description  | Notes
  **trailer_registration_number** | **str**| Filtreerib veoselehed, millel on sama haagise registreerimisnumber (tõstutundlik) | [optional] 
  **driver_id_code** | **str**| Filtreerib veoselehed, millel on sama transportija autojuhi isikukood (tõstutundlik) | [optional] 
  **place_of_delivery_code** | **str**| Filtreerib veoselehed millel on sama tarnekoha kood (tõstutundlik) | [optional] 
+ **subcontractor_code** | **str**| Filtreerib veoselehed millel on sama alltöövõtja kood (tõstutundlik) | [optional] 
  **text** | **str**| Vabateksti otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA. * jutumärkides tekst: otsitakse jutumärkides olevat lauset. * OR: loogiline VÕI operaator sõnade vahel. * -: loogiline EITUS. | [optional] 
  **sort** | [**WaybillSortField**](.md)| Sorteerib tulemused valitud välja järgi | [optional] 
  **page** | **int**| Määrab tagastatava lehekülje | [optional] 
@@ -455,6 +461,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -474,9 +481,8 @@ Tagastab numbrile vastava veoselehe. Veoselehte saavad pärida ainult sellega se
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.waybill import Waybill
 from openapi_client.rest import ApiException
@@ -520,6 +526,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Päritava veoselehe number (tõstutundetu) | 
@@ -540,6 +547,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -554,14 +562,13 @@ Name | Type | Description  | Notes
 
 Veoselehe loomine
 
-Loob veoselehe staatusega \"vedu alustatud\" (status: \"shipping\"). Veo alustaja peab olema ise märgitud veoselehele kas omanikuks või vedajaks. Kui metsamaterjali saaja on EVR'iga liitunud asutus, peab veoselehel märgitud tarnekoht kuuluma ka saaja asutusele. Toimingu õnnestumisel tagastatakse loodud veoselehe number.
+Loob veoselehe staatusega "vedu alustatud" (status: "shipping"). Veo alustaja peab olema ise märgitud veoselehele kas omanikuks või vedajaks. Kui metsamaterjali saaja on EVR'iga liitunud asutus, peab veoselehel märgitud tarnekoht kuuluma ka saaja asutusele. Toimingu õnnestumisel tagastatakse loodud veoselehe number.
 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.start_waybill_request import StartWaybillRequest
 from openapi_client.rest import ApiException
@@ -604,6 +611,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **start_waybill_request** | [**StartWaybillRequest**](StartWaybillRequest.md)| Veoselehe andmed | 
@@ -623,6 +631,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |
@@ -637,14 +646,13 @@ Name | Type | Description  | Notes
 
 Veoselehel veo lõpetamine
 
-Lõpetab veo veoselehel ja veoselehe staatuseks märgitakse \"koorem maas\" (status: \"unloaded\"). Vedu saab lõpetada veoselehe looja või vedaja ja seda ainult \"vedu alustatud\" (status: shipping) staatuses.
+Lõpetab veo veoselehel ja veoselehe staatuseks märgitakse "koorem maas" (status: "unloaded"). Vedu saab lõpetada veoselehe looja või vedaja ja seda ainult "vedu alustatud" (status: shipping) staatuses.
 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.unload_waybill_request import UnloadWaybillRequest
 from openapi_client.rest import ApiException
@@ -686,6 +694,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Veoselehe number (tõstutundetu) | 
@@ -706,6 +715,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **401** |  |  -  |

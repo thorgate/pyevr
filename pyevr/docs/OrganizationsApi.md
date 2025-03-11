@@ -18,9 +18,8 @@ Tagastab EVR-i aktiivsed asutused.
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.paged_result_of_organization import PagedResultOfOrganization
 from openapi_client.rest import ApiException
@@ -66,6 +65,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **code_starts_with** | **str**| Filtreerib asutused, mille registrikood algab otsinguterminiga | [optional] 
@@ -88,6 +88,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** |  |  -  |
@@ -107,9 +108,8 @@ Tagastab asutuse andmed
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.organization import Organization
 from openapi_client.rest import ApiException
@@ -151,6 +151,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
@@ -169,6 +170,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** |  |  -  |

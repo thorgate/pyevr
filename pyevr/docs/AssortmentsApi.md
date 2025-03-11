@@ -17,9 +17,8 @@ Tagastab EVR-i aktiivsed sortimendid.
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.paged_result_of_assortment import PagedResultOfAssortment
 from openapi_client.rest import ApiException
@@ -63,6 +62,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 ### Parameters
 
+
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **page** | **int**| Tagastatav lehekülg | [optional] 
@@ -83,6 +83,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **403** |  |  -  |

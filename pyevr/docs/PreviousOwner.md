@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Nimi | 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of PreviousOwner from a JSON string
 previous_owner_instance = PreviousOwner.from_json(json)
 # print the JSON string representation of the object
-print PreviousOwner.to_json()
+print(PreviousOwner.to_json())
 
 # convert the object into a dict
 previous_owner_dict = previous_owner_instance.to_dict()
 # create an instance of PreviousOwner from a dict
-previous_owner_form_dict = previous_owner.from_dict(previous_owner_dict)
+previous_owner_from_dict = PreviousOwner.from_dict(previous_owner_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
