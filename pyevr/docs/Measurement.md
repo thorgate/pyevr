@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **assortment** | [**ShipmentAssortment**](ShipmentAssortment.md) |  | 
 **moisture_percentage** | **float** | Niiskuse protsent | [optional] 
 **energy_mwh** | **float** | Mõõdetud energia megavatt-tunnis | [optional] 
+**measurement_report_url** | **str** | Mõõtmisandmete raporti link | [optional] 
 
 ## Example
 

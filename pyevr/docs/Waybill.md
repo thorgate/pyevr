@@ -33,6 +33,7 @@ Name | Type | Description | Notes
 **notes** | [**List[WaybillNote]**](WaybillNote.md) | Veoselehe märkused | [optional] 
 **waybill_authorizations** | [**List[WaybillAuthorization]**](WaybillAuthorization.md) | Veoselehe volitused | [optional] 
 **waybill_latest_measurements** | [**MeasurementAct**](MeasurementAct.md) |  | [optional] 
+**timber_report** | [**TimberReport**](TimberReport.md) |  | [optional] 
 
 ## Example
 

@@ -1,6 +1,6 @@
 # openapi_client.WaybillsApi
 
-All URIs are relative to *https://evr.veoseleht.ee*
+All URIs are relative to *https://evr-test.veoseleht.ee*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,10 +31,10 @@ from openapi_client.models.add_waybill_note_request import AddWaybillNoteRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,10 +116,10 @@ from openapi_client.models.add_shipments_to_waybill_request import AddShipmentsT
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -201,10 +201,10 @@ from openapi_client.models.cancel_waybill_request import CancelWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -285,10 +285,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -352,7 +352,7 @@ void (empty response body)
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **waybills_list**
-> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, subcontractor_code=subcontractor_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+> PagedResultOfWaybill waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, subcontractor_code=subcontractor_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, include_timber_report=include_timber_report, evr_language=evr_language)
 
 Veoselehtede pärimine
 
@@ -370,10 +370,10 @@ from openapi_client.models.waybill_status import WaybillStatus
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -409,11 +409,12 @@ with openapi_client.ApiClient(configuration) as api_client:
     page = 56 # int | Määrab tagastatava lehekülje (optional)
     page_size = 56 # int | Määrab lehekülje suuruse (optional)
     include_latest_measurements = True # bool | Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) (optional)
+    include_timber_report = True # bool | Kas lisada veoselehele palkide mõõtmisraporti (vaikimisi ei lisata) (optional)
     evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehtede pärimine
-        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, subcontractor_code=subcontractor_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+        api_response = api_instance.waybills_list(created_after=created_after, created_before=created_before, last_modified_after=last_modified_after, last_modified_before=last_modified_before, status=status, owner_code=owner_code, transporter_code=transporter_code, receiver_code=receiver_code, van_registration_number=van_registration_number, trailer_registration_number=trailer_registration_number, driver_id_code=driver_id_code, place_of_delivery_code=place_of_delivery_code, subcontractor_code=subcontractor_code, text=text, sort=sort, page=page, page_size=page_size, include_latest_measurements=include_latest_measurements, include_timber_report=include_timber_report, evr_language=evr_language)
         print("The response of WaybillsApi->waybills_list:\n")
         pprint(api_response)
     except Exception as e:
@@ -445,6 +446,7 @@ Name | Type | Description  | Notes
  **page** | **int**| Määrab tagastatava lehekülje | [optional] 
  **page_size** | **int**| Määrab lehekülje suuruse | [optional] 
  **include_latest_measurements** | **bool**| Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) | [optional] 
+ **include_timber_report** | **bool**| Kas lisada veoselehele palkide mõõtmisraporti (vaikimisi ei lisata) | [optional] 
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
@@ -472,7 +474,7 @@ Name | Type | Description  | Notes
 [[Back to top]](#) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to Model list]](../README.md#documentation-for-models) [[Back to README]](../README.md)
 
 # **waybills_get**
-> Waybill waybills_get(number, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+> Waybill waybills_get(number, include_latest_measurements=include_latest_measurements, include_timber_report=include_timber_report, evr_language=evr_language)
 
 Veoselehe pärimine
 
@@ -488,10 +490,10 @@ from openapi_client.models.waybill import Waybill
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -510,12 +512,13 @@ with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.WaybillsApi(api_client)
     number = 'number_example' # str | Päritava veoselehe number (tõstutundetu)
-    include_latest_measurements = False # bool |  (optional) (default to False)
+    include_latest_measurements = False # bool | Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) (optional) (default to False)
+    include_timber_report = False # bool | Kas lisada veoselehele palkide mõõtmisraporti (vaikimisi ei lisata) (optional) (default to False)
     evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe pärimine
-        api_response = api_instance.waybills_get(number, include_latest_measurements=include_latest_measurements, evr_language=evr_language)
+        api_response = api_instance.waybills_get(number, include_latest_measurements=include_latest_measurements, include_timber_report=include_timber_report, evr_language=evr_language)
         print("The response of WaybillsApi->waybills_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -530,7 +533,8 @@ with openapi_client.ApiClient(configuration) as api_client:
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
  **number** | **str**| Päritava veoselehe number (tõstutundetu) | 
- **include_latest_measurements** | **bool**|  | [optional] [default to False]
+ **include_latest_measurements** | **bool**| Kas lisada veoselehele viimase mõõtmise andmed (vaikimisi ei lisata) | [optional] [default to False]
+ **include_timber_report** | **bool**| Kas lisada veoselehele palkide mõõtmisraporti (vaikimisi ei lisata) | [optional] [default to False]
  **evr_language** | **str**| Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \&quot;et\&quot; eesti keele ning \&quot;en\&quot; inglise keele jaoks). | [optional] 
 
 ### Return type
@@ -574,10 +578,10 @@ from openapi_client.models.start_waybill_request import StartWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -658,10 +662,10 @@ from openapi_client.models.unload_waybill_request import UnloadWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr.veoseleht.ee
+# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
+    host = "https://evr-test.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters

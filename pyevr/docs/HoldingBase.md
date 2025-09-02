@@ -5,7 +5,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**eudr_numbers** | [**List[EudrNumber]**](EudrNumber.md) | Euroopa Liidu puidu asukoha registreerimise numbrid | [optional] 
+**eudr_numbers** | [**List[EudrNumber]**](EudrNumber.md) |  | [optional] 
 **type** | **str** |  | 
 
 ## Example

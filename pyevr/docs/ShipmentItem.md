@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **pack** | [**Pack**](Pack.md) |  | [optional] 
 **unit_code** | **str** | [Mõõtühiku kood](#operation/MeasurementUnits_List) | 
 **assortment** | [**ShipmentAssortment**](ShipmentAssortment.md) |  | 
+**baltpool_quality** | [**BaltpoolQuality**](BaltpoolQuality.md) |  | [optional] 
 
 ## Example
 

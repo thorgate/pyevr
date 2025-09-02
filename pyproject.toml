@@ -1,6 +1,6 @@
 [project]
 name = "pyevr"
-version = "1.0.0"
+version = "1.0.1.dev1"
 description = "EVR API"
 authors = [{name = "Thorgate Digital", email = "software@thorgate.eu" }]
 license = "MIT License"

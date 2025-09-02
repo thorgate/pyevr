@@ -11,6 +11,7 @@ Name | Type | Description | Notes
 **compartment** | **str** | Kvartal | [optional] 
 **forest_allocation_number** | **str** | Metsaeraldis | [optional] 
 **forest_notice_number** | **str** | Metsateatise number | [optional] 
+**sources** | [**List[ConsolidatedActSourceItem]**](ConsolidatedActSourceItem.md) | Koormas olevate saadetiste päritolud | [optional] 
 
 ## Example
 
