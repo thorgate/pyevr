@@ -1,6 +1,6 @@
 # openapi_client.WaybillsApi
 
-All URIs are relative to *https://evr-test.veoseleht.ee*
+All URIs are relative to *https://evr.veoseleht.ee*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -31,10 +31,10 @@ from openapi_client.models.add_waybill_note_request import AddWaybillNoteRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -116,10 +116,10 @@ from openapi_client.models.add_shipments_to_waybill_request import AddShipmentsT
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -201,10 +201,10 @@ from openapi_client.models.cancel_waybill_request import CancelWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -285,10 +285,10 @@ import openapi_client
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -370,10 +370,10 @@ from openapi_client.models.waybill_status import WaybillStatus
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -490,10 +490,10 @@ from openapi_client.models.waybill import Waybill
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -578,10 +578,10 @@ from openapi_client.models.start_waybill_request import StartWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -662,10 +662,10 @@ from openapi_client.models.unload_waybill_request import UnloadWaybillRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters

@@ -1,3 +1,14 @@
+--- ./pyevr/openapi/openapi-generator-compatible.json	2025-09-09 12:15:20.124578108 +0300
++++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2025-09-09 12:15:10.648798271 +0300
+@@ -8,7 +8,7 @@
+   },
+   "servers": [
+     {
+-      "url": "https://evr-test.veoseleht.ee"
++      "url": "https://evr.veoseleht.ee"
+     }
+   ],
+   "paths": {
 --- ./pyevr/openapi/openapi-generator-compatible.json	2025-09-02 13:09:06.426485557 +0300
 +++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2025-09-02 13:08:56.441376624 +0300
 @@ -2317,13 +2317,13 @@

@@ -213,7 +213,7 @@ class Configuration:
         debug: Optional[bool] = None,
     ) -> None:
         """Constructor"""
-        self._base_path = "https://evr-test.veoseleht.ee" if host is None else host
+        self._base_path = "https://evr.veoseleht.ee" if host is None else host
         """Default Base url
         """
         self.server_index = 0 if server_index is None and host is None else server_index
@@ -550,7 +550,7 @@ class Configuration:
         """
         return [
             {
-                "url": "https://evr-test.veoseleht.ee",
+                "url": "https://evr.veoseleht.ee",
                 "description": "No description provided",
             }
         ]

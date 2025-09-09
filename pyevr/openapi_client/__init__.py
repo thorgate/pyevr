@@ -69,6 +69,7 @@ from pyevr.openapi_client.models.eudr_number import EudrNumber
 from pyevr.openapi_client.models.forest_act import ForestAct
 from pyevr.openapi_client.models.forest_notice import ForestNotice
 from pyevr.openapi_client.models.holding_base import HoldingBase
+from pyevr.openapi_client.models.holding_base_type import HoldingBaseType
 from pyevr.openapi_client.models.inventory_act import InventoryAct
 from pyevr.openapi_client.models.measurement import Measurement
 from pyevr.openapi_client.models.measurement_act import MeasurementAct

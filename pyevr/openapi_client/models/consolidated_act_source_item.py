@@ -23,7 +23,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing_extensions import Annotated, Self
 
 from pyevr.openapi_client.models.certificate_claim import CertificateClaim
-from pyevr.openapi_client.models.holding_base import HoldingBase
+from pyevr.openapi_client.models.holding_base_type import HoldingBaseType
 from pyevr.openapi_client.models.previous_owner import PreviousOwner
 from pyevr.openapi_client.models.shipment_assortment import ShipmentAssortment
 
@@ -48,7 +48,7 @@ class ConsolidatedActSourceItem(BaseModel):
         description="[Mõõtühiku kood](#operation/MeasurementUnits_List)",
         alias="unitCode",
     )
-    holding_base: HoldingBase = Field(alias="holdingBase")
+    holding_base_type: HoldingBaseType = Field(alias="holdingBaseType")
     forest_notice_number: Optional[
         Annotated[str, Field(strict=True, max_length=500)]
     ] = Field(
@@ -69,7 +69,7 @@ class ConsolidatedActSourceItem(BaseModel):
         "assortment",
         "amount",
         "unitCode",
-        "holdingBase",
+        "holdingBaseType",
         "forestNoticeNumber",
         "contractNumber",
         "contractDate",
@@ -117,9 +117,6 @@ class ConsolidatedActSourceItem(BaseModel):
         # override the default output from pydantic by calling `to_dict()` of assortment
         if self.assortment:
             _dict["assortment"] = self.assortment.to_dict()
-        # override the default output from pydantic by calling `to_dict()` of holding_base
-        if self.holding_base:
-            _dict["holdingBase"] = self.holding_base.to_dict()
         # override the default output from pydantic by calling `to_dict()` of certificate
         if self.certificate:
             _dict["certificate"] = self.certificate.to_dict()
@@ -175,9 +172,7 @@ class ConsolidatedActSourceItem(BaseModel):
                 else None,
                 "amount": obj.get("amount"),
                 "unitCode": obj.get("unitCode"),
-                "holdingBase": HoldingBase.from_dict(obj["holdingBase"])
-                if obj.get("holdingBase") is not None
-                else None,
+                "holdingBaseType": obj.get("holdingBaseType"),
                 "forestNoticeNumber": obj.get("forestNoticeNumber"),
                 "contractNumber": obj.get("contractNumber"),
                 "contractDate": obj.get("contractDate"),

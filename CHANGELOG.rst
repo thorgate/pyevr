@@ -3,12 +3,12 @@ Changelog
 =========
 
 
-1.0.1.dev1
+1.0.1.dev2
 ----------
 
 **Generic**
 
-* Update EVR schema to 1.35
+* Update EVR schema to 1.35 (from EVR test server, revision 2025-09-09)
 
 1.0.0
 ----------

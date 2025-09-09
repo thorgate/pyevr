@@ -11,7 +11,7 @@ Name | Type | Description | Notes
 **assortment** | [**ShipmentAssortment**](ShipmentAssortment.md) |  | 
 **amount** | **int** | Kogus | 
 **unit_code** | **str** | [Mõõtühiku kood](#operation/MeasurementUnits_List) | 
-**holding_base** | [**HoldingBase**](HoldingBase.md) |  | 
+**holding_base_type** | [**HoldingBaseType**](HoldingBaseType.md) |  | 
 **forest_notice_number** | **str** | Metsateatise number | [optional] 
 **contract_number** | **str** | Dokumendi number | [optional] 
 **contract_date** | **datetime** | Dokumendi kuupäev | [optional] 

@@ -1,6 +1,6 @@
 # openapi_client.OrganizationsApi
 
-All URIs are relative to *https://evr-test.veoseleht.ee*
+All URIs are relative to *https://evr.veoseleht.ee*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
@@ -25,10 +25,10 @@ from openapi_client.models.paged_result_of_organization import PagedResultOfOrga
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
@@ -115,10 +115,10 @@ from openapi_client.models.organization import Organization
 from openapi_client.rest import ApiException
 from pprint import pprint
 
-# Defining the host is optional and defaults to https://evr-test.veoseleht.ee
+# Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
 configuration = openapi_client.Configuration(
-    host = "https://evr-test.veoseleht.ee"
+    host = "https://evr.veoseleht.ee"
 )
 
 # The client must configure the authentication and authorization parameters
