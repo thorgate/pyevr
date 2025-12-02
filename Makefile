@@ -29,7 +29,7 @@ coverage: # check code coverage quickly with the default Python
 
 .PHONY:
 openapi-fetch:
-	curl https://evr-test.veoseleht.ee/api/openapi-generator-compatible.json -o pyevr/openapi/openapi-generator-compatible.json
+	curl https://evr.veoseleht.ee/api/openapi-generator-compatible.json -o pyevr/openapi/openapi-generator-compatible.json
 
 .PHONY:
 openapi-patch: openapi-fetch

@@ -2,6 +2,11 @@
 Changelog
 =========
 
+1.0.1.dev3
+
+**Generic**
+
+* Update EVR schema to 1.4.0.1
 
 1.0.1.dev2
 ----------

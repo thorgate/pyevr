@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **contract_number** | **str** | Dokumendi number | [optional] 
 **contract_date** | **datetime** | Dokumendi kuupäev | [optional] 
 **previous_owner** | [**PreviousOwner**](PreviousOwner.md) |  | [optional] 
+**cadaster** | **str** | Katastritunnus | [optional] 
 
 ## Example
 
