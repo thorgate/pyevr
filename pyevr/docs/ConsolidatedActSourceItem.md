@@ -15,6 +15,7 @@ Name | Type | Description | Notes
 **forest_notice_number** | **str** | Metsateatise number | [optional] 
 **contract_number** | **str** | Dokumendi number | [optional] 
 **contract_date** | **datetime** | Dokumendi kuupäev | [optional] 
+**contract_type** | [**ContractType**](ContractType.md) |  | [optional] 
 **certificate** | [**CertificateClaim**](CertificateClaim.md) |  | [optional] 
 **previous_owner** | [**PreviousOwner**](PreviousOwner.md) |  | [optional] 
 
@@ -33,7 +34,9 @@ print(ConsolidatedActSourceItem.to_json())
 # convert the object into a dict
 consolidated_act_source_item_dict = consolidated_act_source_item_instance.to_dict()
 # create an instance of ConsolidatedActSourceItem from a dict
-consolidated_act_source_item_from_dict = ConsolidatedActSourceItem.from_dict(consolidated_act_source_item_dict)
+consolidated_act_source_item_from_dict = ConsolidatedActSourceItem.from_dict(
+    consolidated_act_source_item_dict
+)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

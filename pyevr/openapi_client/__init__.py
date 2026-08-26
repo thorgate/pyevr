@@ -61,6 +61,7 @@ from pyevr.openapi_client.models.contact_person import ContactPerson
 from pyevr.openapi_client.models.contract_for_transfer_of_cutting_rights import (
     ContractForTransferOfCuttingRights,
 )
+from pyevr.openapi_client.models.contract_type import ContractType
 from pyevr.openapi_client.models.coordinates import Coordinates
 from pyevr.openapi_client.models.defect_code import DefectCode
 from pyevr.openapi_client.models.deforestation_biomass import DeforestationBiomass

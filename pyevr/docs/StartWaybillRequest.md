@@ -35,7 +35,9 @@ print(StartWaybillRequest.to_json())
 # convert the object into a dict
 start_waybill_request_dict = start_waybill_request_instance.to_dict()
 # create an instance of StartWaybillRequest from a dict
-start_waybill_request_from_dict = StartWaybillRequest.from_dict(start_waybill_request_dict)
+start_waybill_request_from_dict = StartWaybillRequest.from_dict(
+    start_waybill_request_dict
+)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

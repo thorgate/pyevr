@@ -26,9 +26,7 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
-)
+configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -36,7 +34,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -45,13 +43,15 @@ configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.AssortmentsApi(api_client)
-    page = 56 # int | Tagastatav lehekülg (optional)
-    page_size = 56 # int | Tagastatava lehekülje suurus (optional)
-    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    page = 56  # int | Tagastatav lehekülg (optional)
+    page_size = 56  # int | Tagastatava lehekülje suurus (optional)
+    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Sortimentide pärimine
-        api_response = api_instance.assortments_list(page=page, page_size=page_size, evr_language=evr_language)
+        api_response = api_instance.assortments_list(
+            page=page, page_size=page_size, evr_language=evr_language
+        )
         print("The response of AssortmentsApi->assortments_list:\n")
         pprint(api_response)
     except Exception as e:

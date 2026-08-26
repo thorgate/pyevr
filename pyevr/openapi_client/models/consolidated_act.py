@@ -25,6 +25,7 @@ from typing_extensions import Annotated, Self
 from pyevr.openapi_client.models.consolidated_act_source_item import (
     ConsolidatedActSourceItem,
 )
+from pyevr.openapi_client.models.contract_type import ContractType
 from pyevr.openapi_client.models.eudr_number import EudrNumber
 from pyevr.openapi_client.models.holding_base import HoldingBase
 
@@ -40,6 +41,7 @@ class ConsolidatedAct(HoldingBase):
     contract_date: datetime = Field(
         description="Dokumendi kuupäev", alias="contractDate"
     )
+    contract_type: Optional[ContractType] = Field(default=None, alias="contractType")
     cadaster: Annotated[str, Field(min_length=0, strict=True, max_length=500)] = Field(
         description="Katastritunnus"
     )
@@ -62,6 +64,7 @@ class ConsolidatedAct(HoldingBase):
         "type",
         "contractNumber",
         "contractDate",
+        "contractType",
         "cadaster",
         "compartment",
         "forestAllocationNumber",
@@ -172,6 +175,7 @@ class ConsolidatedAct(HoldingBase):
                 "type": obj.get("type"),
                 "contractNumber": obj.get("contractNumber"),
                 "contractDate": obj.get("contractDate"),
+                "contractType": obj.get("contractType"),
                 "cadaster": obj.get("cadaster"),
                 "compartment": obj.get("compartment"),
                 "forestAllocationNumber": obj.get("forestAllocationNumber"),

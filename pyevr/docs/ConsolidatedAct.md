@@ -7,6 +7,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contract_number** | **str** | Dokumendi number | 
 **contract_date** | **datetime** | Dokumendi kuupäev | 
+**contract_type** | [**ContractType**](ContractType.md) |  | [optional] 
 **cadaster** | **str** | Katastritunnus | 
 **compartment** | **str** | Kvartal | [optional] 
 **forest_allocation_number** | **str** | Metsaeraldis | [optional] 

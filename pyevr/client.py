@@ -1,6 +1,6 @@
-# -*- coding: utf-8 -*-
-
 """Main module."""
+
+from __future__ import annotations
 
 import contextvars
 import os
@@ -55,7 +55,7 @@ class ExtendedApiClient(ApiClient):
         return result
 
 
-class EVRClient(object):
+class EVRClient:
     """API client class for EVR.
 
     :param api_key: Company API key in EVR
@@ -72,7 +72,7 @@ class EVRClient(object):
 
     openapi_client_class = ExtendedApiClient
 
-    def __init__(self, api_key: str, host: str = None):
+    def __init__(self, api_key: str, host: str | None = None):
         configuration = Configuration(api_key={"SecretApiKey": api_key})
         if host is not None:
             configuration.host = host

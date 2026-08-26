@@ -22,6 +22,7 @@ from typing import Any, ClassVar, Dict, List, Optional, Set
 from pydantic import ConfigDict, Field
 from typing_extensions import Annotated, Self
 
+from pyevr.openapi_client.models.contract_type import ContractType
 from pyevr.openapi_client.models.eudr_number import EudrNumber
 from pyevr.openapi_client.models.holding_base import HoldingBase
 from pyevr.openapi_client.models.previous_owner import PreviousOwner
@@ -38,6 +39,7 @@ class ContractForTransferOfCuttingRights(HoldingBase):
     contract_date: datetime = Field(
         description="Dokumendi kuupäev", alias="contractDate"
     )
+    contract_type: Optional[ContractType] = Field(default=None, alias="contractType")
     cadaster: Annotated[str, Field(min_length=0, strict=True, max_length=500)] = Field(
         description="Katastritunnus"
     )
@@ -58,6 +60,7 @@ class ContractForTransferOfCuttingRights(HoldingBase):
         "type",
         "contractNumber",
         "contractDate",
+        "contractType",
         "cadaster",
         "compartment",
         "forestAllocationNumber",
@@ -159,6 +162,7 @@ class ContractForTransferOfCuttingRights(HoldingBase):
                 "type": obj.get("type"),
                 "contractNumber": obj.get("contractNumber"),
                 "contractDate": obj.get("contractDate"),
+                "contractType": obj.get("contractType"),
                 "cadaster": obj.get("cadaster"),
                 "compartment": obj.get("compartment"),
                 "forestAllocationNumber": obj.get("forestAllocationNumber"),

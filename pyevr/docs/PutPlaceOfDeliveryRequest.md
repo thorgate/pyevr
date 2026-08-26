@@ -20,7 +20,9 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.put_place_of_delivery_request import PutPlaceOfDeliveryRequest
+from openapi_client.models.put_place_of_delivery_request import (
+    PutPlaceOfDeliveryRequest,
+)
 
 # TODO update the JSON string below
 json = "{}"
@@ -32,7 +34,9 @@ print(PutPlaceOfDeliveryRequest.to_json())
 # convert the object into a dict
 put_place_of_delivery_request_dict = put_place_of_delivery_request_instance.to_dict()
 # create an instance of PutPlaceOfDeliveryRequest from a dict
-put_place_of_delivery_request_from_dict = PutPlaceOfDeliveryRequest.from_dict(put_place_of_delivery_request_dict)
+put_place_of_delivery_request_from_dict = PutPlaceOfDeliveryRequest.from_dict(
+    put_place_of_delivery_request_dict
+)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

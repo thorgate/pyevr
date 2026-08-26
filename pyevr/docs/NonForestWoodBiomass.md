@@ -8,6 +8,7 @@ Name | Type | Description | Notes
 **cadaster** | **str** | Katastritunnus | 
 **contract_number** | **str** | Dokumendi number | [optional] 
 **contract_date** | **datetime** | Dokumendi kuupäev | [optional] 
+**contract_type** | [**ContractType**](ContractType.md) |  | [optional] 
 **previous_owner** | [**PreviousOwner**](PreviousOwner.md) |  | [optional] 
 
 ## Example
@@ -25,7 +26,9 @@ print(NonForestWoodBiomass.to_json())
 # convert the object into a dict
 non_forest_wood_biomass_dict = non_forest_wood_biomass_instance.to_dict()
 # create an instance of NonForestWoodBiomass from a dict
-non_forest_wood_biomass_from_dict = NonForestWoodBiomass.from_dict(non_forest_wood_biomass_dict)
+non_forest_wood_biomass_from_dict = NonForestWoodBiomass.from_dict(
+    non_forest_wood_biomass_dict
+)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

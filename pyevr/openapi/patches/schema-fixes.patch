@@ -1,5 +1,5 @@
---- ./pyevr/openapi/openapi-generator-compatible.json	2025-09-02 13:09:06.426485557 +0300
-+++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2025-09-02 13:08:56.441376624 +0300
+--- ./pyevr/openapi/openapi-generator-compatible.json	2026-08-26 14:03:14.327816330 +0300
++++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2026-08-26 14:03:14.047017989 +0300
 @@ -2317,13 +2317,13 @@
              "type": "string",
              "description": "Väljasõidu aeg",
@@ -155,7 +155,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2896,19 +2896,19 @@
+@@ -2896,13 +2896,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -169,7 +169,9 @@
 -                "minLength": 1
 +                "minLength": 0
                },
-               "cadaster": {
+               "contractType": {
+                 "description": "Dokumendi tüüp",
+@@ -2913,7 +2913,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -178,7 +180,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2950,19 +2950,19 @@
+@@ -2971,13 +2971,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -192,7 +194,9 @@
 -                "minLength": 1
 +                "minLength": 0
                },
-               "cadaster": {
+               "contractType": {
+                 "description": "Dokumendi tüüp",
+@@ -2988,7 +2988,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -201,7 +205,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -3084,19 +3084,19 @@
+@@ -3115,19 +3115,19 @@
              "type": "string",
              "description": "Sortimendi kood. Kui organisatsioon on seadistatud kasutama EVR sortimente, peab kood olema [üks EVR sortimentide koodist.](#operation/Assortments_List)",
              "maxLength": 10,
@@ -224,7 +228,7 @@
            }
          }
        },
-@@ -3111,7 +3111,7 @@
+@@ -3174,7 +3174,7 @@
              "type": "string",
              "description": "[Tarneahela sertifikaadi väite kood](#operation/Certificates_List)",
              "maxLength": 50,
@@ -233,7 +237,7 @@
            },
            "number": {
              "type": "string",
-@@ -3169,19 +3169,19 @@
+@@ -3232,13 +3232,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -247,7 +251,9 @@
 -                "minLength": 1
 +                "minLength": 0
                },
-               "cadaster": {
+               "contractType": {
+                 "description": "Dokumendi tüüp",
+@@ -3249,7 +3249,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -256,7 +262,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -3274,19 +3274,19 @@
+@@ -3347,13 +3347,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -270,7 +276,9 @@
 -                "minLength": 1
 +                "minLength": 0
                },
-               "cadaster": {
+               "contractType": {
+                 "description": "Dokumendi tüüp",
+@@ -3364,7 +3364,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -279,7 +287,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -3537,7 +3537,7 @@
+@@ -3652,7 +3652,7 @@
              "type": "string",
              "description": "Maaüksuse või laoplatsi nimi",
              "maxLength": 200,
@@ -288,7 +296,7 @@
            },
            "code": {
              "type": "string",
-@@ -3654,7 +3654,7 @@
+@@ -3769,7 +3769,7 @@
              "type": "string",
              "description": "[Mõõtühiku kood](#operation/MeasurementUnits_List)",
              "maxLength": 10,
@@ -297,7 +305,7 @@
            },
            "assortment": {
              "description": "Sortiment",
-@@ -3738,7 +3738,7 @@
+@@ -3853,7 +3853,7 @@
              "type": "string",
              "description": "Registrikood",
              "maxLength": 20,
@@ -306,7 +314,7 @@
            }
          }
        },
-@@ -3780,13 +3780,13 @@
+@@ -3895,13 +3895,13 @@
              "type": "string",
              "description": "Väljasõidu aeg",
              "format": "date-time",
@@ -322,7 +330,7 @@
            },
            "shipments": {
              "type": "array",
-@@ -3801,7 +3801,7 @@
+@@ -3916,7 +3916,7 @@
              "description": "Ettesõidu kilometraaž",
              "format": "int32",
              "maximum": 100000.0,
@@ -331,7 +339,7 @@
              "nullable": true
            },
            "userCustomData": {
-@@ -3972,7 +3972,7 @@
+@@ -4087,7 +4087,7 @@
              "type": "string",
              "description": "Registrikood",
              "maxLength": 20,
@@ -340,7 +348,7 @@
            },
            "type": {
              "description": "Volituse tüüp",
-@@ -4150,7 +4150,7 @@
+@@ -4265,7 +4265,7 @@
              "type": "string",
              "description": "Selgitus",
              "maxLength": 400,
@@ -349,7 +357,7 @@
            },
            "coordinates": {
              "description": "Koordinaat",
-@@ -4384,7 +4384,7 @@
+@@ -4499,7 +4499,7 @@
            "name": {
              "type": "string",
              "description": "Nimi",
@@ -358,7 +366,7 @@
            },
            "address": {
              "description": "Aadress",
-@@ -4651,4 +4651,4 @@
+@@ -4766,4 +4766,4 @@
        "SecretApiKey": []
      }
    ]

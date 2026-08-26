@@ -23,6 +23,7 @@ from pydantic import BaseModel, ConfigDict, Field, StrictInt
 from typing_extensions import Annotated, Self
 
 from pyevr.openapi_client.models.certificate_claim import CertificateClaim
+from pyevr.openapi_client.models.contract_type import ContractType
 from pyevr.openapi_client.models.holding_base_type import HoldingBaseType
 from pyevr.openapi_client.models.previous_owner import PreviousOwner
 from pyevr.openapi_client.models.shipment_assortment import ShipmentAssortment
@@ -60,6 +61,7 @@ class ConsolidatedActSourceItem(BaseModel):
     contract_date: Optional[datetime] = Field(
         default=None, description="Dokumendi kuupäev", alias="contractDate"
     )
+    contract_type: Optional[ContractType] = Field(default=None, alias="contractType")
     certificate: Optional[CertificateClaim] = None
     previous_owner: Optional[PreviousOwner] = Field(default=None, alias="previousOwner")
     __properties: ClassVar[List[str]] = [
@@ -73,6 +75,7 @@ class ConsolidatedActSourceItem(BaseModel):
         "forestNoticeNumber",
         "contractNumber",
         "contractDate",
+        "contractType",
         "certificate",
         "previousOwner",
     ]
@@ -176,6 +179,7 @@ class ConsolidatedActSourceItem(BaseModel):
                 "forestNoticeNumber": obj.get("forestNoticeNumber"),
                 "contractNumber": obj.get("contractNumber"),
                 "contractDate": obj.get("contractDate"),
+                "contractType": obj.get("contractType"),
                 "certificate": CertificateClaim.from_dict(obj["certificate"])
                 if obj.get("certificate") is not None
                 else None,

@@ -18,6 +18,7 @@ Changelog
 **Generic**
 
 * Add ``certifi`` as a dependency.
+* Update EVR schema to 1.40.1 (fetched 2026-08-26)
 
 1.0.1.dev3
 
