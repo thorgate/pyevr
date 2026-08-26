@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Nimi | 
@@ -21,12 +22,12 @@ json = "{}"
 # create an instance of Representer from a JSON string
 representer_instance = Representer.from_json(json)
 # print the JSON string representation of the object
-print Representer.to_json()
+print(Representer.to_json())
 
 # convert the object into a dict
 representer_dict = representer_instance.to_dict()
 # create an instance of Representer from a dict
-representer_form_dict = representer.from_dict(representer_dict)
+representer_from_dict = Representer.from_dict(representer_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -2,13 +2,17 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contract_number** | **str** | Dokumendi number | 
 **contract_date** | **datetime** | Dokumendi kuupäev | 
+**contract_type** | [**ContractType**](ContractType.md) |  | [optional] 
 **cadaster** | **str** | Katastritunnus | 
 **compartment** | **str** | Kvartal | [optional] 
 **forest_allocation_number** | **str** | Metsaeraldis | [optional] 
+**forest_notice_number** | **str** | Metsateatise number | [optional] 
+**sources** | [**List[ConsolidatedActSourceItem]**](ConsolidatedActSourceItem.md) | Koormas olevate saadetiste päritolud | [optional] 
 
 ## Example
 
@@ -20,12 +24,12 @@ json = "{}"
 # create an instance of ConsolidatedAct from a JSON string
 consolidated_act_instance = ConsolidatedAct.from_json(json)
 # print the JSON string representation of the object
-print ConsolidatedAct.to_json()
+print(ConsolidatedAct.to_json())
 
 # convert the object into a dict
 consolidated_act_dict = consolidated_act_instance.to_dict()
 # create an instance of ConsolidatedAct from a dict
-consolidated_act_form_dict = consolidated_act.from_dict(consolidated_act_dict)
+consolidated_act_from_dict = ConsolidatedAct.from_dict(consolidated_act_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

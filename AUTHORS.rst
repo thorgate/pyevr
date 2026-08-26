@@ -11,3 +11,4 @@ Contributors
 ------------
 
 * Taavi Teska <taavi@thorgate.eu>
+* Sergey Kovalskiy <sergey@thorgate.eu>

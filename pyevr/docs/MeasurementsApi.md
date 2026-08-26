@@ -18,19 +18,18 @@ Tagastab veoselehega seotud mõõtmisandmed.
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
-from openapi_client.models.paged_result_of_measurement_act import PagedResultOfMeasurementAct
+from openapi_client.models.paged_result_of_measurement_act import (
+    PagedResultOfMeasurementAct,
+)
 from openapi_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
-)
+configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -38,7 +37,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -47,13 +46,15 @@ configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MeasurementsApi(api_client)
-    number = 'number_example' # str | Veoselehe number (tõstutundetu)
-    page = 1 # int | Tagastatav lehekülg (optional) (default to 1)
-    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    number = "number_example"  # str | Veoselehe number (tõstutundetu)
+    page = 1  # int | Tagastatav lehekülg (optional) (default to 1)
+    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe mõõtmisandmete pärimine
-        api_response = api_instance.measurements_get(number, page=page, evr_language=evr_language)
+        api_response = api_instance.measurements_get(
+            number, page=page, evr_language=evr_language
+        )
         print("The response of MeasurementsApi->measurements_get:\n")
         pprint(api_response)
     except Exception as e:
@@ -63,6 +64,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -84,6 +86,7 @@ Name | Type | Description  | Notes
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** |  |  -  |
@@ -99,14 +102,13 @@ Name | Type | Description  | Notes
 
 Veoselehele mõõtmisandmete lisamine
 
-Lisab veoselehele mõõtmisandmed. Mõõtmisandmeid saab lisada \"koorem maas\" staatuses veoselehele sellele märgitud veose saaja või tema volitatud mõõtja. Mõõtmistulemusi on võimalik lisada koormapakkidena või lihtsalt sortimentide kogustena.
+Lisab veoselehele mõõtmisandmed. Mõõtmisandmeid saab lisada "koorem maas" staatuses veoselehele sellele märgitud veose saaja või tema volitatud mõõtja. Mõõtmistulemusi on võimalik lisada koormapakkidena või lihtsalt sortimentide kogustena.
 
 ### Example
 
 * Api Key Authentication (SecretApiKey):
+
 ```python
-import time
-import os
 import openapi_client
 from openapi_client.models.add_measurement_act_request import AddMeasurementActRequest
 from openapi_client.rest import ApiException
@@ -114,9 +116,7 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(
-    host = "https://evr.veoseleht.ee"
-)
+configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -124,7 +124,7 @@ configuration = openapi_client.Configuration(
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
+configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -133,13 +133,17 @@ configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.MeasurementsApi(api_client)
-    number = 'number_example' # str | Veoselehe number (tõstutundetu)
-    add_measurement_act_request = openapi_client.AddMeasurementActRequest() # AddMeasurementActRequest | Mõõtmisandmed
-    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    number = "number_example"  # str | Veoselehe number (tõstutundetu)
+    add_measurement_act_request = (
+        openapi_client.AddMeasurementActRequest()
+    )  # AddMeasurementActRequest | Mõõtmisandmed
+    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehele mõõtmisandmete lisamine
-        api_instance.measurements_post(number, add_measurement_act_request, evr_language=evr_language)
+        api_instance.measurements_post(
+            number, add_measurement_act_request, evr_language=evr_language
+        )
     except Exception as e:
         print("Exception when calling MeasurementsApi->measurements_post: %s\n" % e)
 ```
@@ -147,6 +151,7 @@ with openapi_client.ApiClient(configuration) as api_client:
 
 
 ### Parameters
+
 
 Name | Type | Description  | Notes
 ------------- | ------------- | ------------- | -------------
@@ -168,6 +173,7 @@ void (empty response body)
  - **Accept**: application/json
 
 ### HTTP response details
+
 | Status code | Description | Response headers |
 |-------------|-------------|------------------|
 **404** |  |  -  |

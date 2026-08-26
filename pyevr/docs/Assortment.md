@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **code** | **str** | Sortimendi kood | [optional] 
@@ -19,12 +20,12 @@ json = "{}"
 # create an instance of Assortment from a JSON string
 assortment_instance = Assortment.from_json(json)
 # print the JSON string representation of the object
-print Assortment.to_json()
+print(Assortment.to_json())
 
 # convert the object into a dict
 assortment_dict = assortment_instance.to_dict()
 # create an instance of Assortment from a dict
-assortment_form_dict = assortment.from_dict(assortment_dict)
+assortment_from_dict = Assortment.from_dict(assortment_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

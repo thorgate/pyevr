@@ -2,8 +2,10 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**eudr_numbers** | [**List[EudrNumber]**](EudrNumber.md) |  | [optional] 
 **type** | **str** |  | 
 
 ## Example
@@ -16,12 +18,12 @@ json = "{}"
 # create an instance of HoldingBase from a JSON string
 holding_base_instance = HoldingBase.from_json(json)
 # print the JSON string representation of the object
-print HoldingBase.to_json()
+print(HoldingBase.to_json())
 
 # convert the object into a dict
 holding_base_dict = holding_base_instance.to_dict()
 # create an instance of HoldingBase from a dict
-holding_base_form_dict = holding_base.from_dict(holding_base_dict)
+holding_base_from_dict = HoldingBase.from_dict(holding_base_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

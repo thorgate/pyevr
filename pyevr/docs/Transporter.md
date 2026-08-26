@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **name** | **str** | Nimi | 
@@ -18,12 +19,12 @@ json = "{}"
 # create an instance of Transporter from a JSON string
 transporter_instance = Transporter.from_json(json)
 # print the JSON string representation of the object
-print Transporter.to_json()
+print(Transporter.to_json())
 
 # convert the object into a dict
 transporter_dict = transporter_instance.to_dict()
 # create an instance of Transporter from a dict
-transporter_form_dict = transporter.from_dict(transporter_dict)
+transporter_from_dict = Transporter.from_dict(transporter_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

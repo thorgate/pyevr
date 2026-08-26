@@ -2,6 +2,7 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **pack_number** | **int** | Paki number | 
@@ -21,12 +22,12 @@ json = "{}"
 # create an instance of Pack from a JSON string
 pack_instance = Pack.from_json(json)
 # print the JSON string representation of the object
-print Pack.to_json()
+print(Pack.to_json())
 
 # convert the object into a dict
 pack_dict = pack_instance.to_dict()
 # create an instance of Pack from a dict
-pack_form_dict = pack.from_dict(pack_dict)
+pack_from_dict = Pack.from_dict(pack_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

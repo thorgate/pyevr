@@ -2,6 +2,57 @@
 Changelog
 =========
 
+1.0.1.dev4
+
+**Breaking**
+
+* TLS peer verification now uses the ``certifi`` CA bundle by default instead
+  of the system CA store. This makes verification independent of the age of
+  the system store (e.g. old Docker base images missing newer roots such as
+  Sectigo R46, used by evr.veoseleht.ee since 2026-08) and matches the
+  behavior of requests/httpx. Set ``PYEVR_CERTIFI_ENABLED`` to a falsy value
+  (``0``/``false``/``no``/``off``) to opt back into the system CA store —
+  needed if your system store carries extra CAs (corporate TLS proxy,
+  private instance CA).
+
+**Generic**
+
+* Add ``certifi`` as a dependency.
+* Update EVR schema to 1.40.1 (fetched 2026-08-26)
+
+1.0.1.dev3
+
+**Generic**
+
+* Update EVR schema to 1.4.0.1
+
+1.0.1.dev2
+----------
+
+**Generic**
+
+* Update EVR schema to 1.35 (from EVR test server, revision 2025-09-09)
+
+1.0.0
+----------
+
+**BREAKING**
+
+* Drop support for python 3.8
+
+**Generic**
+
+* Update to use newer openapi generator (pydantic 2)
+* Improve `sanitize_for_serialization` for caching the data
+
+**Updates**
+
+Use EVR schema 1.30
+
+* Support for EUDR fields
+* Other misc changes
+
+
 0.7.0
 ----------
 

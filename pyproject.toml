@@ -1,30 +1,34 @@
-[tool.poetry]
+[project]
 name = "pyevr"
-version = "0.7.0"
+version = "1.0.1.dev4"
 description = "EVR API"
-authors = ["Thorgate <software@thorgate.eu>"]
+authors = [{name = "Thorgate Digital", email = "software@thorgate.eu" }]
 license = "MIT License"
 readme = "README.rst"
-repository = "https://github.com/thorgate/pyevr.git"
+repository = "https://github.com/thorgate/pywaybiller.git"
 keywords = ["OpenAPI", "OpenAPI-Generator", "pyevr"]
 include = ["openapi_client/py.typed"]
+requires-python = ">=3.8,<4"
+dependencies = [
+    "urllib3 (>= 1.25.3,< 3.0.0)",
+    "python-dateutil (>=2.8.2)",
+    "pydantic (>=2)",
+    "typing-extensions (>=4.7.1)",
+    "certifi"
+]
 
-[tool.poetry.dependencies]
-python = "^3.8"
-urllib3 = ">= 1.25.3"
-python-dateutil = ">=2.8.2"
-pydantic = "^1.10.5, <2"
-aenum = ">=3.1.11"
+[tool.poetry]
+authors = ["Thorgate Digital <software@thorgate.eu>"]
+description = "EVR API"
+name = "pyevr"
+version = "1.0.0"
 
 [tool.poetry.group.dev.dependencies]
-pytest = ">=7.2.1"
-tox = ">=3.9.0"
-flake8 = ">=4.0.0"
-black = "^23.10.1"
+ruff = "*"
+pytest = "*"
+tox = "*"
+json-stream = "*"
 
 [build-system]
-requires = ["setuptools"]
-build-backend = "setuptools.build_meta"
-
-[tool.pylint.'MESSAGES CONTROL']
-extension-pkg-whitelist = "pydantic"
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"

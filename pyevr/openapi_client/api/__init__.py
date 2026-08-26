@@ -7,4 +7,5 @@ from pyevr.openapi_client.api.measurement_units_api import MeasurementUnitsApi
 from pyevr.openapi_client.api.measurements_api import MeasurementsApi
 from pyevr.openapi_client.api.organizations_api import OrganizationsApi
 from pyevr.openapi_client.api.place_of_deliveries_api import PlaceOfDeliveriesApi
+from pyevr.openapi_client.api.timber_reports_api import TimberReportsApi
 from pyevr.openapi_client.api.waybills_api import WaybillsApi

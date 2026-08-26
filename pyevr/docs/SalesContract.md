@@ -2,13 +2,16 @@
 
 
 ## Properties
+
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **contract_number** | **str** | Dokumendi number | 
 **contract_date** | **datetime** | Dokumendi kuupäev | 
+**contract_type** | [**ContractType**](ContractType.md) |  | [optional] 
 **cadaster** | **str** | Katastritunnus | 
 **compartment** | **str** | Kvartal | [optional] 
 **forest_allocation_number** | **str** | Metsaeraldis | [optional] 
+**forest_notice_number** | **str** | Metsateatise number | [optional] 
 **previous_owner** | [**PreviousOwner**](PreviousOwner.md) |  | 
 
 ## Example
@@ -21,12 +24,12 @@ json = "{}"
 # create an instance of SalesContract from a JSON string
 sales_contract_instance = SalesContract.from_json(json)
 # print the JSON string representation of the object
-print SalesContract.to_json()
+print(SalesContract.to_json())
 
 # convert the object into a dict
 sales_contract_dict = sales_contract_instance.to_dict()
 # create an instance of SalesContract from a dict
-sales_contract_form_dict = sales_contract.from_dict(sales_contract_dict)
+sales_contract_from_dict = SalesContract.from_dict(sales_contract_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
