@@ -3,7 +3,11 @@
 
 """Tests for `EVRClient`."""
 
+import os
 import unittest
+from unittest import mock
+
+import certifi
 
 from pyevr import EVRClient
 from pyevr.openapi_client.models import ForestNotice, Receiver
@@ -114,6 +118,40 @@ class TestExtendedApiClient(unittest.TestCase):
         # Then is ValueError pointing out at the exact field
         assert "Address" in str(raises_context_manager.exception)
         assert "countryCode" in str(raises_context_manager.exception)
+
+
+class TestCertifiEnv(unittest.TestCase):
+    api_key = 'asd123'
+
+    def _make_client(self, env_value):
+        env = {'PYEVR_CERTIFI_ENABLED': env_value} if env_value is not None else {}
+        with mock.patch.dict(os.environ, env, clear=False):
+            if env_value is None:
+                os.environ.pop('PYEVR_CERTIFI_ENABLED', None)
+            return EVRClient(self.api_key)
+
+    def test_default_uses_certifi(self):
+        client = self._make_client(None)
+        self.assertEqual(
+            client.openapi_client.configuration.ssl_ca_cert, certifi.where()
+        )
+
+    def test_falsy_values_opt_out_to_system_store(self):
+        for value in ('', '0', 'false', 'no', 'off', 'nonsense'):
+            client = self._make_client(value)
+            self.assertIsNone(
+                client.openapi_client.configuration.ssl_ca_cert,
+                'expected system store for PYEVR_CERTIFI_ENABLED=%r' % value,
+            )
+
+    def test_truthy_values_use_certifi(self):
+        for value in ('1', 'true', 'True', 'YES', 'on', ' 1 '):
+            client = self._make_client(value)
+            self.assertEqual(
+                client.openapi_client.configuration.ssl_ca_cert,
+                certifi.where(),
+                'expected certifi bundle for PYEVR_CERTIFI_ENABLED=%r' % value,
+            )
 
 
 if __name__ == '__main__':

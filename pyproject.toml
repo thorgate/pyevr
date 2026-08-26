@@ -1,6 +1,6 @@
 [project]
 name = "pyevr"
-version = "1.0.1.dev3"
+version = "1.0.1.dev4"
 description = "EVR API"
 authors = [{name = "Thorgate Digital", email = "software@thorgate.eu" }]
 license = "MIT License"
@@ -13,7 +13,8 @@ dependencies = [
     "urllib3 (>= 1.25.3,< 3.0.0)",
     "python-dateutil (>=2.8.2)",
     "pydantic (>=2)",
-    "typing-extensions (>=4.7.1)"
+    "typing-extensions (>=4.7.1)",
+    "certifi"
 ]
 
 [tool.poetry]

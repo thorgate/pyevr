@@ -3,7 +3,9 @@
 """Main module."""
 
 import contextvars
+import os
 
+import certifi
 from pydantic import BaseModel
 
 from pyevr import apis
@@ -11,6 +13,13 @@ from pyevr.openapi_client.api_client import ApiClient
 from pyevr.openapi_client.configuration import Configuration
 
 full_serialization = contextvars.ContextVar("full_serialization", default=False)
+
+#: Truthy values accepted for the PYEVR_CERTIFI_ENABLED environment variable.
+_ENV_TRUTHY = ("1", "true", "yes", "on")
+
+
+def _certifi_enabled() -> bool:
+    return os.environ.get("PYEVR_CERTIFI_ENABLED", "1").strip().lower() in _ENV_TRUTHY
 
 
 class ExtendedApiClient(ApiClient):
@@ -51,6 +60,14 @@ class EVRClient(object):
 
     :param api_key: Company API key in EVR
     :param host: EVR host. Defaults to test host (optional)
+
+    TLS peer verification uses the ``certifi`` CA bundle by default, so
+    behavior does not depend on the age of the system CA store (e.g. old
+    Docker base images). Set the environment variable
+    ``PYEVR_CERTIFI_ENABLED`` to a falsy value (``0``/``false``/``no``/
+    ``off``) to verify against the system CA store instead — needed when
+    the system store carries extra CAs, such as a corporate TLS proxy
+    certificate or a private test instance CA.
     """
 
     openapi_client_class = ExtendedApiClient
@@ -59,6 +76,8 @@ class EVRClient(object):
         configuration = Configuration(api_key={"SecretApiKey": api_key})
         if host is not None:
             configuration.host = host
+        if _certifi_enabled():
+            configuration.ssl_ca_cert = certifi.where()
         self.openapi_client = self.openapi_client_class(configuration)
 
         self.assortments = apis.AssortmentsAPI(self.openapi_client)
