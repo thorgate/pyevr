@@ -2,6 +2,52 @@
 Changelog
 =========
 
+2.0.0.dev1
+----------
+
+**Breaking**
+
+* Update EVR schema to 2.0.0 (fetched 2026-09-07). EVR now has two waybill
+  types: forest (``mets``) and sawn timber (``saematerjal``), see the new
+  ``WaybillType`` enum (``FOREST``/``SAWN``).
+* ``Waybill`` and ``StartWaybillRequest`` are now abstract base models with a
+  ``type`` discriminator. ``shipments`` no longer exists on them; it lives on
+  the concrete subclasses ``ForestWaybill``/``SawnWaybill`` and
+  ``StartForestWaybillRequest``/``StartSawnWayBillRequest`` (upstream spelling).
+* Replace ``StartWaybillRequest(..., shipments=[...])`` with
+  ``StartForestWaybillRequest(..., type="forest", shipments=[...])``. ``type``
+  is required and is not defaulted by the generated subclasses.
+* ``Waybill.from_dict``/``from_json`` (and thus ``EVRClient.deserialize_data``
+  and all API responses) return ``ForestWaybill`` or ``SawnWaybill``. Check
+  ``isinstance(waybill, ForestWaybill)`` (or ``waybill.type == "forest"``)
+  before reading ``waybill.shipments``.
+* ``waybills_get(number)`` returns a ``SawnWaybill`` if the number belongs to a
+  sawn timber waybill.
+
+**Generic**
+
+* ``waybills_list`` / ``client.waybills.all`` gained ``waybill_types``. The
+  upstream default is forest only, so existing list consumers keep receiving
+  only forest waybills. Pass ``waybill_types=[WaybillType.FOREST]`` to be
+  explicit.
+* Forest schemas (``Shipment``, ``ShipmentItem``, ``HoldingBase`` and
+  subtypes) are unchanged; ``ForestWaybill`` is the old ``Waybill`` plus
+  ``type``.
+* Add sawn timber models (26 new schemas): ``SawnShipment`` with ``SawnWood``
+  (species, dimensions, grade, treatment, profile, packing, tolerances,
+  certificate statement, article ids) and ``SawnPack``/``SawnPackLength``.
+* ``waybills_add_shipments`` still accepts only forest ``Shipment`` objects.
+* ``Address`` gained an optional ``zip`` field.
+* Track the fetched upstream schema
+  ``pyevr/openapi/openapi-generator-compatible.json`` in git so schema updates
+  are diffable; ``make openapi-apply-patch`` now writes the patched file
+  separately instead of modifying the upstream file in place.
+* Regenerate the schema-fixes patch for 2.0.0 (same minLength relaxations,
+  plus required strings in the new ``Attachment``, ``CertificateStatement``
+  and ``Packing`` schemas).
+* Rename the ``_without_preload_content`` variants of
+  ``waybills_get``/``waybills_get2`` consistently with the rest.
+
 1.0.1.dev4
 
 **Breaking**

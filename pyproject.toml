@@ -1,6 +1,6 @@
 [project]
 name = "pyevr"
-version = "1.0.1.dev4"
+version = "2.0.0.dev1"
 description = "EVR API"
 authors = [{name = "Thorgate Digital", email = "software@thorgate.eu" }]
 license = "MIT License"
@@ -21,7 +21,7 @@ dependencies = [
 authors = ["Thorgate Digital <software@thorgate.eu>"]
 description = "EVR API"
 name = "pyevr"
-version = "1.0.0"
+version = "2.0.0.dev1"
 
 [tool.poetry.group.dev.dependencies]
 ruff = "*"
