@@ -37,14 +37,15 @@ openapi-patch: openapi-fetch
 
 .PHONY:
 openapi-apply-patch: openapi-fetch
-	patch -p0 < pyevr/openapi/patches/schema-fixes.patch
+	# Keep the fetched (upstream) schema untouched; write the patched result to a separate file
+	patch -p0 -o pyevr/openapi/openapi-generator-compatible-patched.json < pyevr/openapi/patches/schema-fixes.patch
 
 .PHONY:
 openapi-build:
 	rm -rf .openapi
 	rm -rf pyevr/openapi_client
 	rm -rf pyevr/docs
-	docker run --rm --ulimit nofile=122880:122880  -v ${PWD}/pyevr/openapi/update_schema.sh:/helpers/update_schema.sh -v ${PWD}/pyevr/openapi/openapi-generator-compatible.json:/openapi-generator-compatible.json -v ${PWD}/.openapi/:/openapi openapitools/openapi-generator-cli:$(OPENAPI_GENERATOR_VERSION) /bin/bash /helpers/update_schema.sh /openapi-generator-compatible.json
+	docker run --rm --ulimit nofile=122880:122880  -v ${PWD}/pyevr/openapi/update_schema.sh:/helpers/update_schema.sh -v ${PWD}/pyevr/openapi/openapi-generator-compatible-patched.json:/openapi-generator-compatible.json -v ${PWD}/.openapi/:/openapi openapitools/openapi-generator-cli:$(OPENAPI_GENERATOR_VERSION) /bin/bash /helpers/update_schema.sh /openapi-generator-compatible.json
 	sudo chown -R ${USER} .openapi
 	cp -r .openapi/openapi_client pyevr/openapi_client
 	cp -r .openapi/docs pyevr/docs

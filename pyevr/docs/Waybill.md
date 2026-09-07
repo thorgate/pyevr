@@ -5,19 +5,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**owner** | [**Owner**](Owner.md) |  | 
-**transport** | [**Transport**](Transport.md) |  | 
-**receiver** | [**Receiver**](Receiver.md) |  | 
-**place_of_delivery** | [**WaybillPlaceOfDelivery**](WaybillPlaceOfDelivery.md) |  | 
-**comment** | **str** | Märkused/lisainfo | [optional] 
-**departure_time** | **datetime** | Väljasõidu aeg | 
-**submission_time** | **datetime** | Veoselehe EVR-i saatmise aeg | 
-**shipments** | [**List[Shipment]**](Shipment.md) | Lähetatud veose andmed | 
-**pre_journey_mileage** | **int** | Ettesõidu kilometraaž | [optional] 
-**user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed | [optional] 
-**mass** | **float** | Autorongi mass tonnides | [optional] 
-**transport_order** | **str** | Veotellimuse number | [optional] 
-**submission_coordinates** | [**Coordinates**](Coordinates.md) |  | [optional] 
 **number** | **str** | Veoselehe number | [optional] 
 **status** | [**WaybillStatus**](WaybillStatus.md) |  | [optional] 
 **creation_time** | **datetime** | Loomise aeg | [optional] 
@@ -34,6 +21,19 @@ Name | Type | Description | Notes
 **waybill_authorizations** | [**List[WaybillAuthorization]**](WaybillAuthorization.md) | Veoselehe volitused | [optional] 
 **waybill_latest_measurements** | [**MeasurementAct**](MeasurementAct.md) |  | [optional] 
 **timber_report** | [**TimberReport**](TimberReport.md) |  | [optional] 
+**owner** | [**Owner**](Owner.md) |  | 
+**transport** | [**Transport**](Transport.md) |  | 
+**receiver** | [**Receiver**](Receiver.md) |  | 
+**place_of_delivery** | [**WaybillPlaceOfDelivery**](WaybillPlaceOfDelivery.md) |  | 
+**comment** | **str** | Märkused/lisainfo | [optional] 
+**departure_time** | **datetime** | Väljasõidu aeg | 
+**submission_time** | **datetime** | Veoselehe EVR-i saatmise aeg | 
+**pre_journey_mileage** | **int** | Ettesõidu kilometraaž | [optional] 
+**user_custom_data** | **object** | Api kasutaja poolt kohandatavad andmed | [optional] 
+**mass** | **float** | Autorongi mass tonnides | [optional] 
+**transport_order** | **str** | Veotellimuse number | [optional] 
+**submission_coordinates** | [**Coordinates**](Coordinates.md) |  | [optional] 
+**type** | **str** |  | 
 
 ## Example
 

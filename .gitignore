@@ -106,7 +106,8 @@ ENV/
 .idea/
 
 # Files for patching
+# The fetched upstream schema (openapi-generator-compatible.json) is tracked so that schema
+# updates are visible in git history; the patched variant is derived (see openapi-apply-patch).
 pyevr/openapi/openapi-generator-compatible-patched.json
-pyevr/openapi/openapi-generator-compatible.json
 pyevr/openapi/openapi-generator-compatible.json.rej
 pyevr/openapi/openapi-generator-compatible.json.orig

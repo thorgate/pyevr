@@ -13,27 +13,19 @@ Name | Type | Description | Notes
 ## Example
 
 ```python
-from openapi_client.models.paged_result_of_place_of_delivery import (
-    PagedResultOfPlaceOfDelivery,
-)
+from openapi_client.models.paged_result_of_place_of_delivery import PagedResultOfPlaceOfDelivery
 
 # TODO update the JSON string below
 json = "{}"
 # create an instance of PagedResultOfPlaceOfDelivery from a JSON string
-paged_result_of_place_of_delivery_instance = PagedResultOfPlaceOfDelivery.from_json(
-    json
-)
+paged_result_of_place_of_delivery_instance = PagedResultOfPlaceOfDelivery.from_json(json)
 # print the JSON string representation of the object
 print(PagedResultOfPlaceOfDelivery.to_json())
 
 # convert the object into a dict
-paged_result_of_place_of_delivery_dict = (
-    paged_result_of_place_of_delivery_instance.to_dict()
-)
+paged_result_of_place_of_delivery_dict = paged_result_of_place_of_delivery_instance.to_dict()
 # create an instance of PagedResultOfPlaceOfDelivery from a dict
-paged_result_of_place_of_delivery_from_dict = PagedResultOfPlaceOfDelivery.from_dict(
-    paged_result_of_place_of_delivery_dict
-)
+paged_result_of_place_of_delivery_from_dict = PagedResultOfPlaceOfDelivery.from_dict(paged_result_of_place_of_delivery_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

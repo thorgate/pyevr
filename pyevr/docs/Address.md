@@ -9,6 +9,7 @@ Name | Type | Description | Notes
 **county** | **str** | Maakond | 
 **city** | **str** | Linn/vald | 
 **street** | **str** | Tänav/küla | 
+**zip** | **str** | Postikood | [optional] 
 
 ## Example
 

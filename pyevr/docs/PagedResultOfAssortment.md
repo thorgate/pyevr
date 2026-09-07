@@ -25,9 +25,7 @@ print(PagedResultOfAssortment.to_json())
 # convert the object into a dict
 paged_result_of_assortment_dict = paged_result_of_assortment_instance.to_dict()
 # create an instance of PagedResultOfAssortment from a dict
-paged_result_of_assortment_from_dict = PagedResultOfAssortment.from_dict(
-    paged_result_of_assortment_dict
-)
+paged_result_of_assortment_from_dict = PagedResultOfAssortment.from_dict(paged_result_of_assortment_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

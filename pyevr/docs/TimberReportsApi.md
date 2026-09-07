@@ -25,7 +25,9 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -33,7 +35,7 @@ configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -42,21 +44,16 @@ configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.TimberReportsApi(api_client)
-    waybill_number = "waybill_number_example"  # str | Veoselehe number (tõstutundetu)
-    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    waybill_number = 'waybill_number_example' # str | Veoselehe number (tõstutundetu)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehe palkide mõõtmisraporti pärimine
-        api_response = api_instance.timber_reports_get_timber_report(
-            waybill_number, evr_language=evr_language
-        )
+        api_response = api_instance.timber_reports_get_timber_report(waybill_number, evr_language=evr_language)
         print("The response of TimberReportsApi->timber_reports_get_timber_report:\n")
         pprint(api_response)
     except Exception as e:
-        print(
-            "Exception when calling TimberReportsApi->timber_reports_get_timber_report: %s\n"
-            % e
-        )
+        print("Exception when calling TimberReportsApi->timber_reports_get_timber_report: %s\n" % e)
 ```
 
 
@@ -112,7 +109,9 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -120,7 +119,7 @@ configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -129,26 +128,17 @@ configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.TimberReportsApi(api_client)
-    waybill_number = "waybill_number_example"  # str | Veoselehe number (tõstutundetu)
-    add_timber_report_request = (
-        openapi_client.AddTimberReportRequest()
-    )  # AddTimberReportRequest | Palkide mõõtmisraporti andmed
-    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    waybill_number = 'waybill_number_example' # str | Veoselehe number (tõstutundetu)
+    add_timber_report_request = openapi_client.AddTimberReportRequest() # AddTimberReportRequest | Palkide mõõtmisraporti andmed
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Veoselehele palgi mõõtmisraporti lisamine
-        api_response = api_instance.timber_reports_upsert_timber_report(
-            waybill_number, add_timber_report_request, evr_language=evr_language
-        )
-        print(
-            "The response of TimberReportsApi->timber_reports_upsert_timber_report:\n"
-        )
+        api_response = api_instance.timber_reports_upsert_timber_report(waybill_number, add_timber_report_request, evr_language=evr_language)
+        print("The response of TimberReportsApi->timber_reports_upsert_timber_report:\n")
         pprint(api_response)
     except Exception as e:
-        print(
-            "Exception when calling TimberReportsApi->timber_reports_upsert_timber_report: %s\n"
-            % e
-        )
+        print("Exception when calling TimberReportsApi->timber_reports_upsert_timber_report: %s\n" % e)
 ```
 
 

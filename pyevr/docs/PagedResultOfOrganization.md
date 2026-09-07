@@ -25,9 +25,7 @@ print(PagedResultOfOrganization.to_json())
 # convert the object into a dict
 paged_result_of_organization_dict = paged_result_of_organization_instance.to_dict()
 # create an instance of PagedResultOfOrganization from a dict
-paged_result_of_organization_from_dict = PagedResultOfOrganization.from_dict(
-    paged_result_of_organization_dict
-)
+paged_result_of_organization_from_dict = PagedResultOfOrganization.from_dict(paged_result_of_organization_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

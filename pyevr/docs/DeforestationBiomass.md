@@ -25,9 +25,7 @@ print(DeforestationBiomass.to_json())
 # convert the object into a dict
 deforestation_biomass_dict = deforestation_biomass_instance.to_dict()
 # create an instance of DeforestationBiomass from a dict
-deforestation_biomass_from_dict = DeforestationBiomass.from_dict(
-    deforestation_biomass_dict
-)
+deforestation_biomass_from_dict = DeforestationBiomass.from_dict(deforestation_biomass_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

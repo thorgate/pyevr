@@ -25,9 +25,7 @@ print(PagedResultOfCertificate.to_json())
 # convert the object into a dict
 paged_result_of_certificate_dict = paged_result_of_certificate_instance.to_dict()
 # create an instance of PagedResultOfCertificate from a dict
-paged_result_of_certificate_from_dict = PagedResultOfCertificate.from_dict(
-    paged_result_of_certificate_dict
-)
+paged_result_of_certificate_from_dict = PagedResultOfCertificate.from_dict(paged_result_of_certificate_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

@@ -18,3 +18,5 @@ find /openapi -type f -exec sed -i -re 's/waybills_get2:/waybills_get:/' {} +
 find /openapi -type f -exec sed -i -re 's/waybills_get2"/waybills_get"/' {} +
 find /openapi -type f -exec sed -i -re 's/waybills_get2`/waybills_get`/' {} +
 find /openapi -type f -exec sed -i -re 's/waybills_get2_with_http_info\(/waybills_get_with_http_info\(/' {} +
+find /openapi -type f -exec sed -i -re 's/waybills_get_without_preload_content\(/waybills_list_without_preload_content\(/' {} +
+find /openapi -type f -exec sed -i -re 's/waybills_get2_without_preload_content\(/waybills_get_without_preload_content\(/' {} +

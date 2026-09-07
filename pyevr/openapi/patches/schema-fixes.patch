@@ -1,6 +1,6 @@
---- ./pyevr/openapi/openapi-generator-compatible.json	2026-08-26 14:03:14.327816330 +0300
-+++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2026-08-26 14:03:14.047017989 +0300
-@@ -2317,13 +2317,13 @@
+--- ./pyevr/openapi/openapi-generator-compatible.json	2026-09-07 13:56:26.624939068 +0300
++++ ./pyevr/openapi/openapi-generator-compatible-patched.json	2026-09-07 13:56:26.658007287 +0300
+@@ -2340,20 +2340,20 @@
              "type": "string",
              "description": "Väljasõidu aeg",
              "format": "date-time",
@@ -14,9 +14,8 @@
 -            "minLength": 1
 +            "minLength": 0
            },
-           "shipments": {
-             "type": "array",
-@@ -2338,7 +2338,7 @@
+           "preJourneyMileage": {
+             "type": "integer",
              "description": "Ettesõidu kilometraaž",
              "format": "int32",
              "maximum": 100000.0,
@@ -25,128 +24,180 @@
              "nullable": true
            },
            "userCustomData": {
-@@ -2383,13 +2383,13 @@
+@@ -2401,14 +2401,14 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Näidis Metsafirma AS"
            },
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
              "maxLength": 20,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": 96040325
            },
            "email": {
-             "type": "string",
-@@ -2433,19 +2433,19 @@
+@@ -2455,21 +2455,21 @@
              "type": "string",
              "description": "Maakond",
              "maxLength": 100,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Lääne-Viru maakond"
            },
            "city": {
              "type": "string",
              "description": "Linn/vald",
              "maxLength": 100,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Rakvere linn"
            },
            "street": {
              "type": "string",
              "description": "Tänav/küla",
              "maxLength": 100,
--            "minLength": 1
-+            "minLength": 0
-           }
-         }
-       },
-@@ -2486,13 +2486,13 @@
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Metsa tee 5"
+           },
+           "zip": {
+@@ -2521,14 +2521,14 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Näidis Metsafirma AS"
            },
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
              "maxLength": 20,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": 96040325
            },
            "address": {
-             "$ref": "#/components/schemas/Address"
-@@ -2535,13 +2535,13 @@
+@@ -2575,14 +2575,14 @@
              "type": "string",
              "description": "Autojuhi nimi",
              "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Uku Miku"
            },
            "driverIdCode": {
              "type": "string",
              "description": "Autojuhi isikukood",
              "maxLength": 11,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": 39812146044
            },
            "driverPhone": {
-             "type": "string",
-@@ -2553,7 +2553,7 @@
+@@ -2596,7 +2596,7 @@
              "type": "string",
              "description": "Veoki riiklik registreerimisnumber",
              "maxLength": 10,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "985TRE"
            },
            "trailerRegistrationNumber": {
-             "type": "string",
-@@ -2580,13 +2580,13 @@
+@@ -2625,14 +2625,14 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Näidis Metsafirma AS"
            },
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
              "maxLength": 20,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": 96040325
            },
            "contactPerson": {
-             "description": "Kontaktisiku andmed",
-@@ -2649,13 +2649,13 @@
+@@ -2698,14 +2698,14 @@
              "type": "string",
              "description": "Nimi",
              "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Näidis Metsafirma AS"
            },
            "code": {
              "type": "string",
              "description": "Isiku- või registrikood",
              "maxLength": 20,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": 96040325
            },
            "address": {
-             "description": "Aadress",
-@@ -2686,7 +2686,7 @@
+@@ -2738,7 +2738,7 @@
              "type": "string",
              "description": "Tarnekoha nimi",
              "maxLength": 200,
--            "minLength": 1
-+            "minLength": 0
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "Näidis Firma OÜ"
            },
            "coordinates": {
-             "description": "Koordinaat",
-@@ -2856,7 +2856,7 @@
+@@ -2809,7 +2809,7 @@
+             "type": "string",
+             "description": "Registrikood",
+             "maxLength": 20,
+-            "minLength": 1
++            "minLength": 0
+           }
+         }
+       },
+@@ -3881,7 +3881,7 @@
+             "type": "string",
+             "description": "URL failile.",
+             "maxLength": 2000,
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "https://timbererp.com/sample/pointed_v5"
+           },
+           "format": {
+@@ -3917,7 +3917,7 @@
+             "type": "string",
+             "description": "Manuse nimetus",
+             "maxLength": 200,
+-            "minLength": 1
++            "minLength": 0
+           }
+         }
+       },
+@@ -4215,7 +4215,7 @@
+             "type": "string",
+             "description": "Paki nimetus",
+             "maxLength": 200,
+-            "minLength": 1
++            "minLength": 0
+           }
+         }
+       },
+@@ -4247,7 +4247,7 @@
+             "type": "string",
+             "description": "Asutusele väljastatud sertifikaadi number",
+             "maxLength": 50,
+-            "minLength": 1,
++            "minLength": 0,
+             "example": "FSC-NO-0001"
+           },
+           "percent": {
+@@ -4609,7 +4609,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -155,7 +206,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2896,13 +2896,13 @@
+@@ -4649,13 +4649,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -171,7 +222,7 @@
                },
                "contractType": {
                  "description": "Dokumendi tüüp",
-@@ -2913,7 +2913,7 @@
+@@ -4666,7 +4666,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -180,7 +231,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -2971,13 +2971,13 @@
+@@ -4724,13 +4724,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -196,7 +247,7 @@
                },
                "contractType": {
                  "description": "Dokumendi tüüp",
-@@ -2988,7 +2988,7 @@
+@@ -4741,7 +4741,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -205,7 +256,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -3115,19 +3115,19 @@
+@@ -4868,19 +4868,19 @@
              "type": "string",
              "description": "Sortimendi kood. Kui organisatsioon on seadistatud kasutama EVR sortimente, peab kood olema [üks EVR sortimentide koodist.](#operation/Assortments_List)",
              "maxLength": 10,
@@ -228,7 +279,7 @@
            }
          }
        },
-@@ -3174,7 +3174,7 @@
+@@ -4927,7 +4927,7 @@
              "type": "string",
              "description": "[Tarneahela sertifikaadi väite kood](#operation/Certificates_List)",
              "maxLength": 50,
@@ -237,7 +288,7 @@
            },
            "number": {
              "type": "string",
-@@ -3232,13 +3232,13 @@
+@@ -4985,13 +4985,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -253,7 +304,7 @@
                },
                "contractType": {
                  "description": "Dokumendi tüüp",
-@@ -3249,7 +3249,7 @@
+@@ -5002,7 +5002,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -262,7 +313,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -3347,13 +3347,13 @@
+@@ -5100,13 +5100,13 @@
                  "type": "string",
                  "description": "Dokumendi number",
                  "maxLength": 500,
@@ -278,7 +329,7 @@
                },
                "contractType": {
                  "description": "Dokumendi tüüp",
-@@ -3364,7 +3364,7 @@
+@@ -5117,7 +5117,7 @@
                  "type": "string",
                  "description": "Katastritunnus",
                  "maxLength": 500,
@@ -287,7 +338,7 @@
                },
                "compartment": {
                  "type": "string",
-@@ -3652,7 +3652,7 @@
+@@ -5405,7 +5405,7 @@
              "type": "string",
              "description": "Maaüksuse või laoplatsi nimi",
              "maxLength": 200,
@@ -296,7 +347,7 @@
            },
            "code": {
              "type": "string",
-@@ -3769,7 +3769,7 @@
+@@ -5522,7 +5522,7 @@
              "type": "string",
              "description": "[Mõõtühiku kood](#operation/MeasurementUnits_List)",
              "maxLength": 10,
@@ -305,16 +356,7 @@
            },
            "assortment": {
              "description": "Sortiment",
-@@ -3853,7 +3853,7 @@
-             "type": "string",
-             "description": "Registrikood",
-             "maxLength": 20,
--            "minLength": 1
-+            "minLength": 0
-           }
-         }
-       },
-@@ -3895,13 +3895,13 @@
+@@ -5730,20 +5730,20 @@
              "type": "string",
              "description": "Väljasõidu aeg",
              "format": "date-time",
@@ -328,9 +370,8 @@
 -            "minLength": 1
 +            "minLength": 0
            },
-           "shipments": {
-             "type": "array",
-@@ -3916,7 +3916,7 @@
+           "preJourneyMileage": {
+             "type": "integer",
              "description": "Ettesõidu kilometraaž",
              "format": "int32",
              "maximum": 100000.0,
@@ -339,7 +380,7 @@
              "nullable": true
            },
            "userCustomData": {
-@@ -4087,7 +4087,7 @@
+@@ -5829,7 +5829,7 @@
              "type": "string",
              "description": "Registrikood",
              "maxLength": 20,
@@ -348,7 +389,7 @@
            },
            "type": {
              "description": "Volituse tüüp",
-@@ -4265,7 +4265,7 @@
+@@ -6065,7 +6065,7 @@
              "type": "string",
              "description": "Selgitus",
              "maxLength": 400,
@@ -357,7 +398,7 @@
            },
            "coordinates": {
              "description": "Koordinaat",
-@@ -4499,7 +4499,7 @@
+@@ -6303,7 +6303,7 @@
            "name": {
              "type": "string",
              "description": "Nimi",
@@ -366,10 +407,3 @@
            },
            "address": {
              "description": "Aadress",
-@@ -4766,4 +4766,4 @@
-       "SecretApiKey": []
-     }
-   ]
--}
-\ No newline at end of file
-+}

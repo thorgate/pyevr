@@ -28,9 +28,7 @@ print(WaybillPlaceOfDelivery.to_json())
 # convert the object into a dict
 waybill_place_of_delivery_dict = waybill_place_of_delivery_instance.to_dict()
 # create an instance of WaybillPlaceOfDelivery from a dict
-waybill_place_of_delivery_from_dict = WaybillPlaceOfDelivery.from_dict(
-    waybill_place_of_delivery_dict
-)
+waybill_place_of_delivery_from_dict = WaybillPlaceOfDelivery.from_dict(waybill_place_of_delivery_dict)
 ```
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 

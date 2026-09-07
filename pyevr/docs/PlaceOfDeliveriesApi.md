@@ -22,15 +22,15 @@ Lisab uue tarnekoha. Kui antud koodiga tarnekoht juba eksisteerib, siis muudab o
 
 ```python
 import openapi_client
-from openapi_client.models.put_place_of_delivery_request import (
-    PutPlaceOfDeliveryRequest,
-)
+from openapi_client.models.put_place_of_delivery_request import PutPlaceOfDeliveryRequest
 from openapi_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -38,7 +38,7 @@ configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -47,22 +47,15 @@ configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
-    code = "code_example"  # str | Kood
-    put_place_of_delivery_request = (
-        openapi_client.PutPlaceOfDeliveryRequest()
-    )  # PutPlaceOfDeliveryRequest |
-    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    code = 'code_example' # str | Kood
+    put_place_of_delivery_request = openapi_client.PutPlaceOfDeliveryRequest() # PutPlaceOfDeliveryRequest | 
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Tarnekoha lisamine ja muutmine
-        api_instance.place_of_deliveries_add_or_update(
-            code, put_place_of_delivery_request, evr_language=evr_language
-        )
+        api_instance.place_of_deliveries_add_or_update(code, put_place_of_delivery_request, evr_language=evr_language)
     except Exception as e:
-        print(
-            "Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_add_or_update: %s\n"
-            % e
-        )
+        print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_add_or_update: %s\n" % e)
 ```
 
 
@@ -119,7 +112,9 @@ from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -127,7 +122,7 @@ configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -136,21 +131,16 @@ configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
-    code = "code_example"  # str | Päritava tarnekoha kood (tõstutundlik)
-    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    code = 'code_example' # str | Päritava tarnekoha kood (tõstutundlik)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Tarnekoha pärimine
-        api_response = api_instance.place_of_deliveries_get(
-            code, evr_language=evr_language
-        )
+        api_response = api_instance.place_of_deliveries_get(code, evr_language=evr_language)
         print("The response of PlaceOfDeliveriesApi->place_of_deliveries_get:\n")
         pprint(api_response)
     except Exception as e:
-        print(
-            "Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_get: %s\n"
-            % e
-        )
+        print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_get: %s\n" % e)
 ```
 
 
@@ -200,15 +190,15 @@ Tagastab filtritele vastavad aktiivsed  tarnekohad ja kõik ettevõttega seotud 
 
 ```python
 import openapi_client
-from openapi_client.models.paged_result_of_place_of_delivery import (
-    PagedResultOfPlaceOfDelivery,
-)
+from openapi_client.models.paged_result_of_place_of_delivery import PagedResultOfPlaceOfDelivery
 from openapi_client.rest import ApiException
 from pprint import pprint
 
 # Defining the host is optional and defaults to https://evr.veoseleht.ee
 # See configuration.py for a list of all supported configuration parameters.
-configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
+configuration = openapi_client.Configuration(
+    host = "https://evr.veoseleht.ee"
+)
 
 # The client must configure the authentication and authorization parameters
 # in accordance with the API server security policy.
@@ -216,7 +206,7 @@ configuration = openapi_client.Configuration(host="https://evr.veoseleht.ee")
 # satisfies your auth use case.
 
 # Configure API key authorization: SecretApiKey
-configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
+configuration.api_key['SecretApiKey'] = os.environ["API_KEY"]
 
 # Uncomment below to setup prefix (e.g. Bearer) for API key, if needed
 # configuration.api_key_prefix['SecretApiKey'] = 'Bearer'
@@ -225,32 +215,21 @@ configuration.api_key["SecretApiKey"] = os.environ["API_KEY"]
 with openapi_client.ApiClient(configuration) as api_client:
     # Create an instance of the API class
     api_instance = openapi_client.PlaceOfDeliveriesApi(api_client)
-    name_contains = "name_contains_example"  # str | Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit (optional)
-    code_starts_with = "code_starts_with_example"  # str | Filtreerib tarnekohad, mille kood algab otsinguterminiga (tõstutundlik) (optional)
-    register_code = "register_code_example"  # str | Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile (optional)
-    address = "address_example"  # str | Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA * jutumärkides tekst: otsitakse jutumärkides olevat lauset * OR: loogiline VÕI operaator sõnade vahel * -: loogiline EITUS (optional)
-    page = 56  # int | Tagastatav lehekülg (optional)
-    page_size = 56  # int | Tagastatava lehekülje suurus (optional)
-    evr_language = "evr_language_example"  # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
+    name_contains = 'name_contains_example' # str | Filtreerib tarnekohad, mille nimi sisaldab otsinguterminit (optional)
+    code_starts_with = 'code_starts_with_example' # str | Filtreerib tarnekohad, mille kood algab otsinguterminiga (tõstutundlik) (optional)
+    register_code = 'register_code_example' # str | Filtreerib ettevõtte tarnekohad, mille registrikood vastab otsinguterminile (optional)
+    address = 'address_example' # str | Vabatekstiline aadressi otsing. Toetatud on järgmine süntaks: * ilma jutumärkideta tekst: sõnade vahel rakendatakse loogiline JA * jutumärkides tekst: otsitakse jutumärkides olevat lauset * OR: loogiline VÕI operaator sõnade vahel * -: loogiline EITUS (optional)
+    page = 56 # int | Tagastatav lehekülg (optional)
+    page_size = 56 # int | Tagastatava lehekülje suurus (optional)
+    evr_language = 'evr_language_example' # str | Defineerib keele tagastatavatele veateadetele (toetatud on väärtused \"et\" eesti keele ning \"en\" inglise keele jaoks). (optional)
 
     try:
         # Tarnekohtade pärimine
-        api_response = api_instance.place_of_deliveries_list(
-            name_contains=name_contains,
-            code_starts_with=code_starts_with,
-            register_code=register_code,
-            address=address,
-            page=page,
-            page_size=page_size,
-            evr_language=evr_language,
-        )
+        api_response = api_instance.place_of_deliveries_list(name_contains=name_contains, code_starts_with=code_starts_with, register_code=register_code, address=address, page=page, page_size=page_size, evr_language=evr_language)
         print("The response of PlaceOfDeliveriesApi->place_of_deliveries_list:\n")
         pprint(api_response)
     except Exception as e:
-        print(
-            "Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_list: %s\n"
-            % e
-        )
+        print("Exception when calling PlaceOfDeliveriesApi->place_of_deliveries_list: %s\n" % e)
 ```
 
 
