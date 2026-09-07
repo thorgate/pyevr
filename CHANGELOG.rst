@@ -24,6 +24,17 @@ Changelog
 * ``waybills_get(number)`` returns a ``SawnWaybill`` if the number belongs to a
   sawn timber waybill.
 
+**Bugs**
+
+* ``EVRClient.deserialize_data`` can again rehydrate the output of
+  ``EVRClient.sanitize_for_serialization`` (snake_case attribute names,
+  nested models included). Since 1.0.0 the generated ``from_dict`` only read
+  camelCase aliases, so nested models such as ``Address`` failed validation.
+  API-shaped (camelCase) data is still accepted.
+* Waybill data serialized before EVR 2.0.0, which lacks the ``type``
+  discriminator, deserializes as ``ForestWaybill`` (and
+  ``StartForestWaybillRequest``), see ``pyevr.client.LEGACY_DISCRIMINATOR_DEFAULTS``.
+
 **Generic**
 
 * ``waybills_list`` / ``client.waybills.all`` gained ``waybill_types``. The

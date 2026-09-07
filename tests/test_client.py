@@ -13,8 +13,8 @@ from pydantic import ValidationError
 
 from pyevr import EVRClient
 from pyevr.openapi_client.models import (
-    ForestNotice, ForestWaybill, Receiver, SawnShipment, SawnWaybill, Shipment, StartForestWaybillRequest,
-    StartSawnWayBillRequest, Waybill,
+    ForestNotice, ForestWaybill, HoldingBase, Receiver, SawnShipment, SawnWaybill, Shipment,
+    StartForestWaybillRequest, StartSawnWayBillRequest, StartWaybillRequest, Waybill,
 )
 
 
@@ -216,6 +216,83 @@ class TestWaybillTypes(unittest.TestCase):
         data = request.to_dict()
         self.assertEqual(data['type'], 'sawn')
         self.assertEqual(data['shipments'][0]['sawnWood']['species'], ['pine'])
+
+
+class TestDeserializeNormalization(unittest.TestCase):
+    """``deserialize_data`` accepts snake_case (``sanitize_for_serialization`` output) and legacy data without ``type``."""
+
+    api_key = 'asd123'
+    host = 'https://api.evr.test'
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.client = EVRClient(self.api_key, self.host)
+
+    def _snake_case_waybill_data(self, waybill_type):
+        waybill = self.client.deserialize_data(waybill_data(waybill_type), Waybill)
+        return self.client.sanitize_for_serialization(waybill)
+
+    def test_round_trip_equality(self):
+        for waybill_type in ('forest', 'sawn'):
+            with self.subTest(waybill_type=waybill_type):
+                waybill = self.client.deserialize_data(waybill_data(waybill_type), Waybill)
+                data = self.client.sanitize_for_serialization(waybill)
+                self.assertEqual(self.client.deserialize_data(data, Waybill), waybill)
+
+    def test_camel_case_data_deserializes_unchanged(self):
+        data = waybill_data('sawn')
+        original = dict(data)
+        waybill = self.client.deserialize_data(data, Waybill)
+        self.assertIsInstance(waybill, SawnWaybill)
+        self.assertEqual(waybill.shipments[0].sawn_wood.species, ['pine'])
+        self.assertEqual(data, original)
+
+    def test_legacy_camel_case_without_type_is_forest(self):
+        data = waybill_data('forest')
+        del data['type']
+        waybill = self.client.deserialize_data(data, Waybill)
+        self.assertIsInstance(waybill, ForestWaybill)
+        self.assertEqual(waybill.type, 'forest')
+        self.assertIsInstance(waybill.shipments[0].holding_base, ForestNotice)
+
+    def test_legacy_camel_case_without_type_to_forest_waybill_directly(self):
+        data = waybill_data('forest')
+        del data['type']
+        waybill = self.client.deserialize_data(data, ForestWaybill)
+        self.assertIsInstance(waybill, ForestWaybill)
+        self.assertEqual(waybill.type, 'forest')
+
+    def test_legacy_snake_case_without_type_is_forest(self):
+        data = self._snake_case_waybill_data('forest')
+        del data['type']
+        waybill = self.client.deserialize_data(data, Waybill)
+        self.assertIsInstance(waybill, ForestWaybill)
+        self.assertEqual(waybill.type, 'forest')
+        self.assertIsInstance(waybill.shipments[0], Shipment)
+        self.assertIsInstance(waybill.shipments[0].holding_base, ForestNotice)
+        self.assertEqual(waybill.shipments[0].holding_base.cadaster, 'c')
+
+    def test_legacy_start_waybill_request_without_type_is_forest(self):
+        for data in (waybill_data('forest'), self._snake_case_waybill_data('forest')):
+            del data['type']
+            with self.subTest(keys=sorted(data)[:3]):
+                request = self.client.deserialize_data(data, StartWaybillRequest)
+                self.assertIsInstance(request, StartForestWaybillRequest)
+                self.assertEqual(request.type, 'forest')
+                self.assertIsInstance(request.shipments[0], Shipment)
+
+    def test_sawn_data_without_type_raises(self):
+        for data in (waybill_data('sawn'), self._snake_case_waybill_data('sawn')):
+            del data['type']
+            with self.subTest(keys=sorted(data)[:3]), self.assertRaises(ValidationError):
+                self.client.deserialize_data(data, Waybill)
+
+    def test_nested_discriminator_snake_case(self):
+        notice = self.client.deserialize_data(
+            {'type': 'ForestNotice', 'cadaster': 'c', 'forest_allocation_number': 'f'}, HoldingBase
+        )
+        self.assertIsInstance(notice, ForestNotice)
+        self.assertEqual(notice.forest_allocation_number, 'f')
 
 
 class TestCertifiEnv(unittest.TestCase):
