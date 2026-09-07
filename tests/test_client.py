@@ -9,8 +9,43 @@ from unittest import mock
 
 import certifi
 
+from pydantic import ValidationError
+
 from pyevr import EVRClient
-from pyevr.openapi_client.models import ForestNotice, Receiver
+from pyevr.openapi_client.models import (
+    ForestNotice, ForestWaybill, Receiver, SawnShipment, SawnWaybill, Shipment, StartForestWaybillRequest,
+    StartSawnWayBillRequest, Waybill,
+)
+
+
+def waybill_data(waybill_type):
+    """Minimal valid waybill payload (camelCase, as returned by the API) for the given ``type``."""
+    addr = {'countryCode': 'EST', 'county': 'c', 'city': 'c', 'street': 's'}
+    base = dict(
+        owner={'name': 'O', 'code': '1', 'address': addr},
+        transport={
+            'driverName': 'D',
+            'driverIdCode': '1',
+            'vanRegistrationNumber': 'X',
+            'transporter': {'name': 'T', 'code': '3', 'address': addr},
+        },
+        receiver={'name': 'R', 'code': '2', 'address': addr},
+        placeOfDelivery={'name': 'P', 'address': addr},
+        departureTime='2026-01-01T00:00:00Z',
+        submissionTime='2026-01-01T00:00:00Z',
+    )
+    shipments = {
+        'forest': [{
+            'holdingBase': {'type': 'ForestNotice', 'cadaster': 'c', 'noticeNumber': 'n'},
+            'source': {'name': 's', 'address': addr},
+            'items': [{'unitCode': 'm3', 'amount': 1, 'assortment': {'code': 'a', 'name': 'n', 'productGroup': 'g'}}],
+        }],
+        'sawn': [{
+            'sawnWood': {'species': ['pine'], 'thickness': 50, 'width': 100},
+            'packs': [{'volume': 1.5}],
+        }],
+    }
+    return dict(base, type=waybill_type, shipments=shipments[waybill_type])
 
 
 class TestEVRClient(unittest.TestCase):
@@ -118,6 +153,69 @@ class TestExtendedApiClient(unittest.TestCase):
         # Then is ValueError pointing out at the exact field
         assert "Address" in str(raises_context_manager.exception)
         assert "countryCode" in str(raises_context_manager.exception)
+
+
+class TestWaybillTypes(unittest.TestCase):
+    api_key = 'asd123'
+    host = 'https://api.evr.test'
+
+    def setUp(self) -> None:
+        super().setUp()
+        self.client = EVRClient(self.api_key, self.host)
+
+    def test_deserialize_forest_waybill(self):
+        waybill = self.client.deserialize_data(waybill_data('forest'), Waybill)
+        self.assertIsInstance(waybill, ForestWaybill)
+        self.assertEqual(waybill.type, 'forest')
+        self.assertEqual(len(waybill.shipments), 1)
+        self.assertIsInstance(waybill.shipments[0], Shipment)
+
+    def test_deserialize_sawn_waybill(self):
+        waybill = self.client.deserialize_data(waybill_data('sawn'), Waybill)
+        self.assertIsInstance(waybill, SawnWaybill)
+        self.assertEqual(waybill.type, 'sawn')
+        self.assertEqual(len(waybill.shipments), 1)
+        self.assertIsInstance(waybill.shipments[0], SawnShipment)
+
+    def test_sanitize_forest_waybill(self):
+        waybill = self.client.deserialize_data(waybill_data('forest'), Waybill)
+        data = self.client.sanitize_for_serialization(waybill)
+        self.assertEqual(data['type'], 'forest')
+        self.assertEqual(len(data['shipments']), 1)
+        # EVRClient.sanitize_for_serialization serializes model.__dict__, i.e. snake_case field names
+        self.assertEqual(data['shipments'][0]['holding_base']['type'], 'ForestNotice')
+
+    def test_sanitize_sawn_waybill(self):
+        waybill = self.client.deserialize_data(waybill_data('sawn'), Waybill)
+        data = self.client.sanitize_for_serialization(waybill)
+        self.assertEqual(data['type'], 'sawn')
+        self.assertEqual(len(data['shipments']), 1)
+        self.assertEqual(data['shipments'][0]['sawn_wood']['species'], ['pine'])
+        self.assertEqual(data['shipments'][0]['packs'][0]['volume'], 1.5)
+
+    def test_start_waybill_requests_require_type(self):
+        for request_class, waybill_type in (
+            (StartForestWaybillRequest, 'forest'),
+            (StartSawnWayBillRequest, 'sawn'),
+        ):
+            data = waybill_data(waybill_type)
+            del data['type']
+            with self.assertRaises(ValidationError):
+                request_class.model_validate(data)
+
+    def test_start_forest_waybill_request_to_dict(self):
+        request = StartForestWaybillRequest.model_validate(waybill_data('forest'))
+        self.assertIsInstance(request.shipments[0], Shipment)
+        data = request.to_dict()
+        self.assertEqual(data['type'], 'forest')
+        self.assertEqual(data['shipments'][0]['holdingBase']['type'], 'ForestNotice')
+
+    def test_start_sawn_waybill_request_to_dict(self):
+        request = StartSawnWayBillRequest.model_validate(waybill_data('sawn'))
+        self.assertIsInstance(request.shipments[0], SawnShipment)
+        data = request.to_dict()
+        self.assertEqual(data['type'], 'sawn')
+        self.assertEqual(data['shipments'][0]['sawnWood']['species'], ['pine'])
 
 
 class TestCertifiEnv(unittest.TestCase):

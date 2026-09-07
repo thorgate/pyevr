@@ -12,6 +12,7 @@ from pyevr.apis import (
     AllMixin, AssortmentsAPI, CertificatesAPI, MeasurementsAPI, MeasurementUnitsAPI, OrganizationsAPI,
     PlaceOfDeliveriesAPI, WaybillsAPI,
 )
+from pyevr.openapi_client.models import WaybillType
 
 
 class TestEVRClient(unittest.TestCase):
@@ -70,6 +71,14 @@ class TestEVRClient(unittest.TestCase):
         self.run_all_mixin_test([1])
         self.run_all_mixin_test([1, 2, 3])
         self.run_all_mixin_test([1, 2, 3, 4, 5, 6, 7, 8])
+
+    def test_waybills_all_forwards_waybill_types(self):
+        PagedResult = namedtuple('PagedResult', ['page', 'page_size', 'page_result', 'total_count'])
+        api = WaybillsAPI(self.client)
+        api.waybills_list = Mock(return_value=PagedResult(1, 1, ['w'], 1))
+
+        self.assertListEqual(list(api.all(waybill_types=[WaybillType.SAWN])), ['w'])
+        api.waybills_list.assert_called_once_with(waybill_types=[WaybillType.SAWN], page=1)
 
 
 if __name__ == '__main__':
